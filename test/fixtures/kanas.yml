@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  hiragana: MyString
+  katakana: MyString
+  romaji: MyString
+
+two:
+  hiragana: MyString
+  katakana: MyString
+  romaji: MyString

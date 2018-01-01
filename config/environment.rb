@@ -3,3 +3,7 @@ require_relative 'application'
 
 # Initialize the Rails application.
 Rails.application.initialize!
+
+ActiveSupport::Inflector.inflections do |inflect|
+  inflect.irregular 'kana', 'kana'
+end
