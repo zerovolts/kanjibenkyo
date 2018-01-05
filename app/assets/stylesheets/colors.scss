@@ -1,0 +1,58 @@
+$off-white: #f0f0e8;
+$white: #fff;
+$white-shadow: #e0e0d8;
+$black: #2c3e50;
+$blue-white: #f7fafc;
+
+@function color($name, $variant: mid) {
+  $color: map-get($color-map, $name);
+  @return map-get($color, $variant);
+}
+
+$color-map: (
+  red: (
+    light: white,
+    mid: #e74c3c,
+    dark: #c0392b
+  ),
+  orange: (
+    light: white,
+    mid: #e67e22,
+    dark: #d35400
+  ),
+  yellow: (
+    light: white,
+    mid: #f1c40f,
+    dark: #f39c12
+  ),
+  green: (
+    light: white,
+    mid: #2ecc71,
+    dark: #27ae60
+  ),
+  blue: (
+    light: white,
+    mid: #3498db,
+    dark: #2980b9
+  ),
+  violet: (
+    light: white,
+    mid: #9b59b6,
+    dark: #8e44ad
+  ),
+  light: (
+    light: #ffffff,
+    mid: #f0f0e8,
+    dark: #e0e0d8
+  ),
+  mid: (
+    light: white,
+    mid: #999,
+    dark: black
+  ),
+  dark: (
+    light: white,
+    mid: #34495e,
+    dark: #2c3e50
+  )
+)

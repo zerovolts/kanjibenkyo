@@ -1,0 +1,2 @@
+class Kanji < ApplicationRecord
+end
