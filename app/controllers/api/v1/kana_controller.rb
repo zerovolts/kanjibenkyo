@@ -1,16 +1,13 @@
 class Api::V1::KanaController < ApplicationController
-  protect_from_forgery unless: -> { request.format.json? }
-
-  def quiz
-    render json: Kana.filtered_quiz
+  def index
+    render json: Kana.all
   end
 
-  def check
-    result = Kana.check_quiz(kana_params)
-    render json: result
+  def show
+    render json: Kana.find_by(hiragana: params[:kana])
   end
 
-  def kana_params
-    params.permit(:question, :answer, :question_type, :answer_type)
+  def random
+    render json: Kana.order("RANDOM()").first
   end
 end

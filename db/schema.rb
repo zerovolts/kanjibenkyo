@@ -19,20 +19,19 @@ ActiveRecord::Schema.define(version: 20180101231859) do
     t.string "hiragana"
     t.string "katakana"
     t.string "romaji"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "kanas", force: :cascade do |t|
-    t.string "hiragana"
-    t.string "katakana"
-    t.string "romaji"
+    t.integer "level"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "kanji", force: :cascade do |t|
     t.string "character"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "user", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

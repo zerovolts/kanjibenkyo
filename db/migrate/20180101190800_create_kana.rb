@@ -4,6 +4,7 @@ class CreateKana < ActiveRecord::Migration[5.1]
       t.string :hiragana
       t.string :katakana
       t.string :romaji
+      t.integer :level
 
       t.timestamps
     end

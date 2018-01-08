@@ -1,6 +1,6 @@
 import React from "react"
 
-class Quiz extends React.Component {
+class KanaQuiz extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -18,7 +18,7 @@ class Quiz extends React.Component {
   }
 
   fetchQuestion() {
-    fetch("/api/v1/kana/quiz")
+    fetch("/api/v1/quiz/kana")
       .then(res => res.json())
       .then(data => {
         this.setState({
@@ -42,7 +42,7 @@ class Quiz extends React.Component {
       answer_type: this.state.answer_type
     }
 
-    fetch("/api/v1/kana/check", {
+    fetch("/api/v1/quiz/kana/check", {
       method: "POST",
       body: JSON.stringify(body),
       credentials: "same-origin",
@@ -77,4 +77,4 @@ class Quiz extends React.Component {
   }
 }
 
-export default Quiz
+export default KanaQuiz

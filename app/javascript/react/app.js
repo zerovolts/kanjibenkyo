@@ -1,10 +1,11 @@
 import React from "react"
 
-import Quiz from "./quiz"
+import KanaQuiz from "./kana-quiz"
+import KanaIndex from "./kana-index"
 
 const App = () => {
   return (
-    <Quiz />
+    <KanaIndex />
   )
 }
 
