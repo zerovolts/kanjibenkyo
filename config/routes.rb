@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root "static#index"
 
+  get "/current-user" => "sessions#user"
+
   namespace :api do
     namespace :v1 do
       #resources :kana, only: [:show]

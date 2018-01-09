@@ -59,9 +59,15 @@ kana = [
 
 kana.each do |group|
   Kana.create({
-      hiragana: group[0],
-      katakana: group[1],
-      romaji: group[2],
-      level: group[3].to_i
+    hiragana: group[0],
+    katakana: group[1],
+    romaji: group[2],
+    level: group[3].to_i
   })
 end
+
+User.create({
+  login: "zerovolts",
+  name: "Zach Stone",
+  experience: 150
+})
