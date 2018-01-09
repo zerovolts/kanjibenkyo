@@ -5,8 +5,10 @@
 }
 
 .kana-block {
-  background: #f80;
-  border-radius: 0.3em;
+  background: color(light, light);
+  color: color(dark);
+  border-radius: 0.3rem;
+  box-shadow: 0 4px color(light, dark);
   width: 6em;
   margin: 1em;
   padding: 1em;
@@ -14,4 +16,19 @@
 
 .kana-title {
   text-align: center;
+  font-size: 2rem;
+}
+
+.kana-alternatives {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.kana-alternative {
+  color: color(light, light);
+  background: color(blue);
+  border-radius: 0.3rem;
+  padding: 0.2rem;
+  margin: 0.1rem;
 }

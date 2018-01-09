@@ -1,2 +1,19 @@
 @import "button";
+@import "colors";
 @import "kana-index";
+@import "header";
+@import "kana-quiz";
+@import "home";
+
+body {
+  background: #f0f0ea;
+  color: #34495e;
+  padding: 0;
+  margin: 0;
+  font-family: Ubuntu;
+}
+
+a {
+  color: #f60;
+  text-decoration: none;
+}

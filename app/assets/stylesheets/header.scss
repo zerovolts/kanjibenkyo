@@ -1,0 +1,29 @@
+.header {
+  background: #f80;
+  box-shadow: 0 4px #f60;
+  height: 3em;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.left-header {
+  margin: 0;
+  display: flex;
+}
+
+.logo {
+  margin: 0 2em;
+  color: white;
+  font-size: 1.6em;
+  text-decoration: none;
+}
+
+.profile-dropdown {
+  background: #f60;
+  color: white;
+  margin: 2rem;
+  padding: 0.4rem;
+  border-radius: 0.3rem;
+}

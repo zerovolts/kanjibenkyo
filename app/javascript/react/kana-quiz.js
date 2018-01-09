@@ -59,19 +59,23 @@ class KanaQuiz extends React.Component {
 
   render() {
     const answers = this.state.answers.map(answer => (
-      <button onClick={() => this.submitAnswer(answer)}>{answer}</button>
+      <button className="quiz-choice" onClick={() => this.submitAnswer(answer)}>{answer}</button>
     ))
+
+    const result = this.state.is_correct == true
+      ? "Correct!"
+      : "Incorrect. The right answer is " + this.state.correct_answer
 
     return (
       <div>
-        <h1>Kana Quiz</h1>
-        <h2>{this.state.question_type}: {this.state.question}</h2>
-        {answers}
-        <h2>{
-          this.state.is_correct == true
-            ? "Correct!"
-            : "Incorrect. The right answer is " + this.state.correct_answer
-          }</h2>
+        <div className="quiz">
+          <div className="quiz-question">{this.state.question}</div>
+          <div className="quiz-choice-container">
+            {answers}
+          </div>
+
+          <h2>{this.state.correct_answer ? result : ""}</h2>
+        </div>
       </div>
     )
   }
