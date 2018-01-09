@@ -14,4 +14,6 @@ Rails.application.routes.draw do
       get "/kana/:kana" => "kana#show"
     end
   end
+
+  get "*path" => "static#index"
 end

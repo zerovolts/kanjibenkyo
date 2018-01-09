@@ -26,8 +26,8 @@ class KanaIndex extends React.Component {
 
   render() {
     const kanaList = this.state.kanaList.map(kana =>
-      <div key={kana.hiragana}>
-        <h2>{kana.hiragana}</h2>
+      <div className="kana-block" key={kana.hiragana}>
+        <h2 className="kana-title">{kana.hiragana}</h2>
         <div>hiragana: {kana.hiragana}</div>
         <div>katakana: {kana.katakana}</div>
         <div>romaji: {kana.romaji}</div>
@@ -35,7 +35,7 @@ class KanaIndex extends React.Component {
     )
 
     return (
-      <div>
+      <div className="kana-list">
         {kanaList}
       </div>
     )
