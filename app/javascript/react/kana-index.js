@@ -1,5 +1,14 @@
 import React from "react"
 
+const kanaColors = {
+  "あ": "#f80",
+  "い": "#f1c40f",
+  "う": "#2ecc71",
+  "え": "#3498db",
+  "お": "#9b59b6",
+  "ん": "#e74c3c",
+}
+
 class KanaIndex extends React.Component {
   constructor(props) {
     super(props)
@@ -26,7 +35,7 @@ class KanaIndex extends React.Component {
 
   render() {
     const kanaList = this.state.kanaList.map(kana =>
-      <div className="kana-block" key={kana.hiragana}>
+      <div className="kana-block" style={{borderTop: "4px solid " + kanaColors[kana.rhyme]}} key={kana.hiragana}>
         <h2 className="kana-title">{kana.hiragana}</h2>
         <div className="kana-alternatives">
           <div className="kana-alternative">{kana.hiragana}</div>

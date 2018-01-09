@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20180101231859) do
     t.string "katakana"
     t.string "romaji"
     t.integer "level"
+    t.string "rhyme"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

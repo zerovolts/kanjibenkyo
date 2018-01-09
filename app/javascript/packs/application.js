@@ -13,7 +13,6 @@ import ReactDOM from "react-dom"
 import App from "../react/app"
 
 document.addEventListener("DOMContentLoaded", () => {
-  console.log(document.getElementById("app"))
   ReactDOM.render(
     <App />,
     document.getElementById("app"),
