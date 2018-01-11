@@ -34,8 +34,9 @@ class KanaIndex extends React.Component {
   }
 
   render() {
+    // style={{borderTop: "4px solid " + kanaColors[kana.rhyme]}}
     const kanaList = this.state.kanaList.map(kana =>
-      <div className="kana-block" style={{borderTop: "4px solid " + kanaColors[kana.rhyme]}} key={kana.hiragana}>
+      <div className="kana-block" key={kana.hiragana}>
         <h2 className="kana-title">{kana.hiragana}</h2>
         <div className="kana-alternatives">
           <div className="kana-alternative">{kana.hiragana}</div>

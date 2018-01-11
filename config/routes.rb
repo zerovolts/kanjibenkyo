@@ -12,6 +12,8 @@ Rails.application.routes.draw do
       get "/kana" => "kana#index"
       get "/kana/random" => "kana#random"
       get "/kana/:kana" => "kana#show"
+
+      get "/quiz/test" => "kana_quiz#test"
     end
   end
 

@@ -1,7 +1,7 @@
 import React from "react"
 import { BrowserRouter, Route, Switch } from "react-router-dom"
 
-
+import * as request from "../request"
 import Header from "./header"
 import Home from "./home"
 import KanaQuiz from "./kana-quiz"
@@ -13,22 +13,14 @@ class App extends React.Component {
     this.state = {
       user: {}
     }
-
-    this.fetchUser = this.fetchUser.bind(this)
   }
 
   componentDidMount() {
-    this.fetchUser()
-  }
-
-  fetchUser() {
-    fetch("/current-user")
-      .then(res => res.json())
-      .then(data => {
-        this.setState({
-          user: data
-        })
+    request.fetchUser().then(data => {
+      this.setState({
+        user: data
       })
+    })
   }
 
   render() {
