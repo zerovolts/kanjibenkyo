@@ -26,6 +26,9 @@
 }
 
 .kana-alternative {
+  display: flex;
+  align-items: center;
+  height: 26px;
   text-align: center;
   color: color(light, light);
   background: color(blue);

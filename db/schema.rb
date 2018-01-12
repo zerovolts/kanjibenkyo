@@ -16,11 +16,15 @@ ActiveRecord::Schema.define(version: 20180110001518) do
   enable_extension "plpgsql"
 
   create_table "kana", force: :cascade do |t|
-    t.string "hiragana"
-    t.string "katakana"
-    t.string "romaji"
-    t.integer "level"
-    t.string "rhyme"
+    t.string "hiragana", null: false
+    t.string "katakana", null: false
+    t.string "romaji", null: false
+    t.string "consonant"
+    t.string "vowel"
+    t.boolean "dakuten", default: false
+    t.boolean "handakuten", default: false
+    t.string "youon"
+    t.boolean "obsolete", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -28,16 +32,17 @@ ActiveRecord::Schema.define(version: 20180110001518) do
   create_table "kana_quiz_questions", force: :cascade do |t|
     t.boolean "is_correct"
     t.bigint "kana_quiz_id"
-    t.bigint "kana_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["kana_id"], name: "index_kana_quiz_questions_on_kana_id"
     t.index ["kana_quiz_id"], name: "index_kana_quiz_questions_on_kana_quiz_id"
   end
 
   create_table "kana_quizzes", force: :cascade do |t|
+    t.integer "question_count"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_kana_quizzes_on_user_id"
   end
 
   create_table "kanji", force: :cascade do |t|

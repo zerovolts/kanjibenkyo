@@ -13,7 +13,8 @@ class KanaIndex extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      kanaList: []
+      kanaList: [],
+      filters: []
     }
 
     this.fetchKanaList = this.fetchKanaList.bind(this)
@@ -35,7 +36,7 @@ class KanaIndex extends React.Component {
 
   render() {
     // style={{borderTop: "4px solid " + kanaColors[kana.rhyme]}}
-    const kanaList = this.state.kanaList.map(kana =>
+    const kanaCards = this.state.kanaList.map(kana =>
       <div className="kana-block" key={kana.hiragana}>
         <h2 className="kana-title">{kana.hiragana}</h2>
         <div className="kana-alternatives">
@@ -48,7 +49,7 @@ class KanaIndex extends React.Component {
 
     return (
       <div className="kana-list">
-        {kanaList}
+        {kanaCards}
       </div>
     )
   }
