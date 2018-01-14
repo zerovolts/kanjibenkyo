@@ -115,17 +115,9 @@ youon_kana = [
   %w(きゅ キュ kyu ky u ゆ),
   %w(きょ キョ kyo ky o よ),
 
-  %w(ぎゃ ギャ gya gy a や),
-  %w(ぎゅ ギュ gyu gy u ゆ),
-  %w(ぎょ ギョ gyo gy o よ),
-
   %w(しゃ シャ sha sh a や),
   %w(しゅ シュ shu sh u ゆ),
   %w(しょ ショ sho sh o よ),
-
-  %w(じゃ ジャ ja j a や),
-  %w(じゅ ジュ ju j u ゆ),
-  %w(じょ ジョ jo j o よ),
 
   %w(ちゃ チャ cha ch a や),
   %w(ちゅ チュ chu ch u ゆ),
@@ -139,14 +131,6 @@ youon_kana = [
   %w(ひゅ ヒュ fyu hy u ゆ),
   %w(ひょ ヒョ hyo hy o よ),
 
-  %w(びゃ ビャ bya by a や),
-  %w(びゅ ビュ byu by u ゆ),
-  %w(びょ ビョ byo by o よ),
-
-  %w(ぴゃ ピャ pya py a や),
-  %w(ぴゅ ピュ pyu py u ゆ),
-  %w(ぴょ ピョ pyo py o よ),
-
   %w(みゃ ミャ mya my a や),
   %w(みゅ ミュ myu my u ゆ),
   %w(みょ ミョ myo my o よ),
@@ -154,6 +138,26 @@ youon_kana = [
   %w(りゃ リャ rya ry a や),
   %w(りゅ リュ ryu ry u ゆ),
   %w(りょ リョ ryo ry o よ)
+]
+
+dakuten_youon_kana = [
+  %w(ぎゃ ギャ gya gy a や),
+  %w(ぎゅ ギュ gyu gy u ゆ),
+  %w(ぎょ ギョ gyo gy o よ),
+
+  %w(じゃ ジャ ja j a や),
+  %w(じゅ ジュ ju j u ゆ),
+  %w(じょ ジョ jo j o よ),
+
+  %w(びゃ ビャ bya by a や),
+  %w(びゅ ビュ byu by u ゆ),
+  %w(びょ ビョ byo by o よ)
+]
+
+handakuten_youon_kana = [
+  %w(ぴゃ ピャ pya py a や),
+  %w(ぴゅ ピュ pyu py u ゆ),
+  %w(ぴょ ピョ pyo py o よ),
 ]
 
 obsolete_kana = [
@@ -201,6 +205,30 @@ youon_kana.each do |group|
     consonant: group[3],
     vowel: group[4],
     youon: group[5]
+  })
+end
+
+dakuten_youon_kana.each do |group|
+  Kana.create({
+    hiragana: group[0],
+    katakana: group[1],
+    romaji: group[2],
+    consonant: group[3],
+    vowel: group[4],
+    youon: group[5],
+    dakuten: true
+  })
+end
+
+handakuten_youon_kana.each do |group|
+  Kana.create({
+    hiragana: group[0],
+    katakana: group[1],
+    romaji: group[2],
+    consonant: group[3],
+    vowel: group[4],
+    youon: group[5],
+    handakuten: true
   })
 end
 
