@@ -1,7 +1,7 @@
 class KanaQuiz < ApplicationRecord
   has_many :kana_quiz_questions
 
-  def self.begin(user, question_count=10, level=0, options={})
+  def self.begin(user, question_count=10, options={})
     quiz = KanaQuiz.create(
       user: user,
       question_count: question_count
@@ -11,18 +11,18 @@ class KanaQuiz < ApplicationRecord
   end
 
   #deprecated
-  def self.filtered_question(question_filters=[], answer_filters=[], level=0)
+  def self.filtered_question(question_filters=[], answer_filters=[])
     question_type = Kana::TYPES.select {|type| !question_filters.include?(type) }.sample
     answer_type = Kana::TYPES.select do |type|
       !answer_filters.include?(type) && type != question_type
     end.sample
 
-    self.question(question_type, answer_type, level)
+    self.question(question_type, answer_type)
   end
 
   #deprecated
-  def self.question(question_type, answer_type, level)
-    choices = Kana.where(["level <= ?", level]).order("RANDOM()").limit(4)
+  def self.question(question_type, answer_type)
+    choices = Kana.order("RANDOM()").limit(4)
     question = choices.sample[question_type]
     answers = choices.map(&answer_type)
 
