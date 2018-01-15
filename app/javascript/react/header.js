@@ -11,7 +11,11 @@ const Header = props => {
           </Link>
         </div>
       </div>
-      <div className="profile-dropdown">{props.user.name}</div>
+      <div className="profile-dropdown-spacer">
+        <Link to={"/user/" + props.user.login}>
+          <div className="profile-dropdown">{props.user.name}</div>
+        </Link>
+      </div>
     </div>
   )
 }

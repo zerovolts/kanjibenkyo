@@ -16,6 +16,8 @@ Rails.application.routes.draw do
       get "/kanji" => "kanji#index"
 
       get "/quiz/test" => "kana_quiz#test"
+
+      get "/user/:login" => "user#show"
     end
   end
 
