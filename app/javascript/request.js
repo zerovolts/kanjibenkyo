@@ -9,6 +9,11 @@ export const fetchQuestion = () => (
     .then(res => res.json())
 )
 
+export const fetchKanji = () => (
+  fetch("/api/v1/kanji")
+    .then(res => res.json())
+)
+
 export const submitAnswer = payload => (
   fetch("/api/v1/quiz/kana/check", {
     method: "POST",

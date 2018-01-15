@@ -6,6 +6,7 @@ const Home = props => {
     <div className="home">
       <ul>
         <li><Link to="/kana">Kana List</Link></li>
+        <li><Link to="/kanji">Kanji List</Link></li>
         <li><Link to="/quiz/kana">Kana Quiz</Link></li>
       </ul>
     </div>

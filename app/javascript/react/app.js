@@ -6,6 +6,7 @@ import Header from "./header"
 import Home from "./home"
 import KanaQuiz from "./kana-quiz"
 import KanaIndex from "./kana-index"
+import KanjiIndex from "./kanji-index"
 
 class App extends React.Component {
   constructor(props) {
@@ -31,6 +32,7 @@ class App extends React.Component {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/kana" component={KanaIndex} />
+            <Route path="/kanji" component={KanjiIndex} />
             <Route path="/quiz/kana" component={KanaQuiz} />
           </Switch>
         </div>
