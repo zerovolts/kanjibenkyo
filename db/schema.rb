@@ -47,6 +47,10 @@ ActiveRecord::Schema.define(version: 20180110001518) do
 
   create_table "kanji", force: :cascade do |t|
     t.string "character"
+    t.string "kunyomi", array: true
+    t.string "onyomi", array: true
+    t.string "meaning", array: true
+    t.integer "jlpt"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

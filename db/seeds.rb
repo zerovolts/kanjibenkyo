@@ -243,6 +243,29 @@ obsolete_kana.each do |group|
   })
 end
 
+#---------------------#
+
+kanji = [
+  ["見", ["み"], ["ケン"], ["see"], 5],
+  ["人", ["ひと"], ["ジン"], ["person"], 5],
+  ["高", ["たか"], ["コウ"], ["high", "expensive"], 5],
+  ["山", ["やま"], ["サン"], ["mountain"], 5],
+  ["食", ["た", "く"], ["デョク"], ["eat"], 5],
+  ["電", [], ["デン"], ["electricity"], 5],
+]
+
+kanji.each do |character|
+  Kanji.create({
+    character: character[0],
+    kunyomi: character[1],
+    onyomi: character[2],
+    meaning: character[3],
+    jlpt: character[4]
+  })
+end
+
+#---------------------#
+
 User.create({
   login: "zerovolts",
   name: "Zach Stone",
