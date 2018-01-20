@@ -5,6 +5,11 @@ class Api::V1::KanaQuizController < ApplicationController
     render json: KanaQuiz.begin(current_user)
   end
 
+  def check
+    quiz = KanaQuiz.find_by(id: params[:id], user_id: [:user_id])
+    render json: quiz.check(params[:answers])
+  end
+
   def test
     render json: {
       id: 1,
@@ -21,12 +26,12 @@ class Api::V1::KanaQuizController < ApplicationController
   end
 
   #deprecated
-  def check
-    result = KanaQuiz.check_answer(kana_quiz_params)
+  def check_answer
+    result = KanaQuiz.check_answer(kana_question_params)
     render json: result
   end
 
-  def kana_quiz_params
+  def kana_question_params
     params.permit(:question, :answer, :question_type, :answer_type)
   end
 end

@@ -1,4 +1,5 @@
 class KanaQuiz < ApplicationRecord
+  belongs_to :user
   has_many :kana_quiz_questions
 
   def self.begin(user, question_count=10, options={})
@@ -7,7 +8,20 @@ class KanaQuiz < ApplicationRecord
       question_count: question_count
     )
 
+    questions = Kana.order("RANDOM()").limit(question_count)
+      .map {|question| KanaQuizQuestion.new_question(quiz, question, 4)}
 
+    quiz
+  end
+
+  def check(answers)
+    checked_answers = answers.map do |answer|
+      question = KanaQuestion.find(answer[:id])
+      question.check(answer[:choice])
+      question
+    end
+
+    checked_answers
   end
 
   #deprecated
