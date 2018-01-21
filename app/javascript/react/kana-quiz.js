@@ -1,5 +1,9 @@
 import React from "react"
+import {inject, observer} from "mobx-react"
 
+import QuizProgressBar from "./quiz-progress-bar"
+
+@inject("store") @observer
 class KanaQuiz extends React.Component {
   constructor(props) {
     super(props)
@@ -58,6 +62,7 @@ class KanaQuiz extends React.Component {
   }
 
   render() {
+    console.log(store.kanaQuiz.correctFlags.slice())
     const answers = this.state.answers.map(answer => (
       <button className="quiz-choice" key={answer} onClick={() => this.submitAnswer(answer)}>{answer}</button>
     ))
@@ -68,6 +73,7 @@ class KanaQuiz extends React.Component {
 
     return (
       <div>
+        <QuizProgressBar correctFlags={store.kanaQuiz.correctFlags} />
         <div className="quiz">
           <div className="quiz-question">{this.state.question}</div>
           <div className="quiz-choice-container">

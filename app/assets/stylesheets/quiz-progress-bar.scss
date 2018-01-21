@@ -1,0 +1,22 @@
+.progress-bar {
+  display: flex;
+  height: 2rem;
+  margin: 1rem;
+  justify-content: center;
+}
+
+.progress-block {
+  background: color(light, dark);
+  width: 1.4rem;
+  height: 1.4rem;
+  border-radius: 0.3rem;
+  margin: 0.2rem;
+}
+
+.correct {
+  background: color(green);
+}
+
+.incorrect {
+  background: color(red);
+}
