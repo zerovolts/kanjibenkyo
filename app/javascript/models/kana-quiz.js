@@ -6,6 +6,11 @@ class KanaQuiz {
   @observable questionIndex = 0
   @observable correctFlags = []
 
+  constructor() {
+    this.create = this.create.bind(this)
+    this.submitAnswer = this.submitAnswer.bind(this)
+  }
+
   @computed get currentQuestion() {
     return this.questions[this.questionIndex]
   }
@@ -16,6 +21,10 @@ class KanaQuiz {
 
   @computed get choices() {
     return this.currentQuestion.choices.slice()
+  }
+
+  @computed get complete() {
+    return this.questionIndex >= this.questions.length
   }
 
   create() {

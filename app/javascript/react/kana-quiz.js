@@ -3,88 +3,42 @@ import {inject, observer} from "mobx-react"
 
 import QuizProgressBar from "./quiz-progress-bar"
 
-@inject("store") @observer
-class KanaQuiz extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      question: "",
-      answers: [],
-      question_type: "",
-      answer_type: "",
-      answer: "",
-      is_correct: null,
-      correct_answer: null
+
+const KanaQuiz = inject("store")(observer(props => {
+  if (store.kanaQuiz.questions.length > 0) {
+    if (store.kanaQuiz.complete) {
+      return (
+        <div className="quiz">
+          <div>Quiz Complete!</div>
+          <div>You got {store.kanaQuiz.correctFlags.filter(flag => flag === true).length} out of {store.kanaQuiz.correctFlags.length} questions correct.</div>
+          <button onClick={store.kanaQuiz.create}>New Quiz</button>
+        </div>
+      )
     }
 
-    this.submitAnswer = this.submitAnswer.bind(this)
-    this.fetchQuestion = this.fetchQuestion.bind(this)
-  }
-
-  fetchQuestion() {
-    fetch("/api/v1/quiz/kana")
-      .then(res => res.json())
-      .then(data => {
-        this.setState({
-          question: data.question,
-          answers: data.answers,
-          question_type: data.question_type,
-          answer_type: data.answer_type
-        })
-      })
-  }
-
-  componentDidMount() {
-    this.fetchQuestion()
-  }
-
-  submitAnswer(answer) {
-    const body = {
-      question: this.state.question,
-      answer: answer,
-      question_type: this.state.question_type,
-      answer_type: this.state.answer_type
-    }
-
-    fetch("/api/v1/quiz/kana/check", {
-      method: "POST",
-      body: JSON.stringify(body),
-      credentials: "same-origin",
-      headers: {"Content-Type": "application/json"},
-    }).then(res => res.json())
-      .then(data => {
-        this.setState({
-          is_correct: data.is_correct,
-          correct_answer: data.correct_answer
-        })
-        this.fetchQuestion()
-      })
-  }
-
-  render() {
-    console.log(store.kanaQuiz.correctFlags.slice())
-    const answers = this.state.answers.map(answer => (
-      <button className="quiz-choice" key={answer} onClick={() => this.submitAnswer(answer)}>{answer}</button>
+    const answers = store.kanaQuiz.currentQuestion.choices.map(choice => (
+      <button className="quiz-choice" key={choice} onClick={() => store.kanaQuiz.submitAnswer(choice)}>{choice}</button>
     ))
-
-    const result = this.state.is_correct == true
-      ? "Correct!"
-      : "Incorrect. The right answer is " + this.state.correct_answer
 
     return (
       <div>
         <QuizProgressBar correctFlags={store.kanaQuiz.correctFlags} />
+
         <div className="quiz">
-          <div className="quiz-question">{this.state.question}</div>
+          <div className="quiz-question">{store.kanaQuiz.kana}</div>
           <div className="quiz-choice-container">
             {answers}
           </div>
-
-          <h2>{this.state.correct_answer ? result : ""}</h2>
         </div>
       </div>
     )
+  } else {
+    return (
+      <div className="quiz">
+        <button onClick={store.kanaQuiz.create}>Start Quiz</button>
+      </div>
+    )
   }
-}
+}))
 
 export default KanaQuiz

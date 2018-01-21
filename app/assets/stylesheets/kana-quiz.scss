@@ -1,5 +1,6 @@
 .quiz {
   text-align: center;
+  margin: 1rem;
 }
 
 .quiz-question {
@@ -18,6 +19,7 @@
 .quiz-choice {
   background: #f80;
   margin: 0.5rem;
+  padding: 0.8rem 0rem;
   border-radius: 0.3rem;
   box-shadow: 0 4px #f60;
   color: white;
