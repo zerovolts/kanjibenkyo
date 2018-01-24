@@ -5,19 +5,14 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      #resources :kana, only: [:show]
-      get "/quiz/kana" => "kana_quiz#quiz"
-      post "/quiz/kana/check" => "kana_quiz#check_answer"
+      get "/quiz/kana" => "kana_quiz#create"
+      post "/quiz/kana/check" => "kana_quiz#check"
 
       get "/kana" => "kana#index"
       get "/kana/random" => "kana#random"
       get "/kana/:kana" => "kana#show"
 
       get "/kanji" => "kanji#index"
-
-      get "/quiz/test" => "kana_quiz#test"
-      get "/quiz/create" => "kana_quiz#create"
-      post "/quiz/check" => "kana_quiz#check"
 
       get "/user/:login" => "user#show"
     end

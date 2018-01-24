@@ -28,7 +28,7 @@ class KanaQuiz {
   }
 
   create() {
-    fetch("/api/v1/quiz/create")
+    fetch("/api/v1/quiz/kana")
       .then(res => res.json())
       .then(data => {
         this.questionIndex = 0
