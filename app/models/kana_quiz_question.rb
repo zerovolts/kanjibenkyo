@@ -22,7 +22,7 @@ class KanaQuizQuestion < ApplicationRecord
 
   def check(response)
     answer = Kana.find_by(answer_type => response)
-    update(answer: answer, is_correct: self == answer)
+    update(answer: answer, is_correct: self.question == answer)
     # then modify user scores?
   end
 

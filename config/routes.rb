@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       get "/quiz/kana" => "kana_quiz#create"
+      get "/quiz/kana/stats" => "kana_quiz#stats"
       post "/quiz/kana/check" => "kana_quiz#check"
 
       get "/kana" => "kana#index"

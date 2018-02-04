@@ -2,24 +2,31 @@ class KanaQuiz < ApplicationRecord
   belongs_to :user
   has_many :kana_quiz_questions
 
-  def self.begin(user, question_count=10, options={})
+  def self.begin(user, total_questions=10, options={})
     quiz = KanaQuiz.create(
       user: user,
-      question_count: question_count
+      total_questions: total_questions
     )
 
-    questions = Kana.order("RANDOM()").limit(question_count)
+    questions = Kana.order("RANDOM()").limit(total_questions)
       .map {|question| KanaQuizQuestion.new_question(quiz, question, 4)}
 
     quiz
   end
 
+  def self.delete_unfinished(user)
+    self.where(user: user, is_complete: false).destroy_all
+  end
+
   def check(answers)
     checked_answers = answers.map do |answer|
-      question = KanaQuestion.find(answer[:id])
+      question = KanaQuizQuestion.find(answer[:id])
       question.check(answer[:choice])
       question
     end
+
+    total_correct = checked_answers.select {|answer| answer.is_correct}.length
+    self.update(total_correct: total_correct, is_complete: true)
 
     checked_answers
   end

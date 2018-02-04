@@ -45,7 +45,9 @@ ActiveRecord::Schema.define(version: 20180110001518) do
   end
 
   create_table "kana_quizzes", force: :cascade do |t|
-    t.integer "question_count"
+    t.integer "total_correct"
+    t.integer "total_questions"
+    t.boolean "is_complete", default: false
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
