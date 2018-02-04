@@ -8,7 +8,10 @@ class KanaQuiz < ApplicationRecord
       total_questions: total_questions
     )
 
-    questions = Kana.order("RANDOM()").limit(total_questions)
+    questions = Kana
+      .where(dakuten: false, handakuten: false, youon: nil, obsolete: false)
+      .order("RANDOM()")
+      .limit(total_questions)
       .map {|question| KanaQuizQuestion.new_question(quiz, question, 4)}
 
     quiz
