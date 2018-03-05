@@ -1,7 +1,10 @@
 .home {
   text-align: center;
-  margin: auto;
-  width: 60%;
+  /*margin: auto;*/
+  /*width: 100%;*/
+  margin: 0 3rem;
+  display: flex;
+  justify-content: space-between;
 }
 
 ul {
@@ -15,4 +18,8 @@ li {
 
 .strike {
   text-decoration: line-through;
+}
+
+.home-block {
+  margin: 0 3rem;
 }
