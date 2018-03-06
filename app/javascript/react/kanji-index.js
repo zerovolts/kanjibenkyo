@@ -35,7 +35,7 @@ class KanjiIndex extends React.Component {
       return (
         <div className="kana-block" key={kanji.character}>
           <h2 className="kana-title">{kanji.character}</h2>
-          <div className="kana-alternatives">{kunyomi}{onyomi}</div>
+          {/*<div className="kana-alternatives">{kunyomi}{onyomi}</div>*/}
         </div>
       )
     })

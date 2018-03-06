@@ -77,10 +77,12 @@ class KanaIndex extends React.Component {
     )
 
     // style={{borderTop: "4px solid " + kanaColors[kana.rhyme]}}
+    //kanaList.sort((a, b) => b.rating - a.rating)
     const kanaCards = kanaList.map(kana =>
       <div className="kana-block" style={{
-        background: "hsl(" + kana.rating + ", 65%, 50%)",
-        boxShadow: "0 4px hsl(" + kana.rating + ", 60%, 45%)"
+        borderTop: "5px solid hsl(" + kana.rating + ", 75%, 50%)"
+        //background: "hsl(" + kana.rating + ", 65%, 50%)",
+        //boxShadow: "0 4px hsl(" + kana.rating + ", 60%, 45%)"
       }} key={kana.hiragana}>
         <h2 className="kana-title">{kana.hiragana}</h2>
         {/*<div className="kana-alternatives">

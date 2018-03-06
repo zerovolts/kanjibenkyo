@@ -7,14 +7,17 @@ class Home extends React.Component {
     super(props)
     this.state = {
       totalCompleted: 0,
-      totalAverage: 0
+      totalAverage: 0,
+      dailyKanji: {}
     }
 
     this.fetchQuizStats = this.fetchQuizStats.bind(this)
+    this.fetchDailyKanji = this.fetchDailyKanji.bind(this)
   }
 
   componentDidMount() {
     this.fetchQuizStats()
+    this.fetchDailyKanji()
   }
 
   fetchQuizStats() {
@@ -24,6 +27,16 @@ class Home extends React.Component {
         this.setState({
           totalCompleted: data.total_completed,
           totalAverage: data.total_average
+        })
+      })
+  }
+
+  fetchDailyKanji() {
+    fetch("/api/v1/kanji/daily")
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          dailyKanji: data
         })
       })
   }
@@ -49,6 +62,15 @@ class Home extends React.Component {
             <li><Link to="/kanji">Kanji List</Link></li>
             <li className="strike">Kanji Quiz</li>
           </ul>
+
+          <div className="daily-kanji">
+            <div className="kana-block">
+              <h2 className="kana-title">
+                {this.state.dailyKanji.character}
+              </h2>
+            </div>
+            Kanji of the Day
+          </div>
         </div>
 
       </div>
