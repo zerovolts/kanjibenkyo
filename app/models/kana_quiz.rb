@@ -33,3 +33,10 @@ class KanaQuiz < ApplicationRecord
 
     checked_answers
   end
+
+  def as_json(options = {})
+    super(methods: [
+      :kana_quiz_questions
+    ])
+  end
+end
