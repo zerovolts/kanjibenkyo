@@ -8,6 +8,7 @@
 @import "kana-quiz";
 @import "home";
 @import "quiz-progress-bar";
+@import "kana-show";
 
 body {
   background: #f0f0ea;
@@ -17,7 +18,15 @@ body {
   font-family: "Ubuntu", "Noto Sans Japanese";
 }
 
+p {
+  line-height: 1.6rem;
+}
+
 a {
   color: #f60;
   text-decoration: none;
+}
+
+h2 {
+  color: #34495e;
 }

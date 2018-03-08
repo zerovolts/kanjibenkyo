@@ -15,6 +15,7 @@ Rails.application.routes.draw do
 
       get "/kanji" => "kanji#index"
       get "/kanji/daily" => "kanji#daily"
+      get "/kanji/:kanji" => "kanji#show"
 
       get "/user/:login" => "user#show"
     end

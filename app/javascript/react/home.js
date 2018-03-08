@@ -1,6 +1,8 @@
 import React from "react"
 import {Link} from "react-router-dom"
 
+import CharacterBlock from "./character-block"
+
 
 class Home extends React.Component {
   constructor(props) {
@@ -64,11 +66,10 @@ class Home extends React.Component {
           </ul>
 
           <div className="daily-kanji">
-            <div className="kana-block">
-              <h2 className="kana-title">
-                {this.state.dailyKanji.character}
-              </h2>
-            </div>
+            <CharacterBlock
+              character={this.state.dailyKanji.character}
+              url={"/kanji/" + this.state.dailyKanji.character}
+            />
             Kanji of the Day
           </div>
         </div>

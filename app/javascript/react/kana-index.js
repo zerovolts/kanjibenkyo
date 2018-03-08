@@ -1,4 +1,5 @@
 import React from "react"
+import CharacterBlock from "./character-block"
 
 const kanaColors = {
   "あ": "#f80",
@@ -76,22 +77,13 @@ class KanaIndex extends React.Component {
       </label>
     )
 
-    // style={{borderTop: "4px solid " + kanaColors[kana.rhyme]}}
     //kanaList.sort((a, b) => b.rating - a.rating)
     const kanaCards = kanaList.map(kana =>
-      <div className="kana-block" style={{
-        borderTop: "5px solid hsl(" + kana.rating + ", 75%, 50%)"
-        //background: "hsl(" + kana.rating + ", 65%, 50%)",
-        //boxShadow: "0 4px hsl(" + kana.rating + ", 60%, 45%)"
-      }} key={kana.hiragana}>
-        <h2 className="kana-title">{kana.hiragana}</h2>
-        {/*<div className="kana-alternatives">
-          <div className="kana-alternative">{kana.hiragana}</div>
-          <div className="kana-alternative">{kana.katakana}</div>
-          <div className="kana-alternative">{kana.romaji}</div>
-          <div className="kana-alternative">{kana.rating || 0}%</div>
-        </div>*/}
-      </div>
+      <CharacterBlock
+        character={kana.hiragana}
+        rating={kana.rating}
+        url={"/kana/" + kana.hiragana}
+      />
     )
 
     return (

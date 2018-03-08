@@ -1,4 +1,5 @@
 import React from "react"
+import CharacterBlock from "./character-block"
 
 import {fetchKanji} from "../request"
 
@@ -33,10 +34,10 @@ class KanjiIndex extends React.Component {
       )
 
       return (
-        <div className="kana-block" key={kanji.character}>
-          <h2 className="kana-title">{kanji.character}</h2>
-          {/*<div className="kana-alternatives">{kunyomi}{onyomi}</div>*/}
-        </div>
+        <CharacterBlock
+          character={kanji.character}
+          url={"/kanji/" + kanji.character}
+        />
       )
     })
 

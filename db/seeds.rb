@@ -256,7 +256,14 @@ kanji = [
   ["本", ["もと"], ["ホン"], ["book", "origin"], 5]
 ]
 
-kanji.each do |character|
+# ["", [], [], [], 5],
+kanji_n5 = "安一飲右雨駅円火花下何会外学間気九休魚金空月見言古五後午語校口行高国今左三山四子耳時七車社手週十出書女小少上食新人水生西川千先前足多大男中長天店電土東道読南ニ日入年買白八半百父分聞母北木本毎万名目友来立六話"
+
+kanji_list = kanji_n5.chars.map do |character|
+  [character, [], [], [], 5]
+end
+
+kanji_list.each do |character|
   Kanji.create({
     character: character[0],
     kunyomi: character[1],

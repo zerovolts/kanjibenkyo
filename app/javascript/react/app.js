@@ -6,7 +6,9 @@ import Header from "./header"
 import Home from "./home"
 import KanaQuiz from "./kana-quiz"
 import KanaIndex from "./kana-index"
+import KanaShow from "./kana-show"
 import KanjiIndex from "./kanji-index"
+import KanjiShow from "./kanji-show"
 import Profile from "./profile"
 
 class App extends React.Component {
@@ -32,8 +34,10 @@ class App extends React.Component {
           <Header user={this.state.user} />
           <Switch>
             <Route exact path="/" component={Home} />
-            <Route path="/kana" component={KanaIndex} />
-            <Route path="/kanji" component={KanjiIndex} />
+            <Route exact path="/kana" component={KanaIndex} />
+            <Route path="/kana/:kana" component={KanaShow} />
+            <Route exact path="/kanji" component={KanjiIndex} />
+            <Route path="/kanji/:kanji" component={KanjiShow} />
             <Route path="/quiz/kana" component={KanaQuiz} />
             <Route path="/user/:login" component={Profile} />
           </Switch>
