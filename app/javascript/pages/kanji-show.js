@@ -11,7 +11,6 @@ class KanjiShow extends React.Component {
   }
 
   componentDidMount() {
-    console.log(this.props)
     this.fetchKanji(this.props.match.params.kanji)
   }
 

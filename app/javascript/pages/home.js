@@ -1,7 +1,7 @@
 import React from "react"
 import {Link} from "react-router-dom"
 
-import CharacterBlock from "./character-block"
+import CharacterBlock from "../components/character-block"
 
 
 class Home extends React.Component {

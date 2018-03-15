@@ -11,7 +11,7 @@ import React from "react"
 import ReactDOM from "react-dom"
 import {Provider} from "mobx-react"
 
-import App from "../react/app"
+import App from "../app"
 import store from "../models/store"
 
 window.store = store

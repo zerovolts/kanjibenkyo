@@ -1,7 +1,7 @@
 import React from "react"
 
-const QuizProgressBar = props => {
-  const progressBlocks = props.correctFlags.map((flag, i) => {
+const QuizProgressBar = ({correctFlags}) => {
+  const progressBlocks = correctFlags.map((flag, i) => {
     let color = ""
     if (flag === true) {
       color = " correct"

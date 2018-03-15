@@ -1,7 +1,7 @@
 import React from "react"
 import {Link} from "react-router-dom"
 
-const Header = props => {
+const Header = ({user}) => {
   return (
     <div className="header">
       <div className="left-header">
@@ -12,8 +12,8 @@ const Header = props => {
         </div>
       </div>
       <div className="profile-dropdown-spacer">
-        <Link to={"/user/" + props.user.login}>
-          <div className="profile-dropdown">{props.user.name}</div>
+        <Link to={"/user/" + user.login}>
+          <div className="profile-dropdown">{user.name}</div>
         </Link>
       </div>
     </div>

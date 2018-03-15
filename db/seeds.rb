@@ -273,6 +273,13 @@ kanji_list.each do |character|
   })
 end
 
+Word.create({
+  word: "見る",
+  furigana: "みる",
+  meaning: "to see",
+  jlpt: 1
+})
+
 #---------------------#
 
 User.create({

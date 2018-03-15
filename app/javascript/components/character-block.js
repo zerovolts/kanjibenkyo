@@ -1,19 +1,18 @@
 import React from "react"
 import {Link} from "react-router-dom"
 
-const CharacterBlock = props => {
+const CharacterBlock = ({character, rating, url}) => {
   return (
     <div
       className="character-block"
       style={{
-        borderTop: "5px solid hsl(" + props.rating + ", 75%, 50%)"
+        borderTop: "5px solid hsl(" + rating + ", 75%, 50%)"
       }}
-      key={props.character}>
+      key={character}>
 
-
-      <Link to={props.url || "#"}>
+      <Link to={url || "#"}>
         <h2 className="character-title">
-          {props.character}
+          {character}
         </h2>
       </Link>
 

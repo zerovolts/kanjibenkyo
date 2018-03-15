@@ -1,15 +1,15 @@
 import React from "react"
 import { BrowserRouter, Route, Switch } from "react-router-dom"
 
-import * as request from "../request"
-import Header from "./header"
-import Home from "./home"
-import KanaQuiz from "./kana-quiz"
-import KanaIndex from "./kana-index"
-import KanaShow from "./kana-show"
-import KanjiIndex from "./kanji-index"
-import KanjiShow from "./kanji-show"
-import Profile from "./profile"
+import * as request from "./utils/request"
+import Header from "./components/header"
+import Home from "./pages/home"
+import KanaQuiz from "./pages/kana-quiz"
+import KanaIndex from "./pages/kana-index"
+import KanaShow from "./pages/kana-show"
+import KanjiIndex from "./pages/kanji-index"
+import KanjiShow from "./pages/kanji-show"
+import Profile from "./pages/profile"
 
 class App extends React.Component {
   constructor(props) {

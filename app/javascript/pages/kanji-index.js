@@ -1,7 +1,7 @@
 import React from "react"
-import CharacterBlock from "./character-block"
+import CharacterBlock from "../components/character-block"
 
-import {fetchKanji} from "../request"
+import {fetchKanji} from "../utils/request"
 
 class KanjiIndex extends React.Component {
   constructor(props) {
