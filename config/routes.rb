@@ -9,6 +9,8 @@ Rails.application.routes.draw do
       get "/quiz/kana/stats" => "kana_quiz#stats"
       post "/quiz/kana/check" => "kana_quiz#check"
 
+      get "/study/kana" => "kana_study#index"
+
       get "/kana" => "kana#index"
       get "/kana/random" => "kana#random"
       get "/kana/:kana" => "kana#show"

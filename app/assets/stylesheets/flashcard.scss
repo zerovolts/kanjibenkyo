@@ -1,0 +1,61 @@
+.kana-study {
+  text-align: center;
+}
+
+.card {
+  perspective: 1600px;
+  position: relative;
+  text-align: center;
+  line-height: 3rem;
+  width: 16rem;
+  height: 20rem;
+  margin: 4rem auto;
+  transform-style: preserve-3d;
+  cursor: pointer;
+
+  transition: transform 0s, opacity 0s;
+}
+
+.face {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  top: 0;
+  left: 0;
+  background: white;
+  border-radius: 0.3rem;
+  width: 100%;
+  height: 100%;
+  transition: transform 1s;
+}
+
+.front {
+  border-top: 5px solid #f60;
+  backface-visibility: hidden;
+}
+
+.back {
+  border-top: 5px solid #25c;
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+}
+
+.flipped {
+  transform: rotateY(180deg);
+}
+
+.back-flipped {
+  transform: rotateY(360deg);
+}
+
+.question {
+  font-size: 5rem;
+  font-weight: bold;
+}
+
+.slide-out {
+  transform: translateX(-200%);
+  opacity: 0;
+  transition: transform 1s, opacity 1s;
+}

@@ -2,6 +2,7 @@ import React from "react"
 import {observer, inject} from "mobx-react"
 
 import CharacterBlock from "../components/character-block"
+import FilterCheckbox from "./kana-index/filter-checkbox"
 
 @inject("store") @observer
 class KanaIndex extends React.Component {
@@ -12,17 +13,13 @@ class KanaIndex extends React.Component {
   render() {
     const kanaList = store.kanaList
 
-    const filterCheckBoxes = Object.keys(kanaList.filters).map(filterName =>
-      <label className="filter">
-        {filterName}
-        <input
-          type="checkbox"
-          key={filterName}
-          value={filterName}
-          checked={kanaList.filters[filterName]}
-          onChange={kanaList.toggleFilter}
-        />
-      </label>
+    const filterCheckboxes = Object.keys(kanaList.filters).map(filterName =>
+      <FilterCheckbox
+        name={filterName}
+        key={filterName}
+        checked={kanaList.filters[filterName]}
+        toggleFunction={kanaList.toggleFilter}
+      />
     )
 
     const kanaCards = kanaList.filtered.map(kana =>
@@ -37,7 +34,7 @@ class KanaIndex extends React.Component {
       <div>
         <div className="kana-label">Kana: {kanaList.filtered.length}</div>
         <div className="filters">
-          {filterCheckBoxes}
+          {filterCheckboxes}
         </div>
         <div className="kana-list">
           {kanaCards}
