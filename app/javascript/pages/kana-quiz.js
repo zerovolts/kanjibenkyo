@@ -12,19 +12,18 @@ const KanaQuiz = inject("store")(observer(props => {
       return (
         <QuizComplete
           correctFlags={store.kanaQuiz.correctFlags}
-          createFunction={store.kanaQuiz.create}
-        />
+          createFunction={store.kanaQuiz.create} />
       )
     }
 
     return (
-      <div>
+      <React.Fragment>
         <QuizProgressBar correctFlags={store.kanaQuiz.correctFlags} />
         <QuizChoices
           question={store.kanaQuiz.kana}
           choices={store.kanaQuiz.currentQuestion.choices}
           submitFunction={store.kanaQuiz.submitAnswer} />
-      </div>
+      </React.Fragment>
     )
   } else {
     return (

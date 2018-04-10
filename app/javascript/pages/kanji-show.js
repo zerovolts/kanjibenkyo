@@ -26,18 +26,20 @@ class KanjiShow extends React.Component {
       <div className="kana-show">
         <h1 className="character-header">{kanji.character}</h1>
         <table>
-          <tr>
-            <td>kun'yomi</td>
-            <td>{kanji.kunyomi ? kanji.kunyomi.join(", ") : null}</td>
-          </tr>
-          <tr>
-            <td>on'yomi</td>
-            <td>{kanji.onyomi ? kanji.onyomi.join(", ") : null}</td>
+          <tbody>
+            <tr>
+              <td>kun'yomi</td>
+              <td>{kanji.kunyomi ? kanji.kunyomi.join(", ") : null}</td>
             </tr>
-          <tr>
-            <td>meaning</td>
-            <td>{kanji.meaning ? kanji.meaning.join(", ") : null}</td>
-          </tr>
+            <tr>
+              <td>on'yomi</td>
+              <td>{kanji.onyomi ? kanji.onyomi.join(", ") : null}</td>
+              </tr>
+            <tr>
+              <td>meaning</td>
+              <td>{kanji.meaning ? kanji.meaning.join(", ") : null}</td>
+            </tr>
+          </tbody>
         </table>
       </div>
     )

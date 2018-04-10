@@ -63,8 +63,7 @@ class KanaStudy extends React.Component {
           back={currentKana.romaji}
           flipped={this.state.flipped}
           sliding={this.state.sliding}
-          flipFunction={this.flipCard}
-        />
+          flipFunction={this.flipCard} />
         <button onClick={this.nextCard}>Next Card</button>
       </div>
     )

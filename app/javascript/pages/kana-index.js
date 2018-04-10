@@ -18,20 +18,19 @@ class KanaIndex extends React.Component {
         name={filterName}
         key={filterName}
         checked={kanaList.filters[filterName]}
-        toggleFunction={kanaList.toggleFilter}
-      />
+        toggleFunction={kanaList.toggleFilter} />
     )
 
     const kanaCards = kanaList.filtered.map(kana =>
       <CharacterBlock
+        key={kana.hiragana}
         character={kana.hiragana}
         rating={kana.rating}
-        url={"/kana/" + kana.hiragana}
-      />
+        url={"/kana/" + kana.hiragana} />
     )
 
     return (
-      <div>
+      <React.Fragment>
         <div className="kana-label">Kana: {kanaList.filtered.length}</div>
         <div className="filters">
           {filterCheckboxes}
@@ -39,7 +38,7 @@ class KanaIndex extends React.Component {
         <div className="kana-list">
           {kanaCards}
         </div>
-      </div>
+      </React.Fragment>
     )
   }
 }

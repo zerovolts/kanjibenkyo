@@ -31,11 +31,12 @@ class KanaList {
     return sortedKana
   }
 
-  fetchAllKana() {
+  fetchAllKana(callback) {
     fetch("/api/v1/kana")
       .then(res => res.json())
       .then(data => {
         this.all = data
+        callback ? callback() : null
       })
   }
 

@@ -33,8 +33,7 @@ class KanjiIndex extends React.Component {
       return (
         <CharacterBlock
           character={kanji.character}
-          url={"/kanji/" + kanji.character}
-        />
+          url={"/kanji/" + kanji.character} />
       )
     })
 

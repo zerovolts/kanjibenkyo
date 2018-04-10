@@ -1,5 +1,8 @@
 .kana-show {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .character-header {
@@ -12,7 +15,6 @@ table {
   margin: auto;
   border-spacing: 0 0.4rem;
 }
-
 
 td {
   margin-right: 1rem;
@@ -31,4 +33,18 @@ td:last-of-type {
   background: #e0e0d8;
   text-align: left;
   border-radius: 0 0.3rem 0.3rem 0;
+}
+
+.kana-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+}
+
+.fa-angle-left, .fa-angle-right {
+  margin: 3rem;
+  color: #f80;
+  font-size: 3rem;
+  cursor: pointer;
 }
