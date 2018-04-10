@@ -4,11 +4,8 @@ import CharacterBlock from "../components/character-block"
 import {fetchKanji} from "../utils/request"
 
 class KanjiIndex extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      kanji: []
-    }
+  state = {
+    kanji: []
   }
 
   componentDidMount() {

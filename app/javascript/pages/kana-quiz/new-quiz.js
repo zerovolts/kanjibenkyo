@@ -4,7 +4,7 @@ const NewQuiz = ({createFunction}) => {
 
   return (
     <div className="quiz">
-      <button onClick={createFunction}>Start Quiz</button>
+      <button className="quiz-start-button" onClick={createFunction}>Start Quiz</button>
     </div>
   )
 }

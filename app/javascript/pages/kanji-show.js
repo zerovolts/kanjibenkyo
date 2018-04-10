@@ -1,13 +1,8 @@
 import React from "react"
 
 class KanjiShow extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      kanji: {}
-    }
-
-    this.fetchKanji = this.fetchKanji.bind(this)
+  state = {
+    kanji: {}
   }
 
   componentDidMount() {

@@ -1,17 +1,11 @@
 import React from "react"
 
 class KanaShow extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      kana: {}
-    }
-
-    this.fetchKana = this.fetchKana.bind(this)
+  state = {
+    kana: {}
   }
 
   componentDidMount() {
-    console.log(this.props)
     this.fetchKana(this.props.match.params.kana)
   }
 
