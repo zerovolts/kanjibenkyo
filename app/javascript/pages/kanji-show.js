@@ -1,4 +1,7 @@
 import React from "react"
+import {Link} from "react-router-dom"
+
+import ProgressBar from "../components/progress-bar"
 
 class KanjiShow extends React.Component {
   state = {
@@ -24,7 +27,18 @@ class KanjiShow extends React.Component {
 
     return (
       <div className="kana-show">
-        <h1 className="character-header">{kanji.character}</h1>
+        <ProgressBar percent={kanji.rating} />
+        <div className="kana-header">
+          <Link to={`/kanji/見`}>
+            <i className="fas fa-angle-left"></i>
+          </Link>
+          <h1 className="character-header">
+            {kanji.character}
+          </h1>
+          <Link to={`/kanji/見`}>
+            <i className="fas fa-angle-right"></i>
+          </Link>
+        </div>
         <table>
           <tbody>
             <tr>

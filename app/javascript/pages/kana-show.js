@@ -2,6 +2,8 @@ import React from "react"
 import {observer, inject} from "mobx-react"
 import {Link} from "react-router-dom"
 
+import ProgressBar from "../components/progress-bar"
+
 @inject("store") @observer
 class KanaShow extends React.Component {
   state = {
@@ -28,7 +30,6 @@ class KanaShow extends React.Component {
       ? kanaList[0]
       : kanaList[index + 1]
 
-
     this.setState({
       prevKana: prevKana,
       nextKana: nextKana
@@ -51,7 +52,7 @@ class KanaShow extends React.Component {
 
     return (
       <div className="kana-show">
-        {kana.rating}
+        <ProgressBar percent={kana.rating} />
         <div className="kana-header">
           <Link to={`/kana/${prevKana}`} onClick={() => this.fetchKana(prevKana)}>
             <i className="fas fa-angle-left"></i>

@@ -6,8 +6,9 @@
 }
 
 .character-header {
-  margin-top: 2rem;
-  margin-bottom: 1rem;
+  margin: 1rem 0;
+  //margin-top: 2rem;
+  //margin-bottom: 1rem;
   font-size: 5rem;
 }
 
@@ -40,6 +41,7 @@ td:last-of-type {
   align-items: center;
   justify-content: center;
   width: auto;
+  margin: 1rem;
 }
 
 .fa-angle-left, .fa-angle-right {
