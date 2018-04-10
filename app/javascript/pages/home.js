@@ -5,25 +5,11 @@ import CharacterBlock from "../components/character-block"
 
 class Home extends React.Component {
   state = {
-    totalCompleted: 0,
-    totalAverage: 0,
     dailyKanji: {}
   }
 
   componentDidMount() {
-    this.fetchQuizStats()
     this.fetchDailyKanji()
-  }
-
-  fetchQuizStats() {
-    fetch("/api/v1/quiz/kana/stats")
-      .then(res => res.json())
-      .then(data => {
-        this.setState({
-          totalCompleted: data.total_completed,
-          totalAverage: data.total_average
-        })
-      })
   }
 
   fetchDailyKanji() {
@@ -45,8 +31,6 @@ class Home extends React.Component {
             <li><Link to="/kana">List</Link></li>・<li><Link to="/study/kana">Flashcards</Link></li>・<li><Link to="/quiz/kana">Quiz</Link></li>
           </ul>
           <p>Kana are similar to the English alphabet, but they represent syllables rather than consonants and vowels separately. There are 46 basic kana, with two variants for each: Hiragana (ひらがな) for native Japanese words and Katakana (カタカナ) for foreign loanwords. You should be able to read these reasonably well before starting to study Kanji.</p>
-          <h3>Quizzes Completed: {this.state.totalCompleted}</h3>
-          <h3>Average Score: {this.state.totalAverage}%</h3>
         </div>
 
         <div className="home-block">
