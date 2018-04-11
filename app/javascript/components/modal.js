@@ -4,7 +4,9 @@ const Modal = ({visible, hideCallback, children}) => {
   const modal = (
     <div className="modal-container">
       <div className="modal visible">
-        <div onClick={hideCallback}><i className="fas fa-times"></i></div>
+        <div className="hide-modal-button" onClick={hideCallback}>
+          <i className="fas fa-times"></i>
+        </div>
         {children}
       </div>
     </div>

@@ -15,20 +15,22 @@ class LoginModal extends React.Component {
     return (
       <Modal visible={visible} hideCallback={hideCallback}>
         <div className="login-modal">
-          <h1>Login</h1>
-          <fieldset>
-            <span className="text-input-icon">
-              <i className="fas fa-user"></i>
-            </span>
-            <input type="text" placeholder="username"></input>
-            <span className="text-input-icon">
-              <i className="fas fa-lock"></i>
-            </span>
-            <input type="password" placeholder="password"></input>
-          </fieldset>
-          <div className="buttons">
-            <button className="green">Sign Up</button>
-            <button>Sign In</button>
+          <div className="login-modal-header">Login</div>
+          <div className="login-modal-body">
+            <fieldset>
+              <span className="text-input-icon">
+                <i className="fas fa-user"></i>
+              </span>
+              <input type="text" placeholder="username"></input>
+              <span className="text-input-icon">
+                <i className="fas fa-lock"></i>
+              </span>
+              <input type="password" placeholder="password"></input>
+            </fieldset>
+            <div className="login-buttons">
+              <button className="green">Sign Up</button>
+              <button>Sign In</button>
+            </div>
           </div>
         </div>
       </Modal>

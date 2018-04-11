@@ -1,5 +1,5 @@
 .login-modal {
-  padding: 1rem;
+  //padding: 1rem;
   text-align: center;
 }
 
@@ -7,9 +7,23 @@
   margin: 0;
 }
 
+.login-modal-header {
+  font-size: 1.4rem;
+  background: color(light, dark);
+  border-radius: 0.3rem 0.3rem 0 0;
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-modal-body {
+  padding: 1rem;
+}
+
 .login-modal fieldset {
   width: calc(100% - 2rem);
-  margin: 0;
+  margin-bottom: 1rem;
   padding: 0;
   border: none;
   display: grid;
@@ -18,6 +32,6 @@
 }
 
 .login-buttons {
-  margin-top: 2rem;
   display: flex;
+  justify-content: space-around;
 }

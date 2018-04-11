@@ -44,12 +44,24 @@
   }
 }
 
-.modal .fa-times {
+.hide-modal-button {
+  margin: 0;
+  width: 3rem;
+  height: 3rem;
   position: absolute;
-  top: 8px;
-  right: 12px;
-  font-size: 2rem;
+  border-radius: 0 0.3rem 0 0;
+  top: 0;
+  right: 0;
+  font-size: 1.5rem;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hide-modal-button:hover {
+  color: color(red, dark);
+  background: rgba(0, 0, 0, 0.1);
 }
 
 //:not(.modal) {
