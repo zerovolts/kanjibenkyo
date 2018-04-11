@@ -1,0 +1,57 @@
+.modal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+
+  animation: 0.2s fade-in;
+}
+
+@keyframes fade-in {
+  from {
+    background: rgba(0, 0, 0, 0);
+  }
+  to {
+    background: rgba(0, 0, 0, 0.7);
+  }
+}
+
+.modal {
+  position: relative;
+  width: 20rem;
+  //height: 24rem;
+  background: #f0f0ea;
+  border-radius: 0.3rem;
+  box-shadow: 0 4px color(light, dark);
+  animation: 0.2s grow-in;
+}
+
+@keyframes grow-in {
+  from {
+    transform: scale(0.5);
+  }
+  70% {
+    transform: scale(1.1);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.modal .fa-times {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+//:not(.modal) {
+//  filter: blur(2px);
+//}

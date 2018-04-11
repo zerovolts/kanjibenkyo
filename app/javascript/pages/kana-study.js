@@ -3,17 +3,11 @@ import React from "react"
 import Flashcard from "./kana-study/flashcard"
 
 class KanaStudy extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      kana: [],
-      currentIndex: 0,
-      flipped: false,
-      sliding: false
-    }
-
-    this.nextCard = this.nextCard.bind(this)
-    this.flipCard = this.flipCard.bind(this)
+  state = {
+    kana: [],
+    currentIndex: 0,
+    flipped: false,
+    sliding: false
   }
 
   componentDidMount() {
@@ -26,7 +20,7 @@ class KanaStudy extends React.Component {
       })
   }
 
-  nextCard() {
+  nextCard = () => {
     this.setState({
       flipped: false,
       sliding: true
@@ -47,7 +41,7 @@ class KanaStudy extends React.Component {
     }, 1000)
   }
 
-  flipCard() {
+  flipCard = () => {
     this.setState({
       flipped: !this.state.flipped
     })

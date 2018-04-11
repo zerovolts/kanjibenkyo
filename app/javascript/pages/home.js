@@ -30,9 +30,9 @@ class Home extends React.Component {
     return (
       <div className="home">
         <div className="home-block">
-          <h1><span className="shadow-title">かな</span> Kana <span className="shadow-title">カナ</span></h1>
+          <h1><span className="shadow-title">かな・</span>Kana<span className="shadow-title">・カナ</span></h1>
           <ul>
-            <li><Link to="/kana">List</Link></li>・
+            <li><Link to="/list/kana">List</Link></li>・
             <li><Link to="/study/kana">Flashcards</Link></li>・
             <li><Link to="/quiz/kana">Quiz</Link></li>
           </ul>
@@ -40,10 +40,9 @@ class Home extends React.Component {
         </div>
 
         <div className="home-block">
-          <h1><span className="shadow-title">漢字</span> Kanji <span className="shadow-title">漢字</span></h1>
+          <h1><span className="shadow-title">漢字・</span>Kanji<span className="shadow-title">・漢字</span></h1>
           <ul>
-            <li><Link to="/kanji">List</Link></li>・
-            <li className="strike">Quiz</li>
+            <li><Link to="/list/kanji">List</Link></li>
           </ul>
           <p>{kanjiText}</p>
 

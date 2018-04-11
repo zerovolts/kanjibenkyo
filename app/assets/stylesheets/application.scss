@@ -3,7 +3,7 @@
 
 @import "colors";
 @import "button";
-@import "kana-index";
+@import "kana-list";
 @import "header";
 @import "kana-quiz";
 @import "home";
@@ -11,6 +11,9 @@
 @import "kana-show";
 @import "flashcard";
 @import "progress-bar";
+@import "modal";
+@import "text-input";
+@import "login-modal";
 
 body {
   background: #f0f0ea;

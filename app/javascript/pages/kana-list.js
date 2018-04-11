@@ -2,10 +2,10 @@ import React from "react"
 import {observer, inject} from "mobx-react"
 
 import CharacterBlock from "../components/character-block"
-import FilterCheckbox from "./kana-index/filter-checkbox"
+import FilterCheckbox from "./kana-list/filter-checkbox"
 
 @inject("store") @observer
-class KanaIndex extends React.Component {
+class KanaList extends React.Component {
   componentDidMount() {
     store.kanaList.fetchAllKana()
   }
@@ -43,4 +43,4 @@ class KanaIndex extends React.Component {
   }
 }
 
-export default KanaIndex
+export default KanaList

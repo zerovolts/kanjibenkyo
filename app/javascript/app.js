@@ -5,10 +5,10 @@ import * as request from "./utils/request"
 import Header from "./components/header"
 import Home from "./pages/home"
 import KanaQuiz from "./pages/kana-quiz"
-import KanaIndex from "./pages/kana-index"
+import KanaList from "./pages/kana-list"
 import KanaShow from "./pages/kana-show"
 import KanaStudy from "./pages/kana-study"
-import KanjiIndex from "./pages/kanji-index"
+import KanjiList from "./pages/kanji-list"
 import KanjiShow from "./pages/kanji-show"
 import Profile from "./pages/profile"
 
@@ -35,10 +35,10 @@ class App extends React.Component {
           <Header user={this.state.user} />
           <Switch>
             <Route exact path="/" component={Home} />
-            <Route exact path="/kana" component={KanaIndex} />
+            <Route exact path="/list/kana" component={KanaList} />
             <Route path="/kana/:kana" component={KanaShow} />
-            <Route path="/study/:kana" component={KanaStudy} />
-            <Route exact path="/kanji" component={KanjiIndex} />
+            <Route path="/study/kana" component={KanaStudy} />
+            <Route exact path="/list/kanji" component={KanjiList} />
             <Route path="/kanji/:kanji" component={KanjiShow} />
             <Route path="/quiz/kana" component={KanaQuiz} />
             <Route path="/user/:login" component={Profile} />

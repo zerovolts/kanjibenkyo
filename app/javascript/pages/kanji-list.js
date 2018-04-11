@@ -3,7 +3,7 @@ import CharacterBlock from "../components/character-block"
 
 import {fetchKanji} from "../utils/request"
 
-class KanjiIndex extends React.Component {
+class KanjiList extends React.Component {
   state = {
     kanji: []
   }
@@ -32,6 +32,7 @@ class KanjiIndex extends React.Component {
 
       return (
         <CharacterBlock
+          key={kanji.character}
           character={kanji.character}
           url={"/kanji/" + kanji.character} />
       )
@@ -48,4 +49,4 @@ class KanjiIndex extends React.Component {
   }
 }
 
-export default KanjiIndex
+export default KanjiList
