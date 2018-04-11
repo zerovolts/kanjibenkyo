@@ -3,15 +3,15 @@ import React from "react"
 const FilterCheckbox = ({name, checked, toggleFunction}) => {
 
   return (
-    <label className="filter">
-      {name}
+    <React.Fragment>
       <input
+        id={name}
         type="checkbox"
         value={name}
         checked={checked}
-        onChange={toggleFunction}
-      />
-    </label>
+        onChange={toggleFunction} />
+      <label htmlFor={name} className="filter">{name}</label>
+    </React.Fragment>
   )
 }
 

@@ -1,0 +1,28 @@
+input[type=checkbox] {
+  display: none;
+}
+
+input[type=checkbox] + label:before {
+  content: '\00a0';
+  display: inline-block;
+  position: relative;
+  width: 1.4rem;
+  height: 1.4rem;
+  background: white;
+  margin: 0.3rem;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  box-shadow: 0 4px color(light, dark);
+  bottom: 4px;
+
+  transition:
+    bottom 0.2s,
+    box-shadow 0.2s,
+    background 0.2s;
+}
+
+input[type="checkbox"]:checked + label:before {
+  box-shadow: 0 0 color(light, dark);
+  bottom: 0;
+  background: #f80;
+}

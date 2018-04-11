@@ -1,5 +1,5 @@
 @import url(https://fonts.googleapis.com/earlyaccess/notosansjapanese.css);
-@import url(https://fonts.googleapis.com/ubuntu.css);
+@import url(https://fonts.googleapis.com/css?family=Ubuntu);
 
 @import "colors";
 @import "button";
@@ -14,6 +14,7 @@
 @import "modal";
 @import "text-input";
 @import "login-modal";
+@import "checkbox";
 
 body {
   background: #f0f0ea;
