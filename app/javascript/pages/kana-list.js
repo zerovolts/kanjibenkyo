@@ -3,6 +3,7 @@ import {observer, inject} from "mobx-react"
 
 import CharacterBlock from "../components/character-block"
 import FilterCheckbox from "./kana-list/filter-checkbox"
+import Loader from "../components/loader"
 
 @inject("store") @observer
 class KanaList extends React.Component {

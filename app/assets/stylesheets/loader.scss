@@ -1,0 +1,25 @@
+.loading-screen {
+  height: 100%;
+  width: 100%;
+  background: color(light, dark);
+  border-radius: 0.3rem;
+  font-size: 3rem;
+  color: color(dark, dark);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.spinner {
+  animation: 2s spinning infinite;
+}
+
+@keyframes spinning {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
