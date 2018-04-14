@@ -17,33 +17,34 @@ class KanjiList extends React.Component {
   }
 
   render() {
-    const kanjiCards = this.state.kanji.map(kanji => {
-      const kunyomi = kanji.kunyomi.map(reading =>
-        <div className="kana-alternative">{reading}</div>
-      )
+    const {jlpt, kanji} = this.state
 
-      const onyomi = kanji.onyomi.map(reading =>
-        <div className="kana-alternative">{reading}</div>
-      )
+    const kanjiGroups = [5, 4, 3, 2, 1].map(jlpt => kanji.filter(kanji => kanji.jlpt == jlpt))
 
-      const meaning = kanji.meaning.map(definition =>
-        <div className="kana-alternative">{definition}</div>
-      )
+    const kanjiCards = kanjiGroups.map(kanjiGroup => {
+      const kanjiGroupCards = kanjiGroup.map(kanji => {
+        return (
+          <CharacterBlock
+            key={kanji.character}
+            character={kanji.character}
+            url={"/kanji/" + kanji.character} />
+        )
+      })
 
       return (
-        <CharacterBlock
-          key={kanji.character}
-          character={kanji.character}
-          url={"/kanji/" + kanji.character} />
+        <React.Fragment>
+          <div className="group-header"><hr />N{kanjiGroup[0] ? kanjiGroup[0].jlpt : "?"}<hr /></div>
+          <div className="kana-list">
+            {kanjiGroupCards}
+          </div>
+        </React.Fragment>
       )
     })
 
     return (
       <div>
         <div className="kana-label">Kanji: {this.state.kanji.length}</div>
-        <div className="kana-list">
-          {kanjiCards}
-        </div>
+        {kanjiCards}
       </div>
     )
   }

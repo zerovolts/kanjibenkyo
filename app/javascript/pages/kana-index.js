@@ -7,11 +7,9 @@ const KanaIndex = () => {
   return (
     <div className="home-block">
       <h1><span className="shadow-title">かな・</span>Kana<span className="shadow-title">・カナ</span></h1>
-      <ul>
-        <li><Link to="/list/kana">List</Link></li>・
-        <li><Link to="/study/kana">Flashcards</Link></li>・
-        <li><Link to="/quiz/kana">Quiz</Link></li>
-      </ul>
+        <Link to="/list/kana"><button>List</button></Link>
+        <Link to="/study/kana"><button>Flashcards</button></Link>
+        <Link to="/quiz/kana"><button>Quiz</button></Link>
       <p>{kanaText}</p>
     </div>
   )

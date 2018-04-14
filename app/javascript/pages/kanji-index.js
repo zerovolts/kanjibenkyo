@@ -7,9 +7,7 @@ const KanjiIndex = () => {
   return (
     <div className="home-block">
       <h1><span className="shadow-title">漢字・</span>Kanji<span className="shadow-title">・漢字</span></h1>
-      <ul>
-        <li><Link to="/list/kanji">List</Link></li>
-      </ul>
+      <Link to="/list/kanji"><button>List</button></Link>
       <p>{kanjiText}</p>
     </div>
   )

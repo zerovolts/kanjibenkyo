@@ -1,6 +1,5 @@
 button {
-  //z-index: -1;
-  font-family: Ubuntu;
+  font-family: $main-font, $japanese-font;
   color: color(light, light);
   border: none;
   background: color(orange);

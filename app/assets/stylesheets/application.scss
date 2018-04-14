@@ -1,5 +1,8 @@
-@import url(https://fonts.googleapis.com/earlyaccess/notosansjapanese.css);
-@import url(https://fonts.googleapis.com/css?family=Ubuntu);
+@import url(https://fonts.googleapis.com/css?family=Varela+Round);
+@import url(https://fonts.googleapis.com/earlyaccess/roundedmplus1c.css);
+
+$main-font: "Varela Round";
+$japanese-font: "Rounded Mplus 1c";
 
 @import "colors";
 @import "button";
@@ -24,7 +27,7 @@ body {
   color: #34495e;
   padding: 0;
   margin: 0;
-  font-family: "Ubuntu", "Noto Sans Japanese";
+  font-family: $main-font, $japanese-font;
 }
 
 p {
@@ -34,6 +37,10 @@ p {
 a {
   color: #f60;
   text-decoration: none;
+}
+
+h1, h2, h3, h4, h5 {
+  font-weight: normal;
 }
 
 h2 {

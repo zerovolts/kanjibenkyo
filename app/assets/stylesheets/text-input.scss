@@ -3,7 +3,7 @@ input[type=text], input[type=password] {
   padding: 0.6rem 0.4rem 0.4rem 0.4rem;
   //height: 2rem;
   font-size: 1rem;
-  font-family: Ubuntu;
+  font-family: $main-font;
   border-radius: 0.3rem;
   border: none;
   box-shadow: inset 0px 4px color(light, dark);

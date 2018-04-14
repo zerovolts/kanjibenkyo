@@ -1,23 +1,49 @@
 .kana-list {
-  margin: 1rem;
+  margin: 1rem 2rem;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: left;
 }
 
 .character-block {
   background: color(light, light);
   color: color(dark);
+  border-top: 5px solid rgba(0, 0, 0, 0);
   border-radius: 0.3rem;
-  box-shadow: 0 4px color(light, dark);
-  width: 6rem;
-  margin: 1rem;
-  padding: 0.5rem;
+  //box-shadow: 0 4px color(light, dark);
+  width: 2rem;
+  margin: 0.4rem;
+  padding: 8px;
+  padding-top: 3px; //5 pixels less to account for border-top
+}
+
+.locked {
+  background: color(light, dark);
+
+  h2 {
+    color: color(light);
+  }
+}
+
+.group-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+hr {
+  display: inline-block;
+  border: 1px solid color(light, dark);
+  width: 40%;
+  height: 0;
+  margin: 0 2rem;
 }
 
 .character-title {
   text-align: center;
-  font-size: 2rem;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  margin: 0;
 }
 
 .kana-alternatives {
