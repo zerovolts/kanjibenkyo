@@ -1,15 +1,19 @@
 import React from "react"
 
-const QuizProgressBar = ({correctFlags}) => {
-  const progressBlocks = correctFlags.map((flag, i) => {
-    let color = ""
-    if (flag === true) {
-      color = " correct"
-    } else if (flag === false) {
-      color = " incorrect"
-    }
+import {trueFalseNull} from "../../utils/helpers"
 
-    return <div key={i} className={"progress-block" + color}></div>
+const QuizProgressBar = ({currentId, correctFlags, selectQuestion}) => {
+  const progressBlocks = correctFlags.map((flag, i) => {
+    const color = trueFalseNull(flag, "correct", "incorrect", "")
+    const selected = currentId == i ? "selected" : ""
+
+    return (
+      <div
+        key={i}
+        onClick={flag != null ? () => selectQuestion(i) : () => {}}
+        className={`progress-block ${color} ${selected}`}>
+      </div>
+    )
   })
 
   return (

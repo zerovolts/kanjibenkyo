@@ -4,34 +4,11 @@ class KanaQuiz {
   @observable id = null
   @observable user_id = null
   @observable questions = []
-  @observable questionIndex = 0
   @observable correctFlags = []
-  @observable answers = []
+  answers = []
 
-  constructor() {
-    this.create = this.create.bind(this)
-    this.submitAnswer = this.submitAnswer.bind(this)
-    this.submitQuiz = this.submitQuiz.bind(this)
-  }
-
-  @computed get currentQuestion() {
-    return this.questions[this.questionIndex]
-  }
-
-  @computed get kana() {
-    return this.currentQuestion.question[this.currentQuestion.question_type]
-  }
-
-  @computed get choices() {
-    return this.currentQuestion.choices.slice()
-  }
-
-  @computed get complete() {
-    return this.questionIndex >= this.questions.length
-  }
-
-  create() {
-    fetch("/api/v1/quiz/kana")
+  newQuiz = () => {
+    return fetch("/api/v1/quiz/kana")
       .then(res => res.json())
       .then(data => {
         this.answers = []
@@ -43,25 +20,30 @@ class KanaQuiz {
       })
   }
 
-  submitAnswer(kana) {
-    // set question object answer
-    const answerType = this.currentQuestion.answer_type
-    const isCorrect = kana === this.currentQuestion.question[answerType]
-    this.correctFlags[this.questionIndex] = isCorrect
-
-    this.answers.push({
-      id: this.currentQuestion.id,
-      choice: kana
-    })
-
-    this.questionIndex += 1
-
-    if (this.questionIndex >= this.correctFlags.length) {
-      this.submitQuiz()
+  getQuestion = (questionId) => {
+    return {
+      question: this.questions[questionId],
+      answer: (questionId >= this.answers.length) ? null : this.answers[questionId],
+      correctAnswer: this.correctAnswer(questionId)
     }
   }
 
-  submitQuiz() {
+  correctAnswer = (questionId) => {
+    const question = this.questions[questionId]
+    return question.question[question.answer_type]
+  }
+
+  submitAnswer = (questionId, answer) => {
+    const isCorrect = answer === this.correctAnswer(questionId)
+    this.correctFlags[questionId] = isCorrect
+
+    this.answers.push({
+      id: this.getQuestion(questionId).question.id,
+      choice: answer
+    })
+  }
+
+  submitQuiz = () => {
     const payload = {
       id: this.id,
       user_id: this.user_id,
@@ -73,10 +55,7 @@ class KanaQuiz {
       method: "post",
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify(payload)
-    }).then(res => res.json())
-      .then(data => {
-        //console.log(data)
-      })
+    })
   }
 }
 

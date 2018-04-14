@@ -3,6 +3,22 @@
   height: 2rem;
   margin: 1rem;
   justify-content: center;
+
+  div {
+    border: 2px solid rgba(0, 0, 0, 0);
+  }
+
+  .correct {
+    background: color(green);
+  }
+
+  .incorrect {
+    background: color(red);
+  }
+
+  .selected {
+    border-color: color(dark, dark);
+  }
 }
 
 .progress-block {
@@ -11,12 +27,4 @@
   height: 1.4rem;
   border-radius: 0.3rem;
   margin: 0.2rem;
-}
-
-.correct {
-  background: color(green);
-}
-
-.incorrect {
-  background: color(red);
 }

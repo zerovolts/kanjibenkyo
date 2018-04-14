@@ -34,3 +34,12 @@ button.green {
 button.green:active {
   box-shadow: 0px 0px color(green, dark);
 }
+
+button.yellow {
+  background: color(yellow);
+  box-shadow: 0px 4px color(yellow, dark);
+}
+
+button.yellow:active {
+  box-shadow: 0px 0px color(yellow, dark);
+}

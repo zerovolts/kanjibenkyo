@@ -3,6 +3,12 @@
   margin: 1rem;
 }
 
+.kana-quiz {
+  outline: 0;
+  height: calc(100vh - 5rem);
+  padding: 1rem;
+}
+
 .quiz-start-button {
   font-size: 1.3rem;
   margin-top: 6rem;
@@ -11,9 +17,8 @@
 
 .quiz-question {
   line-height: 2.5rem;
-  font-size: 2.5rem;
-  font-weight: bold;
-  margin: 2rem;
+  font-size: 4rem;
+  margin: 3rem;
 }
 
 .quiz-choice-container {
@@ -39,4 +44,27 @@
   box-shadow: 0px 0px #f60;
   bottom: 0px;
   transition: bottom 0s, box-shadow 0s;
+}
+
+.quiz-choice-incorrect {
+  background: color(red);
+  box-shadow: 0 4px color(red, dark);
+}
+
+.quiz-choice-incorrect:active {
+  box-shadow: 0 0 color(red, dark);
+}
+
+.quiz-choice-correct {
+  background: color(green);
+  box-shadow: 0 4px color(green, dark);
+}
+
+.quiz-choice-correct:active {
+  box-shadow: 0 0 color(green, dark);
+}
+
+.finish-section {
+  display: flex;
+  justify-content: center;
 }
