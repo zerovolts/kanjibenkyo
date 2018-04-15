@@ -2,14 +2,14 @@ class KanaQuiz < ApplicationRecord
   belongs_to :user
   has_many :kana_quiz_questions
 
-  def self.begin(user, total_questions=10, options={})
+  def self.begin(user, total_questions=10)
     quiz = KanaQuiz.create(
       user: user,
       total_questions: total_questions
     )
 
     questions = Kana
-      .where(dakuten: false, handakuten: false, youon: nil, obsolete: false)
+      .where(obsolete: false)
       .order("RANDOM()")
       .limit(total_questions)
       .map {|question| KanaQuizQuestion.new_question(quiz, question, 4)}

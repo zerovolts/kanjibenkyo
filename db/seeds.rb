@@ -1,23 +1,4 @@
-# def create_kana(hiragana, katakana, romaji, consonant, vowel, dakuten, handakuten, youon)
-#   Kana.create({
-#     hiragana: hiragana,
-#     katakana: katakana,
-#     romaji: romaji,
-#     consonant: consonant,
-#     vowel: vowel,
-#     dakuten: dakuten,
-#     handakuten: handakuten,
-#     youon: youon
-#   })
-# end
-#
-# def create_normal(hiragana, katakana, romaji, consonant, vowel)
-#   create_kana(hiragana, katakana, romaji, consonant, vowel, false, false, nil)
-# end
-#
-# create_normal("あ", "ア", "a", nil, "a")
-
-normal_kana = [
+kana = [
   %w(あ ア a nil a),
   %w(い イ i nil i),
   %w(う ウ u nil u),
@@ -71,175 +52,21 @@ normal_kana = [
   %w(ろ ロ ro r o),
 
   %w(わ ワ wa w a),
+  %w(ゐ ヰ wi w i),
+  %w(ゑ ヱ we w e),
   %w(を ヲ wo w o),
 
   %w(ん ン n n nil)
 ]
 
-dakuten_kana = [
-  %w(が ガ ga g a),
-  %w(ぎ ギ gi g i),
-  %w(ぐ グ gu g u),
-  %w(げ ゲ ge g e),
-  %w(ご ゴ go g o),
-
-  %w(ざ ザ za z a),
-  %w(じ ジ ji z i),
-  %w(ず ズ zu z u),
-  %w(ぜ ゼ ze z e),
-  %w(ぞ ゾ zo z o),
-
-  %w(だ ダ da d a),
-  %w(ぢ ヂ ji d i),
-  %w(づ ヅ zu d u),
-  %w(で デ de d e),
-  %w(ど ド do d o),
-
-  %w(ば バ ba b a),
-  %w(び ビ bi b i),
-  %w(ぶ ブ bu b u),
-  %w(べ ベ be b e),
-  %w(ぼ ボ bo b o)
-]
-
-handakuten_kana = [
-  %w(ぱ パ pa p a),
-  %w(ぴ ピ pi p a),
-  %w(ぷ プ pu p a),
-  %w(ぺ ペ pe p a),
-  %w(ぽ ポ po p a)
-]
-
-youon_kana = [
-  %w(きゃ キャ kya ky a や),
-  %w(きゅ キュ kyu ky u ゆ),
-  %w(きょ キョ kyo ky o よ),
-
-  %w(しゃ シャ sha sh a や),
-  %w(しゅ シュ shu sh u ゆ),
-  %w(しょ ショ sho sh o よ),
-
-  %w(ちゃ チャ cha ch a や),
-  %w(ちゅ チュ chu ch u ゆ),
-  %w(ちょ チョ cho ch o よ),
-
-  %w(にゃ ニャ nya ny a や),
-  %w(にゅ ニュ nyu ny u ゆ),
-  %w(にょ ニョ nyo ny o よ),
-
-  %w(ひゃ ヒャ hya hy a や),
-  %w(ひゅ ヒュ fyu hy u ゆ),
-  %w(ひょ ヒョ hyo hy o よ),
-
-  %w(みゃ ミャ mya my a や),
-  %w(みゅ ミュ myu my u ゆ),
-  %w(みょ ミョ myo my o よ),
-
-  %w(りゃ リャ rya ry a や),
-  %w(りゅ リュ ryu ry u ゆ),
-  %w(りょ リョ ryo ry o よ)
-]
-
-dakuten_youon_kana = [
-  %w(ぎゃ ギャ gya gy a や),
-  %w(ぎゅ ギュ gyu gy u ゆ),
-  %w(ぎょ ギョ gyo gy o よ),
-
-  %w(じゃ ジャ ja j a や),
-  %w(じゅ ジュ ju j u ゆ),
-  %w(じょ ジョ jo j o よ),
-
-  %w(びゃ ビャ bya by a や),
-  %w(びゅ ビュ byu by u ゆ),
-  %w(びょ ビョ byo by o よ)
-]
-
-handakuten_youon_kana = [
-  %w(ぴゃ ピャ pya py a や),
-  %w(ぴゅ ピュ pyu py u ゆ),
-  %w(ぴょ ピョ pyo py o よ),
-]
-
-obsolete_kana = [
-  %w(ゐ ヰ wi w i),
-  %w(ゑ ヱ we w e)
-]
-
-normal_kana.each do |group|
+kana.each do |group|
   Kana.create({
     hiragana: group[0],
     katakana: group[1],
     romaji: group[2],
     consonant: group[3] == "nil" ? nil : group[3],
-    vowel: group[4] == "nil" ? nil : group[4]
-  })
-end
-
-dakuten_kana.each do |group|
-  Kana.create({
-    hiragana: group[0],
-    katakana: group[1],
-    romaji: group[2],
-    consonant: group[3],
-    vowel: group[4],
-    dakuten: true
-  })
-end
-
-handakuten_kana.each do |group|
-  Kana.create({
-    hiragana: group[0],
-    katakana: group[1],
-    romaji: group[2],
-    consonant: group[3],
-    vowel: group[4],
-    handakuten: true
-  })
-end
-
-youon_kana.each do |group|
-  Kana.create({
-    hiragana: group[0],
-    katakana: group[1],
-    romaji: group[2],
-    consonant: group[3],
-    vowel: group[4],
-    youon: group[5]
-  })
-end
-
-dakuten_youon_kana.each do |group|
-  Kana.create({
-    hiragana: group[0],
-    katakana: group[1],
-    romaji: group[2],
-    consonant: group[3],
-    vowel: group[4],
-    youon: group[5],
-    dakuten: true
-  })
-end
-
-handakuten_youon_kana.each do |group|
-  Kana.create({
-    hiragana: group[0],
-    katakana: group[1],
-    romaji: group[2],
-    consonant: group[3],
-    vowel: group[4],
-    youon: group[5],
-    handakuten: true
-  })
-end
-
-obsolete_kana.each do |group|
-  Kana.create({
-    hiragana: group[0],
-    katakana: group[1],
-    romaji: group[2],
-    consonant: group[3],
-    vowel: group[4],
-    obsolete: true
+    vowel: group[4] == "nil" ? nil : group[4],
+    obsolete: (group[0] == "ゐ" || group[0] == "ゑ") ? true : false
   })
 end
 
