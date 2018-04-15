@@ -5,7 +5,6 @@ class Api::V1::KanaStudyController < ApplicationController
     # end.first(6)
 
     kana = Kana
-      .where(youon: nil, dakuten: false, handakuten: false)
       .order("RANDOM()")
       .limit(6)
 

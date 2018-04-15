@@ -1,34 +1,26 @@
 import {observable, computed} from "mobx"
 
+const sortByRating = (list) => list.sort((a, b) => b.rating - a.rating)
+
+//wrymhntsk
+const sortByGrid = (list) => {
+  const kanaList = "んわらやまはなたさかあ　ゐり　みひにちしきい　　るゆむふぬつすくう　ゑれ　めへねてせけえ　をろよもほのとそこお"
+  // const n = list.find(kana => kana.consonant == "n" && kana.vowel == null)
+  // const aGroup = list.filter(kana => kana.vowel == "a").sort()
+  // const iGroup = list.filter(kana => kana.vowel == "i")
+  // const uGroup = list.filter(kana => kana.vowel == "u")
+  // const eGroup = list.filter(kana => kana.vowel == "e")
+  // const oGroup = list.filter(kana => kana.vowel == "o")
+
+  return kanaList.split("").map(kana => list.find(entry => entry.hiragana == kana))
+}
+
 class KanaList {
   @observable all = []
-  @observable sortFunction = list => list.sort((a, b) => b.rating - a.rating)
-  @observable filters = {
-    standard: true,
-    dakuten: false,
-    handakuten: false,
-    youon: false,
-    obsolete: false
-  }
+  @observable sortFunction = sortByGrid
 
-  constructor() {
-    this.toggleFilter = this.toggleFilter.bind(this)
-  }
-
-  @computed get filtered() {
-    const filteredKana = this.all.filter(kana => {
-      const hideDakuten = kana.dakuten && this.filters.dakuten
-      const hideHandakuten = kana.handakuten && this.filters.handakuten
-      const hideYouon = kana.youon && this.filters.youon
-      const hideObsolete = kana.obsolete && this.filters.obsolete
-      const hideStandard = !kana.dakuten && !kana.handakuten && !kana.youon && !kana.obsolete && this.filters.standard
-
-      return (hideStandard || hideDakuten || hideHandakuten || hideYouon || hideObsolete)
-    })
-
-    const sortedKana = this.sortFunction(filteredKana)
-
-    return sortedKana
+  @computed get sorted() {
+    return this.sortFunction(this.all)
   }
 
   fetchAllKana(callback) {
@@ -38,10 +30,6 @@ class KanaList {
         this.all = data
         callback ? callback() : null
       })
-  }
-
-  toggleFilter(event) {
-    this.filters[event.target.value] = event.target.checked
   }
 }
 

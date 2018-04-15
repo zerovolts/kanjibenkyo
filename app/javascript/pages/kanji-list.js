@@ -34,7 +34,7 @@ class KanjiList extends React.Component {
       return (
         <React.Fragment>
           <div className="group-header"><hr />N{kanjiGroup[0] ? kanjiGroup[0].jlpt : "?"}<hr /></div>
-          <div className="kana-list">
+          <div className="kanji-list">
             {kanjiGroupCards}
           </div>
         </React.Fragment>

@@ -1,4 +1,33 @@
 .kana-list {
+  width: 0;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(11, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  justify-content: center;
+}
+
+.kana-list-header {
+  margin: 1.5rem auto;
+  margin-top: 3rem;
+  width: 41rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.blank-block {
+  border-radius: 0.3rem;
+  background: color(light, dark);
+  margin: 0.4rem;
+}
+
+.language-buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.kanji-list {
   margin: 1rem 2rem;
   display: flex;
   flex-wrap: wrap;
@@ -75,6 +104,6 @@ hr {
 
 .kana-label {
   text-align: center;
-  margin: 1rem;
+  //margin: 1rem;
   font-size: 2rem;
 }
