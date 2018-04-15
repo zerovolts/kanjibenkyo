@@ -13,12 +13,12 @@ class KanaList extends React.Component {
   render() {
     const kanaList = store.kanaList
 
-    const kanaCards = kanaList.all.map(kana =>
-      <CharacterBlock
+    const kanaCards = kanaList.sorted.map(kana =>
+      kana ? <CharacterBlock
         key={kana.hiragana}
         character={kana.hiragana}
         rating={kana.rating}
-        url={"/kana/" + kana.hiragana} />
+        url={"/kana/" + kana.hiragana} /> : <div className="blank-block"/>
     )
 
     return (

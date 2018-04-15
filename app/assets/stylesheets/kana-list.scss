@@ -1,4 +1,19 @@
 .kana-list {
+  width: 0;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(11, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  justify-content: center;
+}
+
+.blank-block {
+  border-radius: 0.3rem;
+  background: color(light, dark);
+  margin: 0.4rem;
+}
+
+.kanji-list {
   margin: 1rem 2rem;
   display: flex;
   flex-wrap: wrap;
