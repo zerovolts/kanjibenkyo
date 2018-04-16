@@ -25,6 +25,29 @@ class KanjiShow extends React.Component {
   render() {
     const kanji = this.state.kanji
 
+    const kunyomi = kanji.kunyomi ? kanji.kunyomi.map((word, i) => {
+      const splitWord = word.split(".")
+      const root = splitWord[0]
+      const okurigana = <span className="okurigana">{splitWord[1]}</span>
+      const block = root[0] == "-"
+        ? <div className="kunyomi kunyomi-uncommon">{root.slice(1, root.length)}{okurigana}</div>
+        : <div className="kunyomi">{root}{okurigana}</div>
+
+      return (
+        <div key={word + i}>
+          {block}
+        </div>
+      )
+    }) : null
+
+    const onyomi = kanji.onyomi ? kanji.onyomi.map((word, i) => {
+      return (
+        <div key={word + i} className="onyomi">
+          {word}
+        </div>
+      )
+    }) : null
+
     return (
       <div className="kana-show">
         <ProgressBar percent={kanji.rating} />
@@ -43,11 +66,11 @@ class KanjiShow extends React.Component {
           <tbody>
             <tr>
               <td>kun'yomi</td>
-              <td>{kanji.kunyomi ? kanji.kunyomi.join(", ") : null}</td>
+              <td className="yomi-section">{kunyomi}</td>
             </tr>
             <tr>
               <td>on'yomi</td>
-              <td>{kanji.onyomi ? kanji.onyomi.join(", ") : null}</td>
+              <td className="yomi-section">{onyomi}</td>
               </tr>
             <tr>
               <td>meaning</td>
@@ -59,5 +82,7 @@ class KanjiShow extends React.Component {
     )
   }
 }
+
+// {kanji.kunyomi ? kanji.kunyomi.join(", ") : null}
 
 export default KanjiShow
