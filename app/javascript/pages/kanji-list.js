@@ -11,11 +11,11 @@ class KanjiList extends React.Component {
   }
 
   render() {
-    const { kanji } = this.props
+    const { kanjiList } = this.props
 
-    const kanjiGroups = [5, 4, 3, 2, 1].map(jlpt => kanji.filter(kanji => kanji.jlpt == jlpt))
+    const kanjiGroups = [5, 4, 3, 2, 1].map(jlpt => kanjiList.filter(kanji => kanji.jlpt == jlpt))
 
-    const kanjiCards = kanjiGroups.map(kanjiGroup => {
+    const kanjiCards = kanjiGroups.map((kanjiGroup, i) => {
       const kanjiGroupCards = kanjiGroup.map(kanji => {
         return (
           <CharacterBlock
@@ -26,8 +26,8 @@ class KanjiList extends React.Component {
       })
 
       return (
-        <React.Fragment>
-          <div >{
+        <div key={i}>
+          <div>{
             kanjiGroup[0]
               ? <div className="group-header"><hr />{"N" + kanjiGroup[0].jlpt} ({kanjiGroup.length})<hr /></div>
               : ""}
@@ -35,13 +35,13 @@ class KanjiList extends React.Component {
           <div className="kanji-list">
             {kanjiGroupCards}
           </div>
-        </React.Fragment>
+        </div>
       )
     })
 
     return (
       <div>
-        <div className="kanji-label">Kanji: {kanji.length}</div>
+        <div className="kanji-label">Kanji: {kanjiList.length}</div>
         {kanjiCards}
       </div>
     )
@@ -49,7 +49,7 @@ class KanjiList extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  kanji: state.kanjiList.kanji
+  kanjiList: state.kanjiList.kanji
 })
 
 export default connect(mapStateToProps)(KanjiList)
