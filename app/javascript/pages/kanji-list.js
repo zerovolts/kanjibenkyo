@@ -1,23 +1,17 @@
 import React from "react"
 import CharacterBlock from "../components/character-block"
+import { connect } from "react-redux"
 
-import {fetchKanji} from "../utils/request"
+import { fetchKanjiIfNeeded } from "../actions"
 
 class KanjiList extends React.Component {
-  state = {
-    kanji: []
-  }
-
   componentDidMount() {
-    fetchKanji().then(data => {
-      this.setState({
-        kanji: data
-      })
-    })
+    const { dispatch } = this.props
+    dispatch(fetchKanjiIfNeeded())
   }
 
   render() {
-    const {jlpt, kanji} = this.state
+    const { kanji } = this.props
 
     const kanjiGroups = [5, 4, 3, 2, 1].map(jlpt => kanji.filter(kanji => kanji.jlpt == jlpt))
 
@@ -47,11 +41,15 @@ class KanjiList extends React.Component {
 
     return (
       <div>
-        <div className="kanji-label">Kanji: {this.state.kanji.length}</div>
+        <div className="kanji-label">Kanji: {kanji.length}</div>
         {kanjiCards}
       </div>
     )
   }
 }
 
-export default KanjiList
+const mapStateToProps = state => ({
+  kanji: state.kanjiList.kanji
+})
+
+export default connect(mapStateToProps)(KanjiList)

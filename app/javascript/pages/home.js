@@ -1,28 +1,10 @@
 import React from "react"
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom"
 
 import Torii from "./home/torii"
 import CharacterBlock from "../components/character-block"
 
 class Home extends React.Component {
-  state = {
-    dailyKanji: {}
-  }
-
-  componentDidMount() {
-    this.fetchDailyKanji()
-  }
-
-  fetchDailyKanji() {
-    fetch("/api/v1/kanji/daily")
-      .then(res => res.json())
-      .then(data => {
-        this.setState({
-          dailyKanji: data
-        })
-      })
-  }
-
   render() {
     return (
       <div className="home">
@@ -45,12 +27,5 @@ class Home extends React.Component {
     )
   }
 }
-
-// <div className="daily-kanji">
-//   <CharacterBlock
-//     character={this.state.dailyKanji.character}
-//     url={"/kanji/" + this.state.dailyKanji.character} />
-//   Kanji of the Day
-// </div>
 
 export default Home
