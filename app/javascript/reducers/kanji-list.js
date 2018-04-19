@@ -1,14 +1,21 @@
-const kanjiList = (state = {
+import {
+  KANJI_REQUEST,
+  KANJI_RECEIVE
+} from "../actions"
+
+const initialState = {
   isFetching: false,
   kanji: []
-}, action) => {
+}
+
+const kanjiList = (state = initialState, action) => {
   switch (action.type) {
-    case "REQUEST_KANJI":
+    case KANJI_REQUEST:
       return {
         ...state,
         isFetching: true
       }
-    case "RECEIVE_KANJI":
+    case KANJI_RECEIVE:
       return {
         ...state,
         isFetching: false,

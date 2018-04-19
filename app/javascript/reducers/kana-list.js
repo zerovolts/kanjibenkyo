@@ -1,3 +1,8 @@
+import {
+  KANA_REQUEST,
+  KANA_RECEIVE
+} from "../actions"
+
 const sortByGrid = list => {
   const kanaGrid = [
     "んわらやまはなたさかあ",
@@ -10,18 +15,20 @@ const sortByGrid = list => {
   return kanaGrid.map(kana => list.find(position => position.hiragana == kana))
 }
 
-const kanaList = (state = {
+const initialState = {
   isFetching: false,
   kana: [],
   kanaGrid: []
-}, action) => {
+}
+
+const kanaList = (state = initialState, action) => {
   switch (action.type) {
-    case "REQUEST_KANA":
+    case KANA_REQUEST:
       return {
         ...state,
         isFetching: true
       }
-    case "RECEIVE_KANA":
+    case KANA_RECEIVE:
       return {
         ...state,
         isFetching: false,

@@ -1,7 +1,7 @@
 import React from "react"
 import { connect } from "react-redux"
 
-import { fetchKanaIfNeeded } from "../actions"
+import { fetchKanaIfNeeded, fetchKanaQuiz } from "../actions"
 import CharacterBlock from "../components/character-block"
 import RadioButton from "../components/radio-button"
 

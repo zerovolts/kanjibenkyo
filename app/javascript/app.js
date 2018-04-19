@@ -33,7 +33,7 @@ class App extends React.Component {
   render() {
     return (
       <BrowserRouter>
-        <div className="app">
+        <React.Fragment>
           <Header user={this.state.user} />
           <Switch>
             <Route exact path="/" component={Home} />
@@ -47,7 +47,7 @@ class App extends React.Component {
             <Route path="/quiz/kana" component={KanaQuiz} />
             <Route path="/user/:login" component={Profile} />
           </Switch>
-        </div>
+        </React.Fragment>
       </BrowserRouter>
     )
   }
