@@ -30,7 +30,7 @@ class KanaQuiz < ApplicationRecord
 
     total_correct = checked_answers.select {|answer| answer.is_correct}.length
     self.update(total_correct: total_correct, is_complete: true)
-
+    
     checked_answers
   end
 

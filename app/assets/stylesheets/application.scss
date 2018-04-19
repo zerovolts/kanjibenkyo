@@ -32,6 +32,10 @@ body {
   font-family: $main-font, $japanese-font;
 }
 
+#app {
+  min-height: 100vh;
+}
+
 p {
   line-height: 1.6rem;
 }
