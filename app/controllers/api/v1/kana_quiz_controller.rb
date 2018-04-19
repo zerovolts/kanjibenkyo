@@ -23,7 +23,7 @@ class Api::V1::KanaQuizController < ApplicationController
 
     total_questions = completed.reduce(0) {|acc, quiz| acc + quiz.total_questions}
     total_correct = completed.reduce(0) {|acc, quiz| acc + quiz.total_correct}
-    average = ((total_correct.to_f / total_questions) * 100).floor
+    average = (total_questions != 0) ? ((total_correct.to_f / total_questions) * 100).floor : 0
 
     render json: {
       total_completed: completed.length,
