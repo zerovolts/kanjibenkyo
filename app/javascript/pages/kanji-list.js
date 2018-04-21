@@ -13,10 +13,11 @@ class KanjiList extends React.Component {
   render() {
     const { kanjiList } = this.props
 
-    const kanjiGroups = [5, 4, 3, 2, 1].map(jlpt => kanjiList.filter(kanji => kanji.jlpt == jlpt))
+    const kanjiGroups = [1, 2, 3, 4, 5, 6, null].map(grade => kanjiList.filter(kanji => kanji.grade == grade))
 
     const kanjiCards = kanjiGroups.map((kanjiGroup, i) => {
       const kanjiGroupCards = kanjiGroup.map(kanji => {
+        console.log(kanji)
         return (
           <CharacterBlock
             key={kanji.character}
@@ -29,7 +30,7 @@ class KanjiList extends React.Component {
         <div key={i}>
           <div>{
             kanjiGroup[0]
-              ? <div className="group-header"><hr />{"N" + kanjiGroup[0].jlpt} ({kanjiGroup.length})<hr /></div>
+              ? <div className="group-header"><hr />{"Grade " + (kanjiGroup[0].grade || "S")} ({kanjiGroup.length})<hr /></div>
               : ""}
           </div>
           <div className="kanji-list">

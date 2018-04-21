@@ -72,30 +72,22 @@ end
 
 #---------------------#
 
-def create_kanji(jlpt_level, kanji)
+def create_kanji(kanji)
   kanji.each do |character|
     Kanji.create({
-      character: character["character"],
+      character: character["kanji"][0],
       onyomi: character["onyomi"],
       kunyomi: character["kunyomi"],
-      meaning: character["meaning"],
-      jlpt: jlpt_level
+      meaning: [character["meaning"]],
+      grade: character["grade"] == "S" ? nil : character["grade"],
+      radical: character["radical"],
+      strokes: character["strokes"]
     })
   end
 end
 
 require "json"
-n5 = JSON.parse(File.read("db/data/kanji/n5.json"))
-n4 = JSON.parse(File.read("db/data/kanji/n4.json"))
-n3 = JSON.parse(File.read("db/data/kanji/n3.json"))
-n2 = JSON.parse(File.read("db/data/kanji/n2.json"))
-n1 = JSON.parse(File.read("db/data/kanji/n1.json"))
-
-create_kanji(5, n5)
-create_kanji(4, n4)
-create_kanji(3, n3)
-create_kanji(2, n2)
-create_kanji(1, n1)
+create_kanji(JSON.parse(File.read("db/data/kanji.json")))
 
 #---------------------#
 

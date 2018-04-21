@@ -27,11 +27,11 @@ class KanjiShow extends React.Component {
 
     const kunyomi = kanji.kunyomi
       ? kanji.kunyomi.filter(a => a.length > 0).sort((a, b) => a[0] === "-" ? 1 : 0).map((word, i) => {
-          const splitWord = word.split(".")
+          const splitWord = word.split("-")
           const root = splitWord[0]
           const okurigana = <span className="okurigana">{splitWord[1]}</span>
-          const block = root[0] == "-"
-            ? <div className="kunyomi kunyomi-uncommon">{root.slice(1, root.length)}{okurigana}</div>
+          const block = root[0] == "（"
+            ? <div className="kunyomi kunyomi-uncommon">{root.slice(1, root.length - 1)}{okurigana}</div>
             : <div className="kunyomi">{root}{okurigana}</div>
 
           return (
@@ -43,13 +43,13 @@ class KanjiShow extends React.Component {
       : null
 
     const onyomi = kanji.onyomi ? kanji.onyomi.map((word, i) => {
-      if (word.includes(".")) {
-        return null
-      }
+      const block = word[0] == "（"
+        ? <div className="onyomi onyomi-uncommon">{word.slice(1, word.length - 1)}</div>
+        : <div className="onyomi">{word}</div>
 
       return (
-        <div key={word + i} className="onyomi">
-          {word}
+        <div key={word + i}> 
+          {block}
         </div>
       )
     }) : null
