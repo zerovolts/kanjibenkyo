@@ -21,3 +21,5 @@
 /public/packs-test
 /node_modules
 .env
+
+.vscode

@@ -26,7 +26,7 @@ class KanjiShow extends React.Component {
     const { kanji } = this.state
 
     const kunyomi = kanji.kunyomi
-      ? kanji.kunyomi.sort((a, b) => a[0] === "-" ? 1 : 0).map((word, i) => {
+      ? kanji.kunyomi.filter(a => a.length > 0).sort((a, b) => a[0] === "-" ? 1 : 0).map((word, i) => {
           const splitWord = word.split(".")
           const root = splitWord[0]
           const okurigana = <span className="okurigana">{splitWord[1]}</span>
