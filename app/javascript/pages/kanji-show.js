@@ -2,6 +2,8 @@ import React from "react"
 import {Link} from "react-router-dom"
 
 import ProgressBar from "../components/progress-bar"
+import KunyomiTag from "./kanji-show/kunyomi-tag"
+import OnyomiTag from "./kanji-show/onyomi-tag"
 
 class KanjiShow extends React.Component {
   state = {
@@ -25,34 +27,13 @@ class KanjiShow extends React.Component {
   render() {
     const { kanji } = this.state
 
-    const kunyomi = kanji.kunyomi
-      ? kanji.kunyomi.filter(a => a.length > 0).sort((a, b) => a[0] === "-" ? 1 : 0).map((word, i) => {
-          const splitWord = word.split("-")
-          const root = splitWord[0]
-          const okurigana = <span className="okurigana">{splitWord[1]}</span>
-          const block = root[0] == "（"
-            ? <div className="kunyomi kunyomi-uncommon">{root.slice(1, root.length - 1)}{okurigana}</div>
-            : <div className="kunyomi">{root}{okurigana}</div>
+    const kunyomi = kanji.kunyomi ? kanji.kunyomi.map((kunyomi, i) =>
+      <KunyomiTag kunyomi={kunyomi} key={kunyomi + i} /> 
+    ) : null
 
-          return (
-            <div key={word + i}>
-              {block}
-            </div>
-          )
-        })
-      : null
-
-    const onyomi = kanji.onyomi ? kanji.onyomi.map((word, i) => {
-      const block = word[0] == "（"
-        ? <div className="onyomi onyomi-uncommon">{word.slice(1, word.length - 1)}</div>
-        : <div className="onyomi">{word}</div>
-
-      return (
-        <div key={word + i}> 
-          {block}
-        </div>
-      )
-    }) : null
+    const onyomi = kanji.onyomi ? kanji.onyomi.map((onyomi, i) =>
+      <OnyomiTag onyomi={onyomi} key={onyomi + i} />
+     ) : null
 
     return (
       <div className="kana-show">

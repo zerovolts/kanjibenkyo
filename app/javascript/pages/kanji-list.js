@@ -17,7 +17,6 @@ class KanjiList extends React.Component {
 
     const kanjiCards = kanjiGroups.map((kanjiGroup, i) => {
       const kanjiGroupCards = kanjiGroup.map(kanji => {
-        console.log(kanji)
         return (
           <CharacterBlock
             key={kanji.character}
