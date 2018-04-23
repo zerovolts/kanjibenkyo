@@ -27,20 +27,6 @@
   justify-content: center;
 }
 
-.kanji-list {
-  margin: 1rem 2rem;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: left;
-}
-
-.kanji-label {
-  text-align: center;
-  margin: 1rem;
-  margin-top: 2rem;
-  font-size: 2rem;
-}
-
 .character-block {
   background: color(light, light);
   color: color(dark);
@@ -59,20 +45,6 @@
   h2 {
     color: color(light);
   }
-}
-
-.group-header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-hr {
-  display: inline-block;
-  border: 1px solid color(light, dark);
-  width: 40%;
-  height: 0;
-  margin: 0 2rem;
 }
 
 .character-title {

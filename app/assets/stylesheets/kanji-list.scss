@@ -1,0 +1,42 @@
+.kanji-list {
+  margin: 1rem 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+}
+
+.kanji-label {
+  text-align: center;
+  font-size: 2rem;
+}
+
+.kanji-list-header {
+  margin: 1.5rem auto;
+  margin-top: 3rem;
+  width: 60rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.group-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 0.5rem;
+  overflow: none;
+  
+  div {
+    //width: 36rem;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  hr {
+    display: inline-block;
+    border: 1px solid color(light, dark);
+    width: 100%;
+    height: 0;
+    margin: 0 2rem;
+  }
+}
