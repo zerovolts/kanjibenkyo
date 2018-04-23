@@ -1,6 +1,6 @@
 import React from "react"
 
-const RadioButton = ({value, selected, onChange, children}) => {
+const RadioButton = ({value, selected, onChange, then, children}) => {
   return (
     <React.Fragment>
       <input
@@ -10,7 +10,12 @@ const RadioButton = ({value, selected, onChange, children}) => {
         id={value}
         key={value + "-input"}
         onClick={() => onChange(value)} />
-      <label htmlFor={value} key={value + "-label"}>{children}</label>
+      <label
+        htmlFor={value}
+        key={value + "-label"}
+        onTransitionEnd={then}>
+        {children}
+      </label>
     </React.Fragment>
   )
 }

@@ -5,19 +5,14 @@ const CharacterBlock = ({character, rating, url, unlocked = true}) => {
   return (
     <div
       className={`character-block ${rating != null ? "" : "locked"}`}
-      style={{
-        //borderTop: "5px solid hsl(" + rating + ", 75%, 50%)"
-      }}
       key={character}>
-
       <Link to={url || "#"}>
         <h2 className="character-title" style={{
-          color: "hsl(" + rating + ", 75%, 50%)"
+          color: `hsl(${rating}, 75%, 50%)`
         }}>
           {character}
         </h2>
       </Link>
-
     </div>
   )
 }

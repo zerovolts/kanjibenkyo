@@ -45,17 +45,30 @@ const sortMethodToFunction = (sortMethod) => {
 
 class KanjiList extends React.Component {
   state = {
-    sortMethod: GRADE_LEVEL
+    sortMethod: GRADE_LEVEL,
+    shouldRender: false
   }
 
   componentDidMount() {
     const { dispatch } = this.props
     dispatch(fetchKanjiIfNeeded())
+
+    // if the kanji are already in memory when navigating to the page, the previous page will hang while they are being rendered - this resolves that issue.
+    window.setTimeout(() => {
+      this.startRender()
+    }, 0)
+  }
+
+  startRender = () => {
+    this.setState({
+      shouldRender: true
+    })
   }
 
   changeSortMethod = (sortMethod) => {
     this.setState({
-      sortMethod: sortMethod
+      sortMethod: sortMethod,
+      shouldRender: false
     })
   }
 
@@ -63,30 +76,35 @@ class KanjiList extends React.Component {
     const { kanjiList } = this.props
     const kanjiGroups = sortMethodToFunction(this.state.sortMethod)(kanjiList)
 
-    const kanjiCards = kanjiGroups.isEmpty()
-      ? null
-      : kanjiGroups.keySeq().toArray().map(name => {
-      const kanjiList = kanjiGroups.get(name)
-      const kanjiGroupCards = kanjiList.map(kanji => {
+    let kanjiCards = null
+    if (this.state.shouldRender && kanjiList.length > 0) {
+      kanjiCards = kanjiGroups.isEmpty()
+        ? null
+        : kanjiGroups.keySeq().toArray().map(name => {
+        const kanjiList = kanjiGroups.get(name)
+        const kanjiGroupCards = kanjiList.map(kanji => {
+          return (
+            <CharacterBlock
+              key={kanji.character}
+              character={kanji.character}
+              url={"/kanji/" + kanji.character} />
+          )
+        }).toArray()
+        
         return (
-          <CharacterBlock
-            key={kanji.character}
-            character={kanji.character}
-            url={"/kanji/" + kanji.character} />
+          <div key={name}>
+            <div className="group-header">
+              <hr /><div>{name} ({kanjiList.size})</div><hr />
+            </div>
+            <div className="kanji-list">
+              {kanjiGroupCards}
+            </div>
+          </div>
         )
-      }).toArray()
-      
-      return (
-        <div key={name}>
-          <div className="group-header">
-            <hr /><div>{name} ({kanjiList.size})</div><hr />
-          </div>
-          <div className="kanji-list">
-            {kanjiGroupCards}
-          </div>
-        </div>
-      )
-    })
+      })
+    } else {
+      kanjiCards = <div className="loading">Loading...</div> 
+    }
 
     return (
       <div>
@@ -96,21 +114,24 @@ class KanjiList extends React.Component {
             <RadioButton
                 value={GRADE_LEVEL}
                 selected={this.state.sortMethod}
-                onChange={this.changeSortMethod}>
+                onChange={this.changeSortMethod}
+                then={this.startRender}>
               Grade
             </RadioButton>
 
             <RadioButton
                 value={STROKE_COUNT}
                 selected={this.state.sortMethod}
-                onChange={this.changeSortMethod}>
+                onChange={this.changeSortMethod}
+                then={this.startRender}>
               Strokes
             </RadioButton>
 
             <RadioButton
                 value={RADICAL}
                 selected={this.state.sortMethod}
-                onChange={this.changeSortMethod}>
+                onChange={this.changeSortMethod}
+                then={this.startRender}>
               Radical
             </RadioButton>
           </div>
