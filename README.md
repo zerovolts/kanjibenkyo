@@ -16,7 +16,8 @@ Optionally, in a new terminal:
 ## Technologies
 - Rails (Ruby)
 - React (JavaScript)
-- MobX (for React state management)
+- Redux
+- Immutable.js
 
 ## Looking for Code?
 Here are a few shortcuts to get to the interesting parts.
