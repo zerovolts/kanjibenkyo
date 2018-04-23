@@ -27,6 +27,7 @@ const sortByStrokeCount = (kanji) => (
 const sortByRadical = (kanji) => (
   List(kanji)
     .groupBy(kanji => kanji.radical)
+    .sortBy((v, k) => k)
 )
 
 const sortMethodToFunction = (sortMethod) => {
