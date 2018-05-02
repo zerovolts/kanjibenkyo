@@ -13,6 +13,7 @@ import KanaStudy from "./pages/kana-study"
 import KanjiList from "./pages/kanji-list"
 import KanjiShow from "./pages/kanji-show"
 import Profile from "./pages/profile"
+import VerbConjugator from "./pages/verb-conjugator"
 
 class App extends React.Component {
   constructor(props) {
@@ -46,6 +47,7 @@ class App extends React.Component {
             <Route path="/kanji/:kanji" component={KanjiShow} />
             <Route path="/quiz/kana" component={KanaQuiz} />
             <Route path="/user/:login" component={Profile} />
+            <Route path="/verb-conjugator" component={VerbConjugator} />
           </Switch>
         </React.Fragment>
       </BrowserRouter>

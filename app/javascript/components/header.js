@@ -47,6 +47,7 @@ class Header extends React.Component{
         <div className="right-header">
           <NavButton name="Kana" path="/kana" url={location.pathname} />
           <NavButton name="Kanji" path="/kanji" url={location.pathname} />
+          <NavButton name="Verbs" path="/verb-conjugator" url={location.pathname} />
           {userBlock}
         </div>
       </div>

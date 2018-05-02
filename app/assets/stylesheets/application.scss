@@ -53,3 +53,25 @@ h1, h2, h3, h4, h5 {
 h2 {
   color: #34495e;
 }
+
+.kana-textbox {
+  input {
+    margin: 0.5rem;
+  }
+}
+
+.kana-textbox-jp {
+  width: 100%;
+  padding: 0.4rem;
+  height: 1.5rem;
+  background: color(light, dark);
+  border-radius: 0.3rem;
+  margin: 0.5rem;
+  margin-top: 0;
+}
+
+.verb-conjugator {
+  text-align: center;
+  width: 32rem;
+  margin: auto;
+}
