@@ -1,8 +1,10 @@
 import React from "react"
 
-import { ichidanToPast, ichidanToNegative, godanToPast, godanToNegative } from "katsuyo"
+import { inflect, InflectionTypes, WordTypes } from "katsuyo"
 import KanaTextbox from "../components/kana-textbox"
 
+const { PAST, NEGATIVE, DESIRE } = InflectionTypes
+const { VERB_ICHIDAN, VERB_GODAN } = WordTypes
 class VerbConjugator extends React.Component {
   state = {
     verb: "見る"
@@ -16,11 +18,26 @@ class VerbConjugator extends React.Component {
 
   render() {
     const { verb } = this.state
-    const verbType = verb.slice(-1) === "る" ? "ichidan" : "godan"
+    const category = verb.slice(-1) === "る" ? VERB_ICHIDAN : VERB_GODAN
+    const word = {word: verb, category: category, inflections: []}
     const conjugations = {
-      past: verbType === "ichidan" ? ichidanToPast(verb) : godanToPast(verb),
-      negative: verbType === "ichidan" ? ichidanToNegative(verb) : godanToNegative(verb)
+      past: inflect({...word, inflections: [PAST]}).word,
+      negative: inflect({...word, inflections: [NEGATIVE]}).word,
+      desire: inflect({...word, inflections: [DESIRE]}).word,
     }
+    const conjugationsPast = {
+      past: inflect({...word, inflections: [PAST, NEGATIVE]}).word,
+      negative: inflect({...word, inflections: [NEGATIVE, NEGATIVE]}).word,
+      desire: inflect({...word, inflections: [NEGATIVE, DESIRE]}).word,
+    }
+   const conjugationBlocks = Object.keys(conjugations).map(key => (
+      <tr>
+        <td>{key}</td>
+        <td>{conjugations[key]}</td>
+        <td>{conjugationsPast[key]}</td>
+      </tr>
+    ))
+    
 
     return (
       <div className="verb-conjugator">
@@ -29,10 +46,15 @@ class VerbConjugator extends React.Component {
         <button onClick={() => this.changeVerb("聞く")}>聞く</button>
         <button onClick={() => this.changeVerb("言う")}>言う</button>
         <button onClick={() => this.changeVerb("住む")}>住む</button>
-        <table style={{marginTop: "2rem"}}>
+        <button onClick={() => this.changeVerb("話す")}>話す</button>
+        <table className="verb-conjugator-table">
           <tbody>
-            <tr><td>past</td><td>{conjugations.past}</td></tr>
-            <tr><td>negative</td><td>{conjugations.negative}</td></tr>
+            <tr>
+              <td>{verb}</td>
+              <td>positive</td>
+              <td>negative</td>
+            </tr>
+            {conjugationBlocks}
           </tbody>
         </table>
       </div>

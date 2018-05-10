@@ -12,27 +12,27 @@
   font-size: 5rem;
 }
 
-table {
+.kana-show-table {
   margin: auto;
   border-spacing: 0 0.4rem;
-}
 
-td {
-  background: white;
-  line-height: 1.6rem;
-  width: 6rem;
-  padding: 0.2rem 0.4rem;
-}
+  td {
+    background: white;
+    line-height: 1.6rem;
+    width: 6rem;
+    padding: 0.2rem 0.4rem;
+  }
 
-td:first-of-type {
-  text-align: right;
-  border-radius: 0.3rem 0 0 0.3rem;
-}
+  td:first-of-type {
+    text-align: right;
+    border-radius: 0.3rem 0 0 0.3rem;
+  }
 
-td:last-of-type {
-  background: #e0e0d8;
-  text-align: left;
-  border-radius: 0 0.3rem 0.3rem 0;
+  td:last-of-type {
+    background: #e0e0d8;
+    text-align: left;
+    border-radius: 0 0.3rem 0.3rem 0;
+  }
 }
 
 .kana-header {

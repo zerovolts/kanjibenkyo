@@ -39,7 +39,7 @@ class KanaShow extends React.Component {
             <i className="fas fa-angle-right"></i>
           </Link>
         </div>
-        <table>
+        <table className="kana-show-table">
           <tbody>
             <tr><td>hiragana</td><td>{kana.hiragana}</td></tr>
             <tr><td>katakana</td><td>{kana.katakana}</td></tr>

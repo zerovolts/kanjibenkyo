@@ -1,0 +1,26 @@
+.verb-conjugator-table {
+  margin: auto;
+  margin-top: 2rem;
+  border-spacing: 0.4rem;
+
+  td {
+    background: #fff;
+    border-radius: 0.3rem;
+    padding: 0.2rem 0.4rem;
+    line-height: 1.6rem;
+  }
+
+  td:first-of-type {
+    background: color(light, dark);
+  }
+
+  tr:first-of-type {
+    td {
+      background: color(light, dark);
+    }
+
+    td:first-of-type {
+      color: color(light);
+    }
+  }
+}
