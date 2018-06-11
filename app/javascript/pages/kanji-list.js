@@ -72,6 +72,7 @@ class KanjiList extends React.Component {
   render() {
     const { kanjiList } = this.props;
     const kanjiGroups = sortMethodToFunction(this.state.sortMethod)(kanjiList);
+    const kanjiCount = kanjiList.filter(kanji => kanji.rating != null).length;
 
     let kanjiCards = null;
     if (this.state.shouldRender && kanjiList.length > 0) {
@@ -114,7 +115,9 @@ class KanjiList extends React.Component {
     return (
       <div>
         <div className="kanji-list-header">
-          <div className="kanji-label">Kanji: {kanjiList.length}</div>
+          <div className="kanji-label">
+            Kanji: {kanjiCount} / {kanjiList.length}
+          </div>
           <div className="radio-horizontal">
             <RadioButton
               value={GRADE_LEVEL}

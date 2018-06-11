@@ -59,6 +59,7 @@ kana = [
   %w(ん ン n n nil)
 ]
 
+puts "Creating Kana..."
 kana.each do |group|
   Kana.create({
     hiragana: group[0],
@@ -87,16 +88,38 @@ def create_kanji(kanji)
 end
 
 require "json"
+puts "Creating Kanji..."
 create_kanji(JSON.parse(File.read("db/data/kanji.json")))
 
 #---------------------#
+def create_word(words, jlpt)
+  words.each do |word|
+    Word.create({
+      word: word["word"],
+      furigana: word["kana"],
+      meaning: word["meaning"]&.map(&:strip),
+      jlpt: jlpt
+    })
+  end
+end
 
-Word.create({
-  word: "見る",
-  furigana: "みる",
-  meaning: "to see",
-  jlpt: 5
-})
+puts "Creating N5 Words..."
+create_word(JSON.parse(File.read("db/data/words/n5.json")), 5)
+puts "Creating N4 Words..."
+create_word(JSON.parse(File.read("db/data/words/n4.json")), 4)
+puts "Creating N3 Words..."
+create_word(JSON.parse(File.read("db/data/words/n3.json")), 3)
+puts "Creating N2 Words..."
+create_word(JSON.parse(File.read("db/data/words/n2.json")), 2)
+puts "Creating N1 Words..."
+create_word(JSON.parse(File.read("db/data/words/n1.json")), 1)
+
+# Word.create({
+#   word: "見る",
+#   furigana: "みる",
+#   meaning: "to see",
+#   jlpt: 5
+# })
 
 #---------------------#
 

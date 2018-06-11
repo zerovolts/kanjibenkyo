@@ -22,6 +22,7 @@ class KanaList extends React.Component {
   render() {
     const { kanaList, kanaGrid } = this.props;
     const { kanaType } = this.state;
+    const kanaCount = kanaList.filter(kana => kana.rating != null).length;
 
     const kanaCards = kanaGrid.map(
       (kana, i) =>
@@ -40,7 +41,9 @@ class KanaList extends React.Component {
     return (
       <React.Fragment>
         <div className="kana-list-header">
-          <div className="kana-label">Kana: {kanaList.length}</div>
+          <div className="kana-label">
+            Kana: {kanaCount} / {kanaList.length}
+          </div>
           <div className="language-buttons">
             <div className="radio-horizontal">
               <RadioButton

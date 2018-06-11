@@ -47,7 +47,11 @@ a {
   text-decoration: none;
 }
 
-h1, h2, h3, h4, h5 {
+h1,
+h2,
+h3,
+h4,
+h5 {
   font-weight: normal;
 }
 
@@ -75,4 +79,35 @@ h2 {
   text-align: center;
   width: 32rem;
   margin: auto;
+}
+
+//-----------------------------//
+
+.word-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 1rem 6rem;
+}
+
+.word-block {
+  background: color(light, light);
+  color: color(dark);
+  border-radius: 0.3rem;
+  margin: 0.4rem;
+  padding: 8px;
+}
+
+.word-block-text {
+  text-align: center;
+  font-size: 1.2rem;
+  line-height: 1.2rem;
+  margin: 0;
+}
+
+.locked {
+  background: color(light, dark);
+
+  h2 {
+    color: color(light);
+  }
 }

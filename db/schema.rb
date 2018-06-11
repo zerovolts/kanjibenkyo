@@ -60,6 +60,8 @@ ActiveRecord::Schema.define(version: 20180315005019) do
     t.integer "strokes"
     t.integer "jlpt"
     t.integer "grade"
+    t.index ["character"], name: "index_kanji_on_character"
+    t.index ["radical"], name: "index_kanji_on_radical"
   end
 
   create_table "users", force: :cascade do |t|
