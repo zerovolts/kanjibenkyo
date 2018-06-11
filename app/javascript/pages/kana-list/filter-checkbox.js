@@ -1,7 +1,6 @@
-import React from "react"
+import React from "react";
 
-const FilterCheckbox = ({name, checked, toggleFunction}) => {
-
+const FilterCheckbox = ({ name, checked, toggleFunction }) => {
   return (
     <React.Fragment>
       <input
@@ -9,10 +8,13 @@ const FilterCheckbox = ({name, checked, toggleFunction}) => {
         type="checkbox"
         value={name}
         checked={checked}
-        onChange={toggleFunction} />
-      <label htmlFor={name} className="filter">{name}</label>
+        onChange={toggleFunction}
+      />
+      <label htmlFor={name} className="filter">
+        {name}
+      </label>
     </React.Fragment>
-  )
-}
+  );
+};
 
-export default FilterCheckbox
+export default FilterCheckbox;

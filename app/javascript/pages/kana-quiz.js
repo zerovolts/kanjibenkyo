@@ -1,10 +1,10 @@
-import React from "react"
-import { connect } from "react-redux"
+import React from "react";
+import { connect } from "react-redux";
 
-import QuizProgressBar from "./kana-quiz/quiz-progress-bar"
-import QuizChoices from "./kana-quiz/quiz-choices"
-import QuizComplete from "./kana-quiz/quiz-complete"
-import NewQuiz from "./kana-quiz/new-quiz"
+import QuizProgressBar from "./kana-quiz/quiz-progress-bar";
+import QuizChoices from "./kana-quiz/quiz-choices";
+import QuizComplete from "./kana-quiz/quiz-complete";
+import NewQuiz from "./kana-quiz/new-quiz";
 
 import {
   fetchKanaQuiz,
@@ -12,68 +12,84 @@ import {
   nextKanaQuizQuestion,
   previousKanaQuizQuestion,
   trySubmitKanaQuizAnswer
-} from "../actions"
+} from "../actions";
 
 class KanaQuiz extends React.Component {
   keyDown = event => {
-    const key = event.key
-    const { choices } = this.props.currentQuestion
-    const { submitAnswer, previousQuestion, nextQuestion } = this.props
+    const key = event.key;
+    const { choices } = this.props.currentQuestion;
+    const { submitAnswer, previousQuestion, nextQuestion } = this.props;
 
     switch (key) {
       case "1":
       case "2":
       case "3":
       case "4":
-        submitAnswer(choices[parseInt(key) - 1])
-        break
+        submitAnswer(choices[parseInt(key) - 1]);
+        break;
       case "ArrowLeft":
-        previousQuestion()
-        break
+        previousQuestion();
+        break;
       case "ArrowRight":
       case "Enter":
       case "Space":
-        nextQuestion()
-        break
+        nextQuestion();
+        break;
     }
-  }
+  };
 
   render() {
     const {
-      questionId, question, choices, answer, correctAnswer
-    } = this.props.currentQuestion
+      questionId,
+      question,
+      choices,
+      answer,
+      correctAnswer
+    } = this.props.currentQuestion;
 
     const {
-      started, finished, correctFlags,
-      fetchQuiz, selectQuestion, nextQuestion, previousQuestion, submitAnswer
-    } = this.props
+      started,
+      finished,
+      correctFlags,
+      fetchQuiz,
+      selectQuestion,
+      nextQuestion,
+      previousQuestion,
+      submitAnswer
+    } = this.props;
 
     if (started) {
       if (finished) {
         return (
           <QuizComplete
             correctFlags={correctFlags}
-            createFunction={fetchQuiz} />
-        )
+            createFunction={fetchQuiz}
+          />
+        );
       }
 
-      const nextButton = answer != null
-        ? <button className="green" onClick={nextQuestion}>Next</button>
-        : null
+      const nextButton =
+        answer != null ? (
+          <button className="green" onClick={nextQuestion}>
+            Next
+          </button>
+        ) : null;
 
       return (
         <div className="kana-quiz" onKeyDown={this.keyDown} tabIndex="0">
           <QuizProgressBar
             currentId={questionId}
             correctFlags={correctFlags}
-            selectQuestion={selectQuestion} />
+            selectQuestion={selectQuestion}
+          />
 
           <QuizChoices
             question={question}
             choices={choices}
             correctAnswer={correctAnswer}
             answer={answer}
-            submitFunction={submitAnswer} />
+            submitFunction={submitAnswer}
+          />
 
           <div className="finish-section">
             <button className="yellow" onClick={previousQuestion}>
@@ -82,11 +98,9 @@ class KanaQuiz extends React.Component {
             {nextButton}
           </div>
         </div>
-      )
+      );
     } else {
-      return (
-        <NewQuiz createFunction={fetchQuiz} />
-      )
+      return <NewQuiz createFunction={fetchQuiz} />;
     }
   }
 }
@@ -99,23 +113,29 @@ const mapStateToProps = state => {
     answers,
     currentQuestionId,
     correctFlags
-  } = state.kanaQuiz
+  } = state.kanaQuiz;
 
-  const currentQuestion = questions[currentQuestionId] || null
+  const currentQuestion = questions[currentQuestionId] || null;
 
   return {
     currentQuestion: {
       questionId: currentQuestionId,
-      question: currentQuestion ? currentQuestion.question[currentQuestion.question_type] : null,
-      correctAnswer: currentQuestion ? currentQuestion.question[currentQuestion.answer_type] : null,
+      question: currentQuestion
+        ? currentQuestion.question[currentQuestion.question_type]
+        : null,
+      correctAnswer: currentQuestion
+        ? currentQuestion.question[currentQuestion.answer_type]
+        : null,
       choices: currentQuestion ? currentQuestion.choices : [],
-      answer: answers[currentQuestionId] ? answers[currentQuestionId].choice : null
+      answer: answers[currentQuestionId]
+        ? answers[currentQuestionId].choice
+        : null
     },
     started,
     finished,
     correctFlags
-  }
-}
+  };
+};
 
 const mapDispatchToProps = dispatch => ({
   fetchQuiz: () => dispatch(fetchKanaQuiz()),
@@ -123,6 +143,9 @@ const mapDispatchToProps = dispatch => ({
   nextQuestion: () => dispatch(nextKanaQuizQuestion()),
   previousQuestion: () => dispatch(previousKanaQuizQuestion()),
   submitAnswer: answer => dispatch(trySubmitKanaQuizAnswer(answer))
-})
+});
 
-export default connect(mapStateToProps, mapDispatchToProps)(KanaQuiz)
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(KanaQuiz);

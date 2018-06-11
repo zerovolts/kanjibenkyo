@@ -1,37 +1,37 @@
-import React from "react"
+import React from "react";
 
-import Modal from "../modal"
-import FormField from "./login-modal/form-field"
+import Modal from "../modal";
+import FormField from "./login-modal/form-field";
 
 class LoginModal extends React.Component {
   state = {
     username: "",
     password: ""
-  }
+  };
 
   resetState = () => {
     this.setState({
       username: "",
       password: ""
-    })
-  }
+    });
+  };
 
   submitForm = event => {
-    event.preventDefault()
-    const payload = this.state
+    event.preventDefault();
+    const payload = this.state;
     //send payload to server
-    this.resetState()
-  }
+    this.resetState();
+  };
 
   handleChange = event => {
     this.setState({
       [event.target.name]: event.target.value
-    })
-  }
+    });
+  };
 
   render() {
-    const {visible, hideCallback} = this.props
-    const {username, password} = this.state
+    const { visible, hideCallback } = this.props;
+    const { username, password } = this.state;
 
     return (
       <Modal visible={visible} hideCallback={hideCallback}>
@@ -43,16 +43,17 @@ class LoginModal extends React.Component {
                 name="username"
                 type="text"
                 value={username}
-                icon={<i className="fas fa-user"></i>}
-                handleChangeCallback={this.handleChange} />
+                icon={<i className="fas fa-user" />}
+                handleChangeCallback={this.handleChange}
+              />
 
               <FormField
                 name="password"
                 type="password"
                 value={password}
-                icon={<i className="fas fa-lock"></i>}
-                handleChangeCallback={this.handleChange} />
-
+                icon={<i className="fas fa-lock" />}
+                handleChangeCallback={this.handleChange}
+              />
             </fieldset>
             <div className="login-buttons">
               <button className="green">Sign Up</button>
@@ -61,7 +62,7 @@ class LoginModal extends React.Component {
           </div>
         </div>
       </Modal>
-    )
+    );
   }
 }
 
@@ -70,4 +71,4 @@ class LoginModal extends React.Component {
 // </span>
 // <input type="text" placeholder="email"></input>
 
-export default LoginModal
+export default LoginModal;

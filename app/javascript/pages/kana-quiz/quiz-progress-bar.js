@@ -1,26 +1,22 @@
-import React from "react"
+import React from "react";
 
-import {trueFalseNull} from "../../utils/helpers"
+import { trueFalseNull } from "../../utils/helpers";
 
-const QuizProgressBar = ({currentId, correctFlags, selectQuestion}) => {
+const QuizProgressBar = ({ currentId, correctFlags, selectQuestion }) => {
   const progressBlocks = correctFlags.map((flag, i) => {
-    const color = trueFalseNull(flag, "correct", "incorrect", "")
-    const selected = currentId == i ? "selected" : ""
+    const color = trueFalseNull(flag, "correct", "incorrect", "");
+    const selected = currentId == i ? "selected" : "";
 
     return (
       <div
         key={i}
         onClick={flag != null ? () => selectQuestion(i) : () => {}}
-        className={`progress-block ${color} ${selected}`}>
-      </div>
-    )
-  })
+        className={`progress-block ${color} ${selected}`}
+      />
+    );
+  });
 
-  return (
-    <div className="progress-bar">
-      {progressBlocks}
-    </div>
-  )
-}
+  return <div className="progress-bar">{progressBlocks}</div>;
+};
 
-export default QuizProgressBar
+export default QuizProgressBar;

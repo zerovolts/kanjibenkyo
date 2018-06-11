@@ -1,14 +1,16 @@
-import React from "react"
+import React from "react";
 
-const ProgressBar = ({percent}) => {
+const ProgressBar = ({ percent }) => {
   return (
     <div className="progress-bar-background">
-      <div style={{
+      <div
+        style={{
           background: "hsl(" + percent + ", 75%, 50%)",
           width: percent + "%"
-      }} />
+        }}
+      />
     </div>
-  )
-}
+  );
+};
 
-export default ProgressBar
+export default ProgressBar;

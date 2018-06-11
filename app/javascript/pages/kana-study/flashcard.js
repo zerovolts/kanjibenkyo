@@ -1,8 +1,11 @@
-import React from "react"
+import React from "react";
 
-const Flashcard = ({front, back, flipped, flipFunction, sliding}) => {
+const Flashcard = ({ front, back, flipped, flipFunction, sliding }) => {
   return (
-    <div className={`card ${sliding ? "slide-out" : ""}`} onClick={flipFunction}>
+    <div
+      className={`card ${sliding ? "slide-out" : ""}`}
+      onClick={flipFunction}
+    >
       <div className={`front face ${flipped ? "flipped" : ""}`}>
         <div className="question">{front}</div>
       </div>
@@ -10,7 +13,7 @@ const Flashcard = ({front, back, flipped, flipFunction, sliding}) => {
         <div className="question">{back}</div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Flashcard
+export default Flashcard;

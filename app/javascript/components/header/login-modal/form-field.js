@@ -1,22 +1,27 @@
-import React from "react"
+import React from "react";
 
-const FormField = ({name, type, placeholder, value, icon, handleChangeCallback}) => {
-  placeholder = placeholder || name
+const FormField = ({
+  name,
+  type,
+  placeholder,
+  value,
+  icon,
+  handleChangeCallback
+}) => {
+  placeholder = placeholder || name;
 
   return (
     <React.Fragment>
-      <span className="text-input-icon">
-        {icon}
-      </span>
+      <span className="text-input-icon">{icon}</span>
       <input
         onChange={handleChangeCallback}
         name={name}
         type={type}
         placeholder={placeholder}
-        value={value}>
-      </input>
+        value={value}
+      />
     </React.Fragment>
-  )
-}
+  );
+};
 
-export default FormField
+export default FormField;

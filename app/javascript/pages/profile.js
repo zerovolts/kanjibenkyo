@@ -1,10 +1,10 @@
-import React from "react"
+import React from "react";
 
 class Profile extends React.Component {
   state = {
     login: "zerovolts",
     user: {}
-  }
+  };
 
   componentDidMount() {
     fetch("/api/v1/user/" + this.state.login)
@@ -12,19 +12,19 @@ class Profile extends React.Component {
       .then(data => {
         this.setState({
           user: data
-        })
-      })
+        });
+      });
   }
 
   render() {
-    console.log(this.state.user)
+    console.log(this.state.user);
     return (
       <div>
         <h1>{this.state.user.name}</h1>
         <p>{this.state.user.login}</p>
       </div>
-    )
+    );
   }
 }
 
-export default Profile
+export default Profile;

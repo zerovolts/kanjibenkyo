@@ -1,6 +1,6 @@
-import React from "react"
+import React from "react";
 
-import Flashcard from "./kana-study/flashcard"
+import Flashcard from "./kana-study/flashcard";
 
 class KanaStudy extends React.Component {
   state = {
@@ -8,7 +8,7 @@ class KanaStudy extends React.Component {
     currentIndex: 0,
     flipped: false,
     sliding: false
-  }
+  };
 
   componentDidMount() {
     fetch("/api/v1/study/kana")
@@ -16,39 +16,39 @@ class KanaStudy extends React.Component {
       .then(data => {
         this.setState({
           kana: data
-        })
-      })
+        });
+      });
   }
 
   nextCard = () => {
     this.setState({
       flipped: false,
       sliding: true
-    })
+    });
 
     setTimeout(() => {
       if (this.state.currentIndex < this.state.kana.length - 1) {
         this.setState({
           sliding: false,
           currentIndex: this.state.currentIndex + 1
-        })
+        });
       } else {
         this.setState({
           sliding: false,
           currentIndex: 0
-        })
+        });
       }
-    }, 1000)
-  }
+    }, 1000);
+  };
 
   flipCard = () => {
     this.setState({
       flipped: !this.state.flipped
-    })
-  }
+    });
+  };
 
   render() {
-    const currentKana = this.state.kana[this.state.currentIndex] || {}
+    const currentKana = this.state.kana[this.state.currentIndex] || {};
 
     return (
       <div className="kana-study">
@@ -57,11 +57,12 @@ class KanaStudy extends React.Component {
           back={currentKana.romaji}
           flipped={this.state.flipped}
           sliding={this.state.sliding}
-          flipFunction={this.flipCard} />
+          flipFunction={this.flipCard}
+        />
         <button onClick={this.nextCard}>Next Card</button>
       </div>
-    )
+    );
   }
 }
 
-export default KanaStudy
+export default KanaStudy;

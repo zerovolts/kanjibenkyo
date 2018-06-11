@@ -1,12 +1,9 @@
-import {
-  KANJI_REQUEST,
-  KANJI_RECEIVE
-} from "../actions"
+import { KANJI_REQUEST, KANJI_RECEIVE } from "../actions";
 
 const initialState = {
   isFetching: false,
   kanji: []
-}
+};
 
 const kanjiList = (state = initialState, action) => {
   switch (action.type) {
@@ -14,16 +11,16 @@ const kanjiList = (state = initialState, action) => {
       return {
         ...state,
         isFetching: true
-      }
+      };
     case KANJI_RECEIVE:
       return {
         ...state,
         isFetching: false,
         kanji: action.kanji
-      }
+      };
     default:
-      return state
+      return state;
   }
-}
+};
 
-export default kanjiList
+export default kanjiList;

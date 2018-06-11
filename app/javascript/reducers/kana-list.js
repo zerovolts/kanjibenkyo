@@ -1,7 +1,4 @@
-import {
-  KANA_REQUEST,
-  KANA_RECEIVE
-} from "../actions"
+import { KANA_REQUEST, KANA_RECEIVE } from "../actions";
 
 const sortByGrid = list => {
   const kanaGrid = [
@@ -10,16 +7,18 @@ const sortByGrid = list => {
     "　　るゆむふぬつすくう",
     "　ゑれ　めへねてせけえ",
     "　をろよもほのとそこお"
-  ].join("").split("")
+  ]
+    .join("")
+    .split("");
 
-  return kanaGrid.map(kana => list.find(position => position.hiragana == kana))
-}
+  return kanaGrid.map(kana => list.find(position => position.hiragana == kana));
+};
 
 const initialState = {
   isFetching: false,
   kana: [],
   kanaGrid: []
-}
+};
 
 const kanaList = (state = initialState, action) => {
   switch (action.type) {
@@ -27,18 +26,17 @@ const kanaList = (state = initialState, action) => {
       return {
         ...state,
         isFetching: true
-      }
+      };
     case KANA_RECEIVE:
       return {
         ...state,
         isFetching: false,
         kana: action.kana,
         kanaGrid: sortByGrid(action.kana)
-      }
+      };
     default:
-      return state
+      return state;
   }
-}
+};
 
-
-export default kanaList
+export default kanaList;

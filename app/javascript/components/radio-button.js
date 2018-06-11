@@ -1,6 +1,6 @@
-import React from "react"
+import React from "react";
 
-const RadioButton = ({value, selected, onChange, then, children}) => {
+const RadioButton = ({ value, selected, onChange, then, children }) => {
   return (
     <React.Fragment>
       <input
@@ -9,15 +9,13 @@ const RadioButton = ({value, selected, onChange, then, children}) => {
         defaultChecked={value == selected}
         id={value}
         key={value + "-input"}
-        onClick={() => onChange(value)} />
-      <label
-        htmlFor={value}
-        key={value + "-label"}
-        onTransitionEnd={then}>
+        onClick={() => onChange(value)}
+      />
+      <label htmlFor={value} key={value + "-label"} onTransitionEnd={then}>
         {children}
       </label>
     </React.Fragment>
-  )
-}
+  );
+};
 
-export default RadioButton
+export default RadioButton;

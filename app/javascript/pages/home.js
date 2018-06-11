@@ -1,8 +1,8 @@
-import React from "react"
-import { Link } from "react-router-dom"
+import React from "react";
+import { Link } from "react-router-dom";
 
-import Torii from "./home/torii"
-import CharacterBlock from "../components/character-block"
+import Torii from "./home/torii";
+import CharacterBlock from "../components/character-block";
 
 class Home extends React.Component {
   render() {
@@ -13,19 +13,27 @@ class Home extends React.Component {
           <div className="choice-container">
             <div className="choice-box">
               <h2>Beginner at Japanese</h2>
-              <p>If you are not comfortable with Kana, or you want to brush up.</p>
-              <Link to={"/kana"}><button>Choose Path</button></Link>
+              <p>
+                If you are not comfortable with Kana, or you want to brush up.
+              </p>
+              <Link to={"/kana"}>
+                <button>Choose Path</button>
+              </Link>
             </div>
             <div className="choice-box">
               <h2>Skip the Kana</h2>
-              <p>For those who already know Kana, skip straight to the Kanji.</p>
-              <Link to={"/kanji"}><button>Choose Path</button></Link>
+              <p>
+                For those who already know Kana, skip straight to the Kanji.
+              </p>
+              <Link to={"/kanji"}>
+                <button>Choose Path</button>
+              </Link>
             </div>
           </div>
         </Torii>
       </div>
-    )
+    );
   }
 }
 
-export default Home
+export default Home;

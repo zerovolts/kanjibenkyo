@@ -1,17 +1,18 @@
-import React from "react"
+import React from "react";
 
-const KunyomiTag = ({kunyomi}) => {
-  const uncommon = kunyomi[0] == "（"
+const KunyomiTag = ({ kunyomi }) => {
+  const uncommon = kunyomi[0] == "（";
   if (uncommon) {
-    kunyomi = kunyomi.slice(1, -1)
+    kunyomi = kunyomi.slice(1, -1);
   }
-  const [root, okurigana] = kunyomi.split("-")
-  
+  const [root, okurigana] = kunyomi.split("-");
+
   return (
     <div className={`kunyomi ${uncommon ? "kunyomi-uncommon" : ""}`}>
-      {root}<span className="okurigana">{okurigana}</span>
+      {root}
+      <span className="okurigana">{okurigana}</span>
     </div>
-  )
-}
+  );
+};
 
-export default KunyomiTag
+export default KunyomiTag;

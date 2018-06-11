@@ -1,34 +1,34 @@
-import React from "react"
-import { BrowserRouter, Route, Switch } from "react-router-dom"
+import React from "react";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 
-import * as request from "./utils/request"
-import Header from "./components/header"
-import Home from "./pages/home"
-import KanaIndex from "./pages/kana-index"
-import KanjiIndex from "./pages/kanji-index"
-import KanaQuiz from "./pages/kana-quiz"
-import KanaList from "./pages/kana-list"
-import KanaShow from "./pages/kana-show"
-import KanaStudy from "./pages/kana-study"
-import KanjiList from "./pages/kanji-list"
-import KanjiShow from "./pages/kanji-show"
-import Profile from "./pages/profile"
-import VerbConjugator from "./pages/verb-conjugator"
+import * as request from "./utils/request";
+import Header from "./components/header";
+import Home from "./pages/home";
+import KanaIndex from "./pages/kana-index";
+import KanjiIndex from "./pages/kanji-index";
+import KanaQuiz from "./pages/kana-quiz";
+import KanaList from "./pages/kana-list";
+import KanaShow from "./pages/kana-show";
+import KanaStudy from "./pages/kana-study";
+import KanjiList from "./pages/kanji-list";
+import KanjiShow from "./pages/kanji-show";
+import Profile from "./pages/profile";
+import VerbConjugator from "./pages/verb-conjugator";
 
 class App extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       user: {}
-    }
+    };
   }
 
   componentDidMount() {
     request.fetchUser().then(data => {
       this.setState({
         user: data
-      })
-    })
+      });
+    });
   }
 
   render() {
@@ -51,8 +51,8 @@ class App extends React.Component {
           </Switch>
         </React.Fragment>
       </BrowserRouter>
-    )
+    );
   }
 }
 
-export default App
+export default App;

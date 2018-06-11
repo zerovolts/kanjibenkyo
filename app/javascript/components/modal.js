@@ -1,18 +1,18 @@
-import React from "react"
+import React from "react";
 
-const Modal = ({visible, hideCallback, children}) => {
+const Modal = ({ visible, hideCallback, children }) => {
   const modal = (
     <div className="modal-container">
       <div className="modal">
         <div className="hide-modal-button" onClick={hideCallback}>
-          <i className="fas fa-times"></i>
+          <i className="fas fa-times" />
         </div>
         {children}
       </div>
     </div>
-  )
+  );
 
-  return visible ? modal : null
-}
+  return visible ? modal : null;
+};
 
-export default Modal
+export default Modal;
