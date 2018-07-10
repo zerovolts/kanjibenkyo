@@ -1,6 +1,6 @@
 import React from "react";
 
-import Flashcard from "./kana-study/flashcard";
+import Flashcard from "pages/kana-study/flashcard/flashcard";
 
 import "./kana-study.scss";
 

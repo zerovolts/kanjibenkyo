@@ -1,10 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import QuizProgressBar from "./kana-quiz/quiz-progress-bar";
-import QuizChoices from "./kana-quiz/quiz-choices";
-import QuizComplete from "./kana-quiz/quiz-complete";
-import NewQuiz from "./kana-quiz/new-quiz";
+import QuizProgressBar from "pages/kana-quiz/quiz-progress-bar/quiz-progress-bar";
+import QuizChoices from "pages/kana-quiz/quiz-choices/quiz-choices";
+import QuizComplete from "pages/kana-quiz/quiz-complete/quiz-complete";
+import NewQuiz from "pages/kana-quiz/new-quiz/new-quiz";
 
 import {
   fetchKanaQuiz,
@@ -12,7 +12,7 @@ import {
   nextKanaQuizQuestion,
   previousKanaQuizQuestion,
   trySubmitKanaQuizAnswer
-} from "../actions";
+} from "actions";
 
 import "./kana-quiz.scss";
 

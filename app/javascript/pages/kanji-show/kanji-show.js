@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import ProgressBar from "../components/progress-bar";
-import KunyomiTag from "./kanji-show/kunyomi-tag";
-import OnyomiTag from "./kanji-show/onyomi-tag";
+import ProgressBar from "components/progress-bar/progress-bar";
+import KunyomiTag from "pages/kanji-show/kunyomi-tag/kunyomi-tag";
+import OnyomiTag from "pages/kanji-show/onyomi-tag/onyomi-tag";
 
 import "./kanji-show.scss";
 

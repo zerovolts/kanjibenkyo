@@ -1,10 +1,10 @@
 import React from "react";
-import CharacterBlock from "../components/character-block";
 import { connect } from "react-redux";
-import { List, OrderedMap } from "immutable";
+import { List } from "immutable";
 
-import { fetchKanjiIfNeeded } from "../actions";
-import RadioButton from "../components/radio-button";
+import { fetchKanjiIfNeeded } from "actions";
+import RadioButton from "components/radio-button/radio-button";
+import CharacterBlock from "components/character-block/character-block";
 
 import "./kanji-list.scss";
 

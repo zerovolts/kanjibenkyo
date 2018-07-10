@@ -14,8 +14,8 @@ import { Provider } from "react-redux";
 import { createLogger } from "redux-logger";
 import thunk from "redux-thunk";
 
-import App from "../app";
-import reducer from "../reducers";
+import App from "app";
+import reducer from "reducers";
 
 const middleware = [thunk];
 if (process.env.NODE_ENV !== "production") {

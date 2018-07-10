@@ -1,7 +1,7 @@
 import React from "react";
 
-import Modal from "../modal";
-import FormField from "./login-modal/form-field";
+import Modal from "components/modal/modal";
+import FormField from "components/header/login-modal/form-field/form-field";
 
 import "./login-modal.scss";
 

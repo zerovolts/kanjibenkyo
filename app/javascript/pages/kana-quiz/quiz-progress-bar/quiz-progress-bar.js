@@ -1,6 +1,6 @@
 import React from "react";
 
-import { trueFalseNull } from "../../utils/helpers";
+import { trueFalseNull } from "utils/helpers";
 
 import "./quiz-progress-bar.scss";
 

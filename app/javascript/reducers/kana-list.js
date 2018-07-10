@@ -1,4 +1,4 @@
-import { KANA_REQUEST, KANA_RECEIVE } from "../actions";
+import { KANA_REQUEST, KANA_RECEIVE } from "actions";
 
 const sortByGrid = list => {
   const kanaGrid = [

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import Torii from "./home/torii";
+import Torii from "pages/home/torii/torii";
 
 import "./home.scss";
 

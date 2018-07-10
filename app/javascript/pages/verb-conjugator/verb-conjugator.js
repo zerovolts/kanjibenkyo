@@ -6,6 +6,7 @@ import "./verb-conjugator.scss";
 
 const { PAST, NEGATIVE, DESIRE } = InflectionTypes;
 const { VERB_ICHIDAN, VERB_GODAN } = WordTypes;
+
 class VerbConjugator extends React.Component {
   state = {
     verb: "見る"

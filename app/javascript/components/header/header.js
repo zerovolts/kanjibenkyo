@@ -1,9 +1,9 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
 
-import LoginModal from "./header/login-modal";
-import NavButton from "./header/nav-button";
-import UserBlock from "./header/user-block";
+import LoginModal from "components/header/login-modal/login-modal";
+import NavButton from "components/header/nav-button/nav-button";
+import UserBlock from "components/header/user-block/user-block";
 
 import "./header.scss";
 

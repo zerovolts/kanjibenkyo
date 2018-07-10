@@ -5,7 +5,7 @@ import {
   KANA_QUIZ_ANSWER_SUBMIT,
   KANA_QUIZ_SUBMIT,
   KANA_QUIZ_RECEIVE_RESULTS
-} from "../actions";
+} from "actions";
 
 const initialState = {
   started: false,

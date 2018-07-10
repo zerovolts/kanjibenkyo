@@ -1,5 +1,6 @@
 import React from "react";
-import WordBlock from "../components/word-block";
+
+import WordBlock from "components/word-block/word-block";
 
 class WordList extends React.Component {
   state = {

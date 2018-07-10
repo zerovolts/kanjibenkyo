@@ -1,20 +1,20 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
-import * as request from "./utils/request";
-import Header from "./components/header";
-import Home from "./pages/home";
-import KanaIndex from "./pages/kana-index";
-import KanjiIndex from "./pages/kanji-index";
-import KanaQuiz from "./pages/kana-quiz";
-import KanaList from "./pages/kana-list";
-import KanaShow from "./pages/kana-show";
-import KanaStudy from "./pages/kana-study";
-import KanjiList from "./pages/kanji-list";
-import KanjiShow from "./pages/kanji-show";
-import Profile from "./pages/profile";
-import VerbConjugator from "./pages/verb-conjugator";
-import WordList from "./pages/word-list";
+import * as request from "utils/request";
+import Header from "components/header/header";
+import Home from "pages/home/home";
+import KanaIndex from "pages/kana-index/kana-index";
+import KanjiIndex from "pages/kanji-index/kanji-index";
+import KanaQuiz from "pages/kana-quiz/kana-quiz";
+import KanaList from "pages/kana-list/kana-list";
+import KanaShow from "pages/kana-show/kana-show";
+import KanaStudy from "pages/kana-study/kana-study";
+import KanjiList from "pages/kanji-list/kanji-list";
+import KanjiShow from "pages/kanji-show/kanji-show";
+import Profile from "pages/profile/profile";
+import VerbConjugator from "pages/verb-conjugator/verb-conjugator";
+import WordList from "pages/word-list/word-list";
 
 class App extends React.Component {
   constructor(props) {

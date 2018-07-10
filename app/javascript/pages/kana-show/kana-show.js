@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import ProgressBar from "../components/progress-bar";
+import ProgressBar from "components/progress-bar/progress-bar";
 
 import "./kana-show.scss";
 

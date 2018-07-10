@@ -1,4 +1,4 @@
-import { KANJI_REQUEST, KANJI_RECEIVE } from "../actions";
+import { KANJI_REQUEST, KANJI_RECEIVE } from "actions";
 
 const initialState = {
   isFetching: false,

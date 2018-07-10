@@ -1,8 +1,8 @@
 import { combineReducers } from "redux";
 
-import kanjiList from "./kanji-list";
-import kanaList from "./kana-list";
-import kanaQuiz from "./kana-quiz";
+import kanjiList from "reducers/kanji-list";
+import kanaList from "reducers/kana-list";
+import kanaQuiz from "reducers/kana-quiz";
 
 export default combineReducers({
   kanjiList,
