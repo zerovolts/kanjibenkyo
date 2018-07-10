@@ -1,6 +1,8 @@
 import React from "react";
 import { toKana } from "katsuyo";
 
+import "./kana-textbox.scss";
+
 class KanaTextbox extends React.Component {
   state = {
     text: ""

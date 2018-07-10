@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 
 import ProgressBar from "../components/progress-bar";
 
+import "./kana-show.scss";
+
 class KanaShow extends React.Component {
   state = {
     kana: {}

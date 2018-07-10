@@ -5,6 +5,8 @@ import ProgressBar from "../components/progress-bar";
 import KunyomiTag from "./kanji-show/kunyomi-tag";
 import OnyomiTag from "./kanji-show/onyomi-tag";
 
+import "./kanji-show.scss";
+
 class KanjiShow extends React.Component {
   state = {
     kanji: {}

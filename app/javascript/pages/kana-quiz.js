@@ -14,6 +14,8 @@ import {
   trySubmitKanaQuizAnswer
 } from "../actions";
 
+import "./kana-quiz.scss";
+
 class KanaQuiz extends React.Component {
   keyDown = event => {
     const key = event.key;

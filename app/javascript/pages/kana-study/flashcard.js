@@ -1,5 +1,7 @@
 import React from "react";
 
+import "./flashcard.scss";
+
 const Flashcard = ({ front, back, flipped, flipFunction, sliding }) => {
   return (
     <div

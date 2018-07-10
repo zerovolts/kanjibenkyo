@@ -5,6 +5,8 @@ import LoginModal from "./header/login-modal";
 import NavButton from "./header/nav-button";
 import UserBlock from "./header/user-block";
 
+import "./header.scss";
+
 class Header extends React.Component {
   state = {
     modalVisible: false

@@ -5,6 +5,8 @@ import { fetchKanaIfNeeded, fetchKanaQuiz } from "../actions";
 import CharacterBlock from "../components/character-block";
 import RadioButton from "../components/radio-button";
 
+import "./kana-list.scss";
+
 class KanaList extends React.Component {
   state = {
     kanaType: "hiragana"

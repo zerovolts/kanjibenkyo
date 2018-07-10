@@ -1,7 +1,4 @@
-.home {
-  text-align: center;
-  display: flex;
-}
+@import "app/assets/stylesheets/colors";
 
 .torii-logo {
   height: calc(100vh - 11rem);
@@ -58,26 +55,4 @@
   .choice-box {
     margin: 2rem 4rem;
   }
-}
-
-ul {
-  margin: 0;
-  margin-bottom: 2rem;
-  padding: 0;
-}
-
-li {
-  list-style-type: none;
-  display: inline;
-  font-size: 1.2rem;
-}
-
-.home-block {
-  margin: 0 20rem;
-  text-align: center;
-}
-
-.shadow-title {
-  font-weight: normal;
-  color: color(light, dark);
 }

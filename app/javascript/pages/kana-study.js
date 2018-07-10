@@ -2,6 +2,8 @@ import React from "react";
 
 import Flashcard from "./kana-study/flashcard";
 
+import "./kana-study.scss";
+
 class KanaStudy extends React.Component {
   state = {
     kana: [],

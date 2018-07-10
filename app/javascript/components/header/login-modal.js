@@ -3,6 +3,8 @@ import React from "react";
 import Modal from "../modal";
 import FormField from "./login-modal/form-field";
 
+import "./login-modal.scss";
+
 class LoginModal extends React.Component {
   state = {
     username: "",

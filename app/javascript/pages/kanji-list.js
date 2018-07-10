@@ -6,6 +6,8 @@ import { List, OrderedMap } from "immutable";
 import { fetchKanjiIfNeeded } from "../actions";
 import RadioButton from "../components/radio-button";
 
+import "./kanji-list.scss";
+
 const GRADE_LEVEL = "GRADE_LEVEL";
 const STROKE_COUNT = "STROKE_COUNT";
 const RADICAL = "RADICAL";

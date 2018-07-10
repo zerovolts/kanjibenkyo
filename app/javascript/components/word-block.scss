@@ -1,0 +1,16 @@
+@import "app/assets/stylesheets/colors";
+
+.word-block {
+  background: color(light, bright);
+  color: color(shadow);
+  border-radius: 0.3rem;
+  margin: 0.4rem;
+  padding: 8px;
+}
+
+.word-block-text {
+  text-align: center;
+  font-size: 1.2rem;
+  line-height: 1.2rem;
+  margin: 0;
+}

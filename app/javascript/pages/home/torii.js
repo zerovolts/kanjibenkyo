@@ -1,5 +1,7 @@
 import React from "react";
 
+import "./torii.scss";
+
 const Torii = ({ children }) => {
   return (
     <React.Fragment>

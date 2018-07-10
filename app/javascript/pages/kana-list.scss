@@ -1,0 +1,44 @@
+@import "app/assets/stylesheets/colors";
+
+.kana-list {
+  width: 0;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(11, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  justify-content: center;
+}
+
+.kana-list-header {
+  margin: 1.5rem auto;
+  margin-top: 3rem;
+  width: 41rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.blank-block {
+  border-radius: 0.3rem;
+  background: color(light, dark);
+  margin: 0.4rem;
+}
+
+.language-buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.filters {
+  margin: 1rem;
+  text-align: center;
+}
+
+.filter {
+  margin: 1rem;
+}
+
+.kana-label {
+  text-align: center;
+  font-size: 2rem;
+}

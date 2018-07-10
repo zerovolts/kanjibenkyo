@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+import "./character-block.scss";
+
 const CharacterBlock = ({ character, rating, url, unlocked = true }) => {
   return (
     <div

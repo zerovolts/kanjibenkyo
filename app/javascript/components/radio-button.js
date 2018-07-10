@@ -1,5 +1,7 @@
 import React from "react";
 
+import "./radio-button.scss";
+
 const RadioButton = ({ value, selected, onChange, then, children }) => {
   return (
     <React.Fragment>

@@ -1,0 +1,27 @@
+@import "app/assets/stylesheets/colors";
+
+.character-block {
+  background: color(light, bright);
+  color: color(shadow);
+  border-top: 5px solid rgba(0, 0, 0, 0);
+  border-radius: 0.3rem;
+  width: 2rem;
+  margin: 0.4rem;
+  padding: 8px;
+  padding-top: 3px; //5 pixels less to account for border-top
+}
+
+.locked {
+  background: color(light, dark);
+
+  h2 {
+    color: color(light);
+  }
+}
+
+.character-title {
+  text-align: center;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  margin: 0;
+}

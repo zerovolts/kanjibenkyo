@@ -6,22 +6,8 @@ $japanese-font: "Rounded Mplus 1c";
 
 @import "colors";
 @import "button";
-@import "kana-list";
-@import "header";
-@import "kana-quiz";
-@import "home";
-@import "quiz-progress-bar";
-@import "kana-show";
-@import "flashcard";
-@import "progress-bar";
 @import "text-input";
-@import "login-modal";
 @import "checkbox";
-@import "loader";
-@import "radio-button";
-@import "kanji-show";
-@import "kanji-list";
-@import "table";
 
 body {
   background: color(light);
@@ -54,57 +40,4 @@ h5 {
 
 h2 {
   color: color(shadow);
-}
-
-.kana-textbox {
-  input {
-    margin: 0.5rem;
-  }
-}
-
-.kana-textbox-jp {
-  width: 100%;
-  padding: 0.4rem;
-  height: 1.5rem;
-  background: color(light, dark);
-  border-radius: 0.3rem;
-  margin: 0.5rem;
-  margin-top: 0;
-}
-
-.verb-conjugator {
-  text-align: center;
-  width: 32rem;
-  margin: auto;
-}
-
-//-----------------------------//
-
-.word-list {
-  display: flex;
-  flex-wrap: wrap;
-  margin: 1rem 6rem;
-}
-
-.word-block {
-  background: color(light, bright);
-  color: color(shadow);
-  border-radius: 0.3rem;
-  margin: 0.4rem;
-  padding: 8px;
-}
-
-.word-block-text {
-  text-align: center;
-  font-size: 1.2rem;
-  line-height: 1.2rem;
-  margin: 0;
-}
-
-.locked {
-  background: color(light, dark);
-
-  h2 {
-    color: color(light);
-  }
 }

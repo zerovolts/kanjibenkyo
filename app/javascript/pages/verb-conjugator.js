@@ -1,7 +1,8 @@
 import React from "react";
 
 import { inflect, InflectionTypes, WordTypes } from "katsuyo";
-import KanaTextbox from "../components/kana-textbox";
+
+import "./verb-conjugator.scss";
 
 const { PAST, NEGATIVE, DESIRE } = InflectionTypes;
 const { VERB_ICHIDAN, VERB_GODAN } = WordTypes;

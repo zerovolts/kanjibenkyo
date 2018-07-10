@@ -2,6 +2,8 @@ import React from "react";
 
 import { trueFalseNull } from "../../utils/helpers";
 
+import "./quiz-progress-bar.scss";
+
 const QuizProgressBar = ({ currentId, correctFlags, selectQuestion }) => {
   const progressBlocks = correctFlags.map((flag, i) => {
     const color = trueFalseNull(flag, "correct", "incorrect", "");

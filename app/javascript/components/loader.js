@@ -1,6 +1,6 @@
 import React from "react";
 
-import Modal from "./modal";
+import "./loader.scss";
 
 const Loader = ({ isLoaded, children }) => {
   const loadingScreen = (

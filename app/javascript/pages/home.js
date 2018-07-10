@@ -2,7 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import Torii from "./home/torii";
-import CharacterBlock from "../components/character-block";
+
+import "./home.scss";
 
 class Home extends React.Component {
   render() {
