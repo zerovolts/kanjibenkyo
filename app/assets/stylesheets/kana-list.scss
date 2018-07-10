@@ -28,11 +28,10 @@
 }
 
 .character-block {
-  background: color(light, light);
-  color: color(dark);
+  background: color(light, bright);
+  color: color(shadow);
   border-top: 5px solid rgba(0, 0, 0, 0);
   border-radius: 0.3rem;
-  //box-shadow: 0 4px color(light, dark);
   width: 2rem;
   margin: 0.4rem;
   padding: 8px;
@@ -65,7 +64,7 @@
   align-items: center;
   height: 26px;
   text-align: center;
-  color: color(light, light);
+  color: color(light, bright);
   background: color(blue);
   border-radius: 0.3rem;
   padding: 0 0.3rem;

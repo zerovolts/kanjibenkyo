@@ -27,7 +27,7 @@
   width: 20rem;
   background: #f0f0ea;
   border-radius: 0.3rem;
-  box-shadow: 0 4px var(--dark-light);
+  box-shadow: 0 4px color(shadow, bright);
   animation: 0.2s grow-in;
 }
 
@@ -59,6 +59,6 @@
 }
 
 .hide-modal-button:hover {
-  color: var(--dark-red);
+  color: color(red, dark);
   background: rgba(0, 0, 0, 0.1);
 }

@@ -29,19 +29,19 @@
 }
 
 .quiz-choice {
-  background: #f80;
+  background: color(orange);
   margin: 0.5rem;
   padding: 0.8rem 0rem;
   border-radius: 0.3rem;
-  box-shadow: 0 4px #f60;
-  color: white;
+  box-shadow: 0 4px color(orange, dark);
+  color: color(light, bright);
   width: 6rem;
   height: 6rem;
   font-size: 2rem;
 }
 
 .quiz-choice:active {
-  box-shadow: 0px 0px #f60;
+  box-shadow: 0px 0px color(orange, dark);
   bottom: 0px;
   transition: bottom 0s, box-shadow 0s;
 }

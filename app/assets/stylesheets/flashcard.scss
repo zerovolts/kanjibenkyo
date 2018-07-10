@@ -23,7 +23,7 @@
   flex-direction: column;
   top: 0;
   left: 0;
-  background: white;
+  background: color(light, bright);
   border-radius: 0.3rem;
   width: 100%;
   height: 100%;
@@ -31,12 +31,12 @@
 }
 
 .front {
-  border-top: 5px solid #f60;
+  border-top: 5px solid color(orange, dark);
   backface-visibility: hidden;
 }
 
 .back {
-  border-top: 5px solid #25c;
+  border-top: 5px solid color(blue, dark);
   backface-visibility: hidden;
   transform: rotateY(180deg);
 }

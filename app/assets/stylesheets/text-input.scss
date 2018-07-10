@@ -1,14 +1,13 @@
-input[type=text], input[type=password] {
+input[type="text"],
+input[type="password"] {
   margin: 1rem 0.5rem;
   padding: 0.6rem 0.4rem 0.4rem 0.4rem;
-  //height: 2rem;
   font-size: 1rem;
   font-family: $main-font;
   border-radius: 0.3rem;
   border: none;
   box-shadow: inset 0px 4px color(light, dark);
-  color: color(dark, dark);
-  //width: 12rem;
+  color: color(shadow, dark);
   width: 100%;
 }
 
@@ -16,5 +15,4 @@ input[type=text], input[type=password] {
   font-size: 1.4rem;
   display: flex;
   align-items: center;
-  //width: 2rem;
 }

@@ -7,8 +7,6 @@
 
 .character-header {
   margin: 1rem 0;
-  //margin-top: 2rem;
-  //margin-bottom: 1rem;
   font-size: 5rem;
 }
 
@@ -17,7 +15,7 @@
   border-spacing: 0 0.4rem;
 
   td {
-    background: white;
+    background: color(light, bright);
     line-height: 1.6rem;
     width: 6rem;
     padding: 0.2rem 0.4rem;
@@ -29,7 +27,7 @@
   }
 
   td:last-of-type {
-    background: #e0e0d8;
+    background: color(light, dark);
     text-align: left;
     border-radius: 0 0.3rem 0.3rem 0;
   }
@@ -43,9 +41,10 @@
   margin: 1rem;
 }
 
-.fa-angle-left, .fa-angle-right {
+.fa-angle-left,
+.fa-angle-right {
   margin: 3rem;
-  color: #f80;
+  color: color(orange);
   font-size: 3rem;
   cursor: pointer;
 }

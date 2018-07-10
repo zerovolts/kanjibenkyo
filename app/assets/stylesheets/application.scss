@@ -18,34 +18,14 @@ $japanese-font: "Rounded Mplus 1c";
 @import "login-modal";
 @import "checkbox";
 @import "loader";
-@import "kana-index";
-@import "kanji-index";
 @import "radio-button";
 @import "kanji-show";
 @import "kanji-list";
 @import "table";
 
-:root {
-  --red: #e74c3c;
-  --dark-red: #c0392b;
-
-  --orange: #ff8800;
-  --dark-orange: #ff6600;
-
-  --green: #2ecc71;
-  --dark-green: #27ae60;
-
-  --bright-light: #ffffff;
-  --light: #f0f0e8;
-  --dark-light: #e0e0d8;
-
-  --shadow: #34495e;
-  --dark-shadow: #2c3e50;
-}
-
 body {
-  background: #f0f0ea;
-  color: #34495e;
+  background: color(light);
+  color: color(shadow);
   padding: 0;
   margin: 0;
   font-family: $main-font, $japanese-font;
@@ -60,7 +40,7 @@ p {
 }
 
 a {
-  color: #f60;
+  color: color(orange, dark);
   text-decoration: none;
 }
 
@@ -73,7 +53,7 @@ h5 {
 }
 
 h2 {
-  color: #34495e;
+  color: color(shadow);
 }
 
 .kana-textbox {
@@ -107,8 +87,8 @@ h2 {
 }
 
 .word-block {
-  background: color(light, light);
-  color: color(dark);
+  background: color(light, bright);
+  color: color(shadow);
   border-radius: 0.3rem;
   margin: 0.4rem;
   padding: 8px;

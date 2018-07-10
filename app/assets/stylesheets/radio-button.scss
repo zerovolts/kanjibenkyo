@@ -1,9 +1,5 @@
-// trying to center the whole element, not working
 .radio-horizontal {
-  //margin: auto;
   user-select: none;
-  //margin-top: 0.5rem;
-  //margin-bottom: 1.5rem;
 }
 
 input[type="radio"] {
@@ -28,21 +24,17 @@ input[type="radio"] + label {
   position: relative;
   background: color(orange);
   box-shadow: 0 4px color(orange, dark);
-  color: #fff;
+  color: color(light, bright);
   font-size: 1em;
   padding: 0.5em 1em;
   bottom: 4px;
   margin: 0em;
   transition: bottom 0.2s, box-shadow 0.2s, color 0.2s;
-
-  // testing
-  //width: 170px;
-  //text-align: center;
 }
 
 input[type="radio"]:checked + label {
   background: color(orange, dark);
-  color: #fff;
+  color: color(light, bright);
   box-shadow: 0 0 color(orange, dark);
   bottom: 0em;
 }

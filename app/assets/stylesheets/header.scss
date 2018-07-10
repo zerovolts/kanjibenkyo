@@ -1,6 +1,6 @@
 .header {
-  background: #f80;
-  box-shadow: 0 4px #f60;
+  background: color(orange);
+  box-shadow: 0 4px color(orange, dark);
   height: 3em;
   margin: 0;
   padding: 0 4rem;
@@ -15,7 +15,6 @@
   margin: 0;
   display: flex;
   align-items: baseline;
-  //flex-direction: column;
 }
 
 .right-header {
@@ -26,7 +25,7 @@
 
 .nav-button {
   font-size: 1.2rem;
-  color: white;
+  color: color(light, bright);
   padding: 0 1.5rem;
   height: 100%;
   display: flex;
@@ -34,18 +33,18 @@
 }
 
 .nav-button.selected {
-  background: #f60;
+  background: color(orange, dark);
 }
 
 .logo-kanji {
-  color: color(dark);
+  color: color(shadow);
 }
 
 .logo {
   height: 100%;
   margin: 0;
   padding: 0 1rem;
-  color: white;
+  color: color(light, bright);
   font-size: 1.6em;
   text-decoration: none;
   display: flex;
@@ -61,9 +60,8 @@
 .profile-dropdown {
   width: 10rem;
   padding: 0.25rem;
-  background: #f60;
-  color: white;
-  //padding: 0.4rem;
+  background: color(orange, dark);
+  color: color(light, bright);
   border-radius: 0.3rem;
   display: flex;
   justify-content: space-between;
@@ -73,20 +71,20 @@
 .sign-in-box {
   width: 10rem;
   padding: 0.25rem;
-  background: #f60;
-  color: white;
+  background: color(orange, dark);
+  color: color(light, bright);
   border-radius: 0.3rem;
   text-align: center;
   cursor: pointer;
 }
 
 .profile-dropdown a {
-  color: white;
+  color: color(light, bright);
 }
 
 .dropdown-arrow {
-  color: white;
-  background: #f80;
+  color: color(light, bright);
+  background: color(orange);
   border-radius: 0.3rem;
   width: 1.6rem;
   height: 1.6rem;
@@ -96,7 +94,7 @@
 }
 
 .profile-image {
-  background: #f80;
+  background: color(orange);
   border-radius: 0.3rem;
   width: 1.6rem;
   height: 1.6rem;
