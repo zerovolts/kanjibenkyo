@@ -1,5 +1,7 @@
 import React from "react";
 
+import "./modal.scss";
+
 const Modal = ({ visible, hideCallback, children }) => {
   const modal = (
     <div className="modal-container">

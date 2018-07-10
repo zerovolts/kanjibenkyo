@@ -14,7 +14,6 @@ $japanese-font: "Rounded Mplus 1c";
 @import "kana-show";
 @import "flashcard";
 @import "progress-bar";
-@import "modal";
 @import "text-input";
 @import "login-modal";
 @import "checkbox";
@@ -25,6 +24,24 @@ $japanese-font: "Rounded Mplus 1c";
 @import "kanji-show";
 @import "kanji-list";
 @import "table";
+
+:root {
+  --red: #e74c3c;
+  --dark-red: #c0392b;
+
+  --orange: #ff8800;
+  --dark-orange: #ff6600;
+
+  --green: #2ecc71;
+  --dark-green: #27ae60;
+
+  --bright-light: #ffffff;
+  --light: #f0f0e8;
+  --dark-light: #e0e0d8;
+
+  --shadow: #34495e;
+  --dark-shadow: #2c3e50;
+}
 
 body {
   background: #f0f0ea;
