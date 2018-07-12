@@ -49,9 +49,31 @@ class Header extends React.Component {
           </Link>
         </div>
         <div className="right-header">
-          <NavButton name="Kana" path="/kana" url={location.pathname} />
-          <NavButton name="Kanji" path="/kanji" url={location.pathname} />
-          <NavButton name="Words" path="/words" url={location.pathname} />
+          <NavButton
+            name="Kana"
+            path="/kana"
+            url={location.pathname}
+            dropdownLinks={[
+              { name: "List", path: "/list/kana" },
+              { name: "Flashcards", path: "/study/kana" },
+              { name: "Quiz", path: "/quiz/kana" }
+            ]}
+          />
+          <NavButton
+            name="Kanji"
+            path="/kanji"
+            url={location.pathname}
+            dropdownLinks={[{ name: "List", path: "/list/kanji" }]}
+          />
+          <NavButton
+            name="Words"
+            path="/words"
+            url={location.pathname}
+            dropdownLinks={[
+              { name: "Verb Conjugator", path: "/words/verb-conjugator" },
+              { name: "List", path: "/words/all" }
+            ]}
+          />
           {userBlock}
         </div>
       </div>

@@ -1,5 +1,10 @@
 @import "app/assets/stylesheets/colors";
 
+a,
+a:hover {
+  color: color(light, bright);
+}
+
 .header {
   background: color(orange);
   box-shadow: 0 4px color(orange, dark);
