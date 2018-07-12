@@ -1,0 +1,9 @@
+@import "app/assets/stylesheets/colors";
+
+.container-block {
+  background: color(light, bright);
+  border-radius: 0.3rem;
+  box-shadow: 0 4px color(light, dark);
+  padding: 1rem;
+  margin: 1rem;
+}

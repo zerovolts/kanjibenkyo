@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+import ContainerBlock from "components/container-block/container-block";
+
 const kanaText =
   "Kana are similar to the English alphabet, but they represent syllables rather than consonants and vowels separately. There are 46 basic kana, with two variants for each: Hiragana (ひらがな) for native Japanese words and Katakana (カタカナ) for foreign loanwords. You should be able to read these reasonably well before starting to study Kanji.";
 
@@ -12,7 +14,7 @@ const KanaIndex = () => {
           ・カナ
         </span>
       </h1>
-      <Link to="/list/kana">
+      {/* <Link to="/list/kana">
         <button>List</button>
       </Link>
       <Link to="/study/kana">
@@ -20,8 +22,10 @@ const KanaIndex = () => {
       </Link>
       <Link to="/quiz/kana">
         <button>Quiz</button>
-      </Link>
-      <p>{kanaText}</p>
+      </Link> */}
+      <ContainerBlock>
+        <p>{kanaText}</p>
+      </ContainerBlock>
     </div>
   );
 };

@@ -27,9 +27,9 @@
 .modal {
   position: relative;
   width: 20rem;
-  background: #f0f0ea;
+  background: color(light);
   border-radius: 0.3rem;
-  box-shadow: 0 4px color(shadow, bright);
+  box-shadow: 0 4px color(light, dark);
   animation: 0.2s grow-in;
 }
 
