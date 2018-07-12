@@ -2,6 +2,8 @@ import React from "react";
 
 import WordBlock from "components/word-block/word-block";
 
+import "./word-list.scss";
+
 class WordList extends React.Component {
   state = {
     words: []

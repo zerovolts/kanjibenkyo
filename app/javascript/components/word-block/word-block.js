@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+import "./word-block.scss";
+
 const WordBlock = ({ character, rating, url, unlocked = true }) => {
   return (
     <div

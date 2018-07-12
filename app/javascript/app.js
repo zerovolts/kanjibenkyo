@@ -13,6 +13,7 @@ import KanaStudy from "pages/kana-study/kana-study";
 import KanjiList from "pages/kanji-list/kanji-list";
 import KanjiShow from "pages/kanji-show/kanji-show";
 import Profile from "pages/profile/profile";
+import WordIndex from "pages/word-index/word-index";
 import VerbConjugator from "pages/verb-conjugator/verb-conjugator";
 import WordList from "pages/word-list/word-list";
 
@@ -48,8 +49,9 @@ class App extends React.Component {
             <Route path="/kanji/:kanji" component={KanjiShow} />
             <Route path="/quiz/kana" component={KanaQuiz} />
             <Route path="/user/:login" component={Profile} />
-            <Route path="/verb-conjugator" component={VerbConjugator} />
-            <Route path="/words" component={WordList} />
+            <Route path="/words/verb-conjugator" component={VerbConjugator} />
+            <Route path="/words/all" component={WordList} />
+            <Route path="/words" component={WordIndex} />
           </Switch>
         </React.Fragment>
       </BrowserRouter>
