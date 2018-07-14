@@ -37,7 +37,7 @@ class WordList extends React.Component {
         <WordBlock
           key={word.word + i}
           character={word.word}
-          url=""
+          url={`/words/${word.word}`}
           rating={null}
         />
       );

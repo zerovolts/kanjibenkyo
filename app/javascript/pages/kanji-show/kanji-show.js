@@ -69,6 +69,4 @@ class KanjiShow extends React.Component {
   }
 }
 
-// {kanji.kunyomi ? kanji.kunyomi.join(", ") : null}
-
 export default KanjiShow;

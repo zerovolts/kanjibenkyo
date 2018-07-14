@@ -78,7 +78,7 @@ ActiveRecord::Schema.define(version: 20180315005019) do
 
   create_table "words", force: :cascade do |t|
     t.string "word"
-    t.string "furigana"
+    t.string "furigana", array: true
     t.string "meaning", array: true
     t.integer "jlpt"
     t.datetime "created_at", null: false
