@@ -1,10 +1,5 @@
 @import "app/assets/stylesheets/colors";
 
-a,
-a:hover {
-  color: color(light, bright);
-}
-
 .header {
   background: color(orange);
   box-shadow: 0 4px color(orange, dark);
@@ -14,6 +9,11 @@ a:hover {
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  a,
+  a:hover {
+    color: color(light, bright);
+  }
 }
 
 .left-header {

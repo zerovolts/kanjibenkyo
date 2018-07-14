@@ -14,11 +14,15 @@ const KanjiIndex = () => {
           ・漢字
         </span>
       </h1>
-      {/* <Link to="/list/kanji">
-        <button>List</button>
-      </Link> */}
       <ContainerBlock>
         <p>{kanjiText}</p>
+        <hr />
+        <div className="link-option">
+          <p>
+            <Link to="/list/kanji">Kanji Grid</Link> - A grid of all jōyō kanji,
+            sortable by Grade Level, Stroke Count, and Radical.
+          </p>
+        </div>
       </ContainerBlock>
     </div>
   );

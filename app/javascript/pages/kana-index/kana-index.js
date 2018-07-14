@@ -14,17 +14,27 @@ const KanaIndex = () => {
           ・カナ
         </span>
       </h1>
-      {/* <Link to="/list/kana">
-        <button>List</button>
-      </Link>
-      <Link to="/study/kana">
-        <button>Flashcards</button>
-      </Link>
-      <Link to="/quiz/kana">
-        <button>Quiz</button>
-      </Link> */}
       <ContainerBlock>
         <p>{kanaText}</p>
+        <hr />
+        <div className="link-option">
+          <p>
+            <Link to="/list/kana">Kana Grid</Link> - An interactive grid of all
+            kana and your skill with each one.
+          </p>
+        </div>
+        <div className="link-option">
+          <p>
+            <Link to="/study/kana">Flashcards</Link> - Study kana with
+            flashcards.
+          </p>
+        </div>
+        <div className="link-option">
+          <p>
+            <Link to="/quiz/kana">Kana Quiz</Link> - Test your knowledge and
+            update your Kana Grid skill colors.
+          </p>
+        </div>
       </ContainerBlock>
     </div>
   );
