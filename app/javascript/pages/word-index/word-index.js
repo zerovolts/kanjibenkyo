@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import ContainerBlock from "components/container-block/container-block";
+import Word from "components/word/word";
+import { WordTypes } from "components/word/word";
 
 const infoText = "Most Japanese words fit into seven categories. ";
 
@@ -23,25 +25,39 @@ const WordIndex = () => {
         <p>{infoText}</p>
         <ul>
           <li>
-            い-Adjectives: <WordLink word="楽しい" />、<WordLink word="寒い" />、<WordLink word="辛い" />
+            い-Adjectives: <Word word="楽しい" type={WordTypes.ADJECTIVE} />、
+            <Word word="寒い" type={WordTypes.ADJECTIVE} />、
+            <Word word="辛い" type={WordTypes.ADJECTIVE} />
           </li>
           <li>
-            な-Adjectives: <WordLink word="静か" />、<WordLink word="綺麗" />、<WordLink word="便利" />
+            な-Adjectives: <Word word="静か" type={WordTypes.ADJECTIVE} />、
+            <Word word="綺麗" type={WordTypes.ADJECTIVE} />、
+            <Word word="便利" type={WordTypes.ADJECTIVE} />
           </li>
           <li>
-            Nouns: <WordLink word="猫" />、<WordLink word="折り紙" />、<WordLink word="天気" />
+            Nouns: <Word word="猫" type={WordTypes.NOUN} />、
+            <Word word="折り紙" type={WordTypes.NOUN} />、
+            <Word word="天気" type={WordTypes.NOUN} />
           </li>
           <li>
-            Ichidan (る) Verbs: <WordLink word="見る" />、<WordLink word="寝る" />、<WordLink word="落ちる" />
+            Ichidan (る) Verbs: <Word word="見る" type={WordTypes.VERB} />、
+            <Word word="寝る" type={WordTypes.VERB} />、
+            <Word word="落ちる" type={WordTypes.VERB} />
           </li>
           <li>
-            Godan Verbs: <WordLink word="行く" />、<WordLink word="学ぶ" />、<WordLink word="落とす" />
+            Godan Verbs: <Word word="行く" type={WordTypes.VERB} />、
+            <Word word="学ぶ" type={WordTypes.VERB} />、
+            <Word word="落とす" type={WordTypes.VERB} />
           </li>
           <li>
-            Adverbs: <WordLink word="沢山" />、<WordLink word="多分" />、<WordLink word="便利" />
+            Adverbs: <Word word="沢山" type={WordTypes.ADVERB} />、
+            <Word word="多分" type={WordTypes.ADVERB} />、
+            <Word word="便利" type={WordTypes.ADVERB} />
           </li>
           <li>
-            Particles: <WordLink word="を" />、<WordLink word="と" />、<WordLink word="から" />
+            Particles: <Word word="を" type={WordTypes.PARTICLE} />、
+            <Word word="と" type={WordTypes.PARTICLE} />、
+            <Word word="から" type={WordTypes.PARTICLE} />
           </li>
         </ul>
         <hr />
@@ -61,10 +77,6 @@ const WordIndex = () => {
       </ContainerBlock>
     </div>
   );
-};
-
-const WordLink = ({ word }) => {
-  return <a href={`/words/${word}`}>{word}</a>;
 };
 
 export default WordIndex;
