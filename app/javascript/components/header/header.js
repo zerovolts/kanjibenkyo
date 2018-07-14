@@ -70,8 +70,8 @@ class Header extends React.Component {
             path="/words"
             url={location.pathname}
             dropdownLinks={[
-              { name: "Verb Conjugator", path: "/words/verb-conjugator" },
-              { name: "List", path: "/words/all" }
+              { name: "List", path: "/words/all" },
+              { name: "Verb Conjugator", path: "/words/verb-conjugator" }
             ]}
           />
           {userBlock}

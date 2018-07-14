@@ -20,6 +20,8 @@ Rails.application.routes.draw do
       get "/kanji/:kanji" => "kanji#show"
 
       get "/words" => "word#index"
+      get "/words/jlpt/:jlpt" => "word#jlpt"
+      get "/words/:word" => "word#show"
 
       get "/user/:login" => "user#show"
     end
