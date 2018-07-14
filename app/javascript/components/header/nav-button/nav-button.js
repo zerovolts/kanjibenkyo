@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 
 import NavDropdown from "components/header/nav-button/nav-dropdown/nav-dropdown";
 
+import "./nav-button.scss";
+
 class NavButton extends React.Component {
   constructor(props) {
     super(props);

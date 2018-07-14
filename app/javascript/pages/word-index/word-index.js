@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import ContainerBlock from "components/container-block/container-block";
 import Word from "components/word/word";
 import { WordTypes } from "components/word/word";
+import Hoverbox from "components/hoverbox/hoverbox";
 
 const infoText = "Most Japanese words fit into seven categories. ";
 

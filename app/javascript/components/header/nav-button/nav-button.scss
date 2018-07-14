@@ -1,0 +1,14 @@
+@import "app/assets/stylesheets/colors";
+
+.nav-button {
+  font-size: 1.2rem;
+  color: color(light, bright);
+  padding: 0 1.5rem;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.nav-button.selected {
+  background: color(orange, dark);
+}
