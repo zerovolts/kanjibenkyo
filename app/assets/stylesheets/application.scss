@@ -8,6 +8,11 @@ $japanese-font: "Rounded Mplus 1c";
 @import "button";
 @import "text-input";
 @import "checkbox";
+@import "list";
+
+#app {
+  min-height: 100vh;
+}
 
 body {
   background: color(light);
@@ -17,10 +22,6 @@ body {
   font-family: $main-font, $japanese-font;
 }
 
-#app {
-  min-height: 100vh;
-}
-
 p {
   line-height: 1.6rem;
 }
@@ -28,6 +29,10 @@ p {
 a {
   color: color(orange, dark);
   text-decoration: none;
+}
+
+a:hover {
+  color: color(orange);
 }
 
 h1,
@@ -40,4 +45,10 @@ h5 {
 
 h2 {
   color: color(shadow);
+}
+
+hr {
+  border: none;
+  border-top: 1px dashed color(light, dark);
+  margin: 1.5rem 1rem;
 }
