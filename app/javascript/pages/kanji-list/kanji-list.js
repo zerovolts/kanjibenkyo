@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { List } from "immutable";
 
 import { fetchKanjiIfNeeded } from "actions";
-import RadioButton from "components/radio-button/radio-button";
+import ListHeader from "components/list-header/list-header";
 import CharacterBlock from "components/character-block/character-block";
 
 import "./kanji-list.scss";
@@ -116,39 +116,17 @@ class KanjiList extends React.Component {
 
     return (
       <div>
-        <div className="kanji-list-header">
-          <div className="kanji-label">
-            Kanji: {kanjiCount} / {kanjiList.length}
-          </div>
-          <div className="radio-horizontal">
-            <RadioButton
-              value={GRADE_LEVEL}
-              selected={this.state.sortMethod}
-              onChange={this.changeSortMethod}
-              then={this.startRender}
-            >
-              Grade
-            </RadioButton>
-
-            <RadioButton
-              value={STROKE_COUNT}
-              selected={this.state.sortMethod}
-              onChange={this.changeSortMethod}
-              then={this.startRender}
-            >
-              Strokes
-            </RadioButton>
-
-            <RadioButton
-              value={RADICAL}
-              selected={this.state.sortMethod}
-              onChange={this.changeSortMethod}
-              then={this.startRender}
-            >
-              Radical
-            </RadioButton>
-          </div>
-        </div>
+        <ListHeader
+          title={`Kanji: ${kanjiCount} / ${kanjiList.length}`}
+          options={[
+            { name: "Grade", value: GRADE_LEVEL },
+            { name: "Strokes", value: STROKE_COUNT },
+            { name: "Radical", value: RADICAL }
+          ]}
+          optionSelection={this.state.sortMethod}
+          onOptionChange={this.changeSortMethod}
+          optionThen={this.startRender}
+        />
         {kanjiCards}
       </div>
     );

@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 
 import { fetchKanaIfNeeded } from "actions";
+import ListHeader from "components/list-header/list-header";
 import CharacterBlock from "components/character-block/character-block";
 import RadioButton from "components/radio-button/radio-button";
 
@@ -42,38 +43,16 @@ class KanaList extends React.Component {
 
     return (
       <React.Fragment>
-        <div className="kana-list-header">
-          <div className="kana-label">
-            Kana: {kanaCount} / {kanaList.length}
-          </div>
-          <div className="language-buttons">
-            <div className="radio-horizontal">
-              <RadioButton
-                value="hiragana"
-                selected={kanaType}
-                onChange={this.changeKanaType}
-              >
-                Hiragana
-              </RadioButton>
-
-              <RadioButton
-                value="katakana"
-                selected={kanaType}
-                onChange={this.changeKanaType}
-              >
-                Katakana
-              </RadioButton>
-
-              <RadioButton
-                value="romaji"
-                selected={kanaType}
-                onChange={this.changeKanaType}
-              >
-                Rōmaji
-              </RadioButton>
-            </div>
-          </div>
-        </div>
+        <ListHeader
+          title={`Kana: ${kanaCount} / ${kanaList.length}`}
+          options={[
+            { name: "Hiragana", value: "hiragana" },
+            { name: "Katakana", value: "katakana" },
+            { name: "Rōmaji", value: "romaji" }
+          ]}
+          optionSelection={kanaType}
+          onOptionChange={this.changeKanaType}
+        />
         <div className="kana-list">{kanaCards}</div>
       </React.Fragment>
     );

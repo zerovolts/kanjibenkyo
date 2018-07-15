@@ -9,24 +9,10 @@
   justify-content: center;
 }
 
-.kana-list-header {
-  margin: 1.5rem auto;
-  margin-top: 3rem;
-  width: 41rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
 .blank-block {
   border-radius: 0.3rem;
   background: color(light, dark);
   margin: 0.4rem;
-}
-
-.language-buttons {
-  display: flex;
-  justify-content: center;
 }
 
 .filters {
@@ -36,9 +22,4 @@
 
 .filter {
   margin: 1rem;
-}
-
-.kana-label {
-  text-align: center;
-  font-size: 2rem;
 }

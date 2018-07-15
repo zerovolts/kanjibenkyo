@@ -1,5 +1,6 @@
 import React from "react";
 
+import ListHeader from "components/list-header/list-header";
 import WordBlock from "components/word-block/word-block";
 import RadioButton from "components/radio-button/radio-button";
 
@@ -45,57 +46,18 @@ class WordList extends React.Component {
 
     return (
       <div>
-        <div className="word-list-header">
-          <div className="word-label">
-            Vocabulary: {this.state.words.length}
-          </div>
-          <div className="radio-horizontal">
-            <RadioButton
-              value={1}
-              selected={this.state.jlpt}
-              onChange={this.changeJlpt}
-              then={this.fetchWords}
-            >
-              N1
-            </RadioButton>
-
-            <RadioButton
-              value={2}
-              selected={this.state.jlpt}
-              onChange={this.changeJlpt}
-              then={this.fetchWords}
-            >
-              N2
-            </RadioButton>
-
-            <RadioButton
-              value={3}
-              selected={this.state.jlpt}
-              onChange={this.changeJlpt}
-              then={this.fetchWords}
-            >
-              N3
-            </RadioButton>
-
-            <RadioButton
-              value={4}
-              selected={this.state.jlpt}
-              onChange={this.changeJlpt}
-              then={this.fetchWords}
-            >
-              N4
-            </RadioButton>
-
-            <RadioButton
-              value={5}
-              selected={this.state.jlpt}
-              onChange={this.changeJlpt}
-              then={this.fetchWords}
-            >
-              N5
-            </RadioButton>
-          </div>
-        </div>
+        <ListHeader
+          title={`Vocabulary: ${this.state.words.length}`}
+          options={[
+            { name: "N1", value: 1 },
+            { name: "N2", value: 2 },
+            { name: "N3", value: 3 },
+            { name: "N4", value: 4 },
+            { name: "N5", value: 5 }
+          ]}
+          optionSelection={this.state.jlpt}
+          onOptionChange={this.changeJlpt}
+        />
         <div className="word-list">{wordBlocks}</div>
       </div>
     );
