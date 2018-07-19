@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import Hoverbox from "components/hoverbox/hoverbox";
+import WordHoverbox from "components/word-hoverbox/word-hoverbox";
 
 import "./word.scss";
 
@@ -15,8 +15,19 @@ export const WordTypes = {
 
 class Word extends React.Component {
   state = {
-    hovering: false
+    hovering: false,
+    wordInfo: {}
   };
+
+  componentDidMount() {
+    fetch(`/api/v1/words/${this.props.word}`)
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          wordInfo: data
+        });
+      });
+  }
 
   mouseEnter = () => {
     this.setState({
@@ -33,7 +44,9 @@ class Word extends React.Component {
   render() {
     const { word, type } = this.props;
 
-    const hoverbox = this.state.hovering ? <Hoverbox>{word}</Hoverbox> : null;
+    const hoverbox = this.state.hovering ? (
+      <WordHoverbox word={word} info={this.state.wordInfo} />
+    ) : null;
 
     return (
       <span className="word">

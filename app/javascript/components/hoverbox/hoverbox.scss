@@ -6,5 +6,9 @@
   background: color(light, bright);
   border-radius: 0.3rem;
   padding: 0.5rem;
-  box-shadow: 0 0 2px 1px #00000060;
+  border: 3px solid color(light, dark);
+}
+
+.hoverbox hr {
+  margin: 0.2rem 0;
 }
