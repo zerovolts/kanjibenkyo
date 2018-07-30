@@ -8,6 +8,7 @@
     "babel-preset-stage-1": "^6.24.1",
     "immutable": "^3.8.2",
     "katsuyo": "^1.0.0",
+    "markdown-to-jsx": "^6.6.9",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
