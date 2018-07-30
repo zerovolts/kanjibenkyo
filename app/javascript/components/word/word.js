@@ -45,9 +45,12 @@ class Word extends React.Component {
   render() {
     const { word, type } = this.props;
 
-    const hoverbox = this.state.hovering ? (
+    const hoverbox = this.state.hovering && (
       <WordHoverbox word={word} info={this.state.wordInfo} />
-    ) : null;
+    );
+
+    const rubyText = this.state.ruby &&
+      this.state.wordInfo && <rt>{this.state.wordInfo.furigana}</rt>;
 
     return (
       <span className="word">
@@ -62,11 +65,7 @@ class Word extends React.Component {
             </span>
           </Link>
           {hoverbox}
-          <rt>
-            {this.state.ruby &&
-              this.state.wordInfo &&
-              this.state.wordInfo.furigana}
-          </rt>
+          {rubyText}
         </ruby>
       </span>
     );
