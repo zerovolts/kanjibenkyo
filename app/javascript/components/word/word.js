@@ -16,7 +16,8 @@ export const WordTypes = {
 class Word extends React.Component {
   state = {
     hovering: false,
-    wordInfo: {}
+    wordInfo: {},
+    ruby: false
   };
 
   componentDidMount() {
@@ -50,16 +51,23 @@ class Word extends React.Component {
 
     return (
       <span className="word">
-        <Link to={`/words/${word}`}>
-          <span
-            className={type}
-            onMouseEnter={this.mouseEnter}
-            onMouseLeave={this.mouseLeave}
-          >
-            {word}
-          </span>
-        </Link>
-        {hoverbox}
+        <ruby>
+          <Link to={`/words/${word}`}>
+            <span
+              className={type}
+              onMouseEnter={this.mouseEnter}
+              onMouseLeave={this.mouseLeave}
+            >
+              {word}
+            </span>
+          </Link>
+          {hoverbox}
+          <rt>
+            {this.state.ruby &&
+              this.state.wordInfo &&
+              this.state.wordInfo.furigana}
+          </rt>
+        </ruby>
       </span>
     );
   }
