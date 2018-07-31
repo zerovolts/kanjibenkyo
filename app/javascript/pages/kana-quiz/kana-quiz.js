@@ -53,6 +53,7 @@ class KanaQuiz extends React.Component {
       started,
       finished,
       correctFlags,
+      questions,
       fetchQuiz,
       selectQuestion,
       nextQuestion,
@@ -65,6 +66,7 @@ class KanaQuiz extends React.Component {
         return (
           <QuizComplete
             correctFlags={correctFlags}
+            questions={questions}
             createFunction={fetchQuiz}
           />
         );
@@ -135,7 +137,8 @@ const mapStateToProps = state => {
     },
     started,
     finished,
-    correctFlags
+    correctFlags,
+    questions
   };
 };
 

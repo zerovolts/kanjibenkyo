@@ -61,7 +61,7 @@ const kanaQuiz = (state = initialState, action) => {
     case KANA_QUIZ_SUBMIT:
       return {
         ...state,
-        started: false,
+        started: true,
         finished: true
       };
     default:
