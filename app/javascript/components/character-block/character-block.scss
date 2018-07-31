@@ -1,10 +1,11 @@
 @import "app/assets/stylesheets/colors";
+@import "app/assets/stylesheets/mixins";
 
 .character-block {
+  @include color-band-top(color(clear));
+  @include rounded();
   background: color(light, bright);
   color: color(shadow);
-  border-top: 5px solid rgba(0, 0, 0, 0);
-  border-radius: 0.3rem;
   width: 2rem;
   margin: 0.4rem;
   padding: 8px;
@@ -24,4 +25,12 @@
   font-size: 1.5rem;
   line-height: 2rem;
   margin: 0;
+}
+
+.character-block .disabled {
+  background: color(light, bright);
+
+  h2 {
+    color: color(shadow);
+  }
 }

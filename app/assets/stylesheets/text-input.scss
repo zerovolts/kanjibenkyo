@@ -1,12 +1,14 @@
+@import "mixins";
+
 input[type="text"],
 input[type="password"] {
+  @include depress(color(light, dark));
+  @include rounded();
   margin: 1rem 0.5rem;
   padding: 0.6rem 0.4rem 0.4rem 0.4rem;
   font-size: 1rem;
   font-family: $main-font;
-  border-radius: 0.3rem;
   border: none;
-  box-shadow: inset 0px 4px color(light, dark);
   color: color(shadow, dark);
   width: 100%;
 }

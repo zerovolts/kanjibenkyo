@@ -1,4 +1,5 @@
 @import "app/assets/stylesheets/colors";
+@import "app/assets/stylesheets/mixins";
 
 .progress-bar {
   display: flex;
@@ -24,9 +25,9 @@
 }
 
 .progress-block {
+  @include rounded();
   background: color(light, dark);
   width: 1.4rem;
   height: 1.4rem;
-  border-radius: 0.3rem;
   margin: 0.2rem;
 }

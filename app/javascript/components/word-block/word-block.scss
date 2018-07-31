@@ -1,9 +1,10 @@
 @import "app/assets/stylesheets/colors";
+@import "app/assets/stylesheets/mixins";
 
 .word-block {
+  @include rounded();
   background: color(light, bright);
   color: color(shadow);
-  border-radius: 0.3rem;
   margin: 0.4rem;
   padding: 8px;
 }

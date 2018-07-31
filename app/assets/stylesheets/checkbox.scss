@@ -1,8 +1,12 @@
+@import "mixins";
+
 input[type="checkbox"] {
   display: none;
 }
 
 input[type="checkbox"] + label:before {
+  @include elevate(color(light, dark));
+  @include rounded();
   content: "\00a0";
   display: inline-block;
   position: relative;
@@ -10,9 +14,7 @@ input[type="checkbox"] + label:before {
   height: 1.4rem;
   background: color(light, bright);
   margin: 0.3rem;
-  border-radius: 0.3rem;
   cursor: pointer;
-  box-shadow: 0 4px color(light, dark);
   bottom: 4px;
 
   transition: bottom 0.2s, box-shadow 0.2s, background 0.2s;

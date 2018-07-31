@@ -1,8 +1,9 @@
 @import "app/assets/stylesheets/colors";
+@import "app/assets/stylesheets/mixins";
 
 .header {
+  @include elevate(color(orange, dark));
   background: color(orange);
-  box-shadow: 0 4px color(orange, dark);
   height: 3em;
   margin: 0;
   padding: 0 4rem;
@@ -52,22 +53,22 @@
 }
 
 .profile-dropdown {
+  @include rounded();
   width: 10rem;
   padding: 0.25rem;
   background: color(orange, dark);
   color: color(light, bright);
-  border-radius: 0.3rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
 .sign-in-box {
+  @include rounded();
   width: 10rem;
   padding: 0.25rem;
   background: color(orange, dark);
   color: color(light, bright);
-  border-radius: 0.3rem;
   text-align: center;
   cursor: pointer;
 }
@@ -77,9 +78,9 @@
 }
 
 .dropdown-arrow {
+  @include rounded();
   color: color(light, bright);
   background: color(orange);
-  border-radius: 0.3rem;
   width: 1.6rem;
   height: 1.6rem;
   display: flex;
@@ -88,8 +89,8 @@
 }
 
 .profile-image {
+  @include rounded();
   background: color(orange);
-  border-radius: 0.3rem;
   width: 1.6rem;
   height: 1.6rem;
 }

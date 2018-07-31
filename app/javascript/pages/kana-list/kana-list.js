@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import { fetchKanaIfNeeded } from "actions";
 import ListHeader from "components/list-header/list-header";
 import CharacterBlock from "components/character-block/character-block";
-import RadioButton from "components/radio-button/radio-button";
 
 import "./kana-list.scss";
 

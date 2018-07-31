@@ -1,4 +1,6 @@
 @import "app/assets/stylesheets/colors";
+@import "app/assets/stylesheets/mixins";
+@import "app/assets/stylesheets/constants";
 
 .modal-container {
   position: fixed;
@@ -25,11 +27,11 @@
 }
 
 .modal {
+  @include elevate(color(light, dark));
+  @include rounded();
   position: relative;
   width: 20rem;
   background: color(light);
-  border-radius: 0.3rem;
-  box-shadow: 0 4px color(light, dark);
   animation: 0.2s grow-in;
 }
 
@@ -50,7 +52,7 @@
   width: 3rem;
   height: 3rem;
   position: absolute;
-  border-radius: 0 0.3rem 0 0;
+  border-radius: 0 $radius 0 0;
   top: 0;
   right: 0;
   font-size: 1.5rem;

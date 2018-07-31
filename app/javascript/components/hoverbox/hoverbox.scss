@@ -1,10 +1,11 @@
 @import "app/assets/stylesheets/colors";
+@import "app/assets/stylesheets/mixins";
 
 .hoverbox {
+  @include rounded();
   position: absolute;
   z-index: 999;
   background: color(light, bright);
-  border-radius: 0.3rem;
   padding: 0.5rem;
   border: 3px solid color(light, dark);
   font-size: 1rem;

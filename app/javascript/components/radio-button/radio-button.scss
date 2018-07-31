@@ -1,4 +1,5 @@
 @import "app/assets/stylesheets/colors";
+@import "app/assets/stylesheets/mixins";
 
 .radio-horizontal {
   user-select: none;
@@ -13,19 +14,19 @@ input[type="radio"] {
 }
 
 .radio-horizontal > label:first-of-type {
-  border-radius: 0.3rem 0em 0em 0.3rem;
+  @include rounded-left();
   border-left: none;
 }
 
 .radio-horizontal > label:last-of-type {
-  border-radius: 0em 0.3rem 0.3rem 0em;
+  @include rounded-right();
 }
 
 input[type="radio"] + label {
+  @include elevate(color(orange, dark));
   cursor: pointer;
   position: relative;
   background: color(orange);
-  box-shadow: 0 4px color(orange, dark);
   color: color(light, bright);
   font-size: 1em;
   padding: 0.5em 1em;

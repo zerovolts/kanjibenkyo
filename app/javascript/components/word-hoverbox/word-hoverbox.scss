@@ -1,13 +1,14 @@
 @import "app/assets/stylesheets/colors";
+@import "app/assets/stylesheets/mixins";
 
 .hoverbox-title {
   font-size: 1.6rem;
 }
 
 .info-key {
+  @include rounded();
   display: inline-block;
   margin: 0.1rem;
   padding: 0.3rem;
-  border-radius: 0.3rem;
   background: color(light);
 }

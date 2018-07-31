@@ -1,4 +1,5 @@
 @import "app/assets/stylesheets/colors";
+@import "app/assets/stylesheets/mixins";
 
 .info-section {
   width: 14rem;
@@ -7,9 +8,9 @@
 }
 
 .info-section-label {
+  @include rounded-top();
   display: inline-block;
   background: color(light, dark);
-  border-radius: 0.3rem 0.3rem 0 0;
   font-weight: bold;
   padding: 0rem 0.4rem;
   padding-top: 0.2rem;
@@ -18,7 +19,7 @@
 
 .info-section-body {
   background: color(light, dark);
-  border-radius: 0 0.3rem 0.3rem 0.3rem;
+  border-radius: 0 $radius $radius $radius;
   display: flex;
   flex-wrap: wrap;
   justify-content: left;
@@ -32,10 +33,10 @@
 }
 
 %yomi {
+  @include rounded();
   color: color(light, bright);
   font-size: 0.9rem;
   line-height: 0.9rem;
-  border-radius: 0.3rem;
   padding: 0.3rem;
   margin: 0.2rem;
 }

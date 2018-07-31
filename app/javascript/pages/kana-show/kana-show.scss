@@ -1,4 +1,5 @@
 @import "app/assets/stylesheets/colors";
+@import "app/assets/stylesheets/mixins";
 
 .kana-show {
   text-align: center;
@@ -24,14 +25,14 @@
   }
 
   td:first-of-type {
+    @include rounded-left();
     text-align: right;
-    border-radius: 0.3rem 0 0 0.3rem;
   }
 
   td:last-of-type {
+    @include rounded-right();
     background: color(light, dark);
     text-align: left;
-    border-radius: 0 0.3rem 0.3rem 0;
   }
 }
 

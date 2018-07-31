@@ -1,4 +1,5 @@
 @import "app/assets/stylesheets/colors";
+@import "app/assets/stylesheets/mixins";
 
 .card {
   perspective: 1600px;
@@ -15,6 +16,7 @@
 }
 
 .face {
+  @include rounded();
   position: absolute;
   display: flex;
   justify-content: center;
@@ -22,19 +24,18 @@
   top: 0;
   left: 0;
   background: color(light, bright);
-  border-radius: 0.3rem;
   width: 100%;
   height: 100%;
   transition: transform 1s;
 }
 
 .front {
-  border-top: 5px solid color(orange, dark);
+  @include color-band-top(color(orange, dark));
   backface-visibility: hidden;
 }
 
 .back {
-  border-top: 5px solid color(blue, dark);
+  @include color-band-top(color(blue, dark));
   backface-visibility: hidden;
   transform: rotateY(180deg);
 }

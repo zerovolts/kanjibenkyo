@@ -1,3 +1,5 @@
+@import "app/assets/stylesheets/mixins";
+
 .login-modal {
   text-align: center;
 }
@@ -7,9 +9,9 @@
 }
 
 .login-modal-header {
+  @include rounded-top();
   font-size: 1.4rem;
   background: color(light, dark);
-  border-radius: 0.3rem 0.3rem 0 0;
   height: 3rem;
   display: flex;
   justify-content: center;

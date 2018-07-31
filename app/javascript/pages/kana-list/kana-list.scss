@@ -1,4 +1,5 @@
 @import "app/assets/stylesheets/colors";
+@import "app/assets/stylesheets/mixins";
 
 .kana-list {
   width: 0;
@@ -10,7 +11,7 @@
 }
 
 .blank-block {
-  border-radius: 0.3rem;
+  @include rounded();
   background: color(light, dark);
   margin: 0.4rem;
 }

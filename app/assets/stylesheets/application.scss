@@ -1,14 +1,13 @@
 @import url(https://fonts.googleapis.com/css?family=Varela+Round);
 @import url(https://fonts.googleapis.com/earlyaccess/roundedmplus1c.css);
 
-$main-font: "Varela Round";
-$japanese-font: "Rounded Mplus 1c";
-
+@import "constants";
 @import "colors";
 @import "button";
 @import "text-input";
 @import "checkbox";
 @import "list";
+@import "mixins";
 
 #app {
   min-height: 100vh;

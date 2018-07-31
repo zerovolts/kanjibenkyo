@@ -1,4 +1,5 @@
 @import "app/assets/stylesheets/colors";
+@import "app/assets/stylesheets/mixins";
 
 .quiz {
   text-align: center;
@@ -31,11 +32,11 @@
 }
 
 .quiz-choice {
+  @include elevate(color(orange, dark));
+  @include rounded();
   background: color(orange);
   margin: 0.5rem;
-  padding: 0.8rem 0rem;
-  border-radius: 0.3rem;
-  box-shadow: 0 4px color(orange, dark);
+  padding: 0.8rem 0;
   color: color(light, bright);
   width: 6rem;
   height: 6rem;
@@ -43,14 +44,14 @@
 }
 
 .quiz-choice:active {
-  box-shadow: 0px 0px color(orange, dark);
+  box-shadow: 0 0 color(orange, dark);
   bottom: 0px;
   transition: bottom 0s, box-shadow 0s;
 }
 
 .quiz-choice-incorrect {
+  @include elevate(color(red, dark));
   background: color(red);
-  box-shadow: 0 4px color(red, dark);
 }
 
 .quiz-choice-incorrect:active {
@@ -58,8 +59,8 @@
 }
 
 .quiz-choice-correct {
+  @include elevate(color(green, dark));
   background: color(green);
-  box-shadow: 0 4px color(green, dark);
 }
 
 .quiz-choice-correct:active {

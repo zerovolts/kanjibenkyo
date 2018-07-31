@@ -1,4 +1,5 @@
 @import "app/assets/stylesheets/colors";
+@import "app/assets/stylesheets/mixins";
 
 .verb-conjugator {
   text-align: center;
@@ -12,8 +13,8 @@
   border-spacing: 0.4rem;
 
   td {
+    @include rounded();
     background: color(light, bright);
-    border-radius: 0.3rem;
     padding: 0.2rem 0.4rem;
     line-height: 1.6rem;
   }

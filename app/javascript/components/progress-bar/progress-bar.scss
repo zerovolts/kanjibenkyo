@@ -1,15 +1,16 @@
 @import "app/assets/stylesheets/colors";
+@import "app/assets/stylesheets/mixins";
 
 .progress-bar-background {
+  @include rounded();
   margin: 2rem auto 0 auto;
   background: color(light, dark);
   width: 14rem;
   height: 1rem;
-  border-radius: 0.3rem;
 }
 
 .progress-bar-background div {
+  @include rounded();
   height: 100%;
-  border-radius: 0.3rem;
   transition: width 0.5s, background-color 0.5s;
 }
