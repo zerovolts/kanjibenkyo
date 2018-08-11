@@ -8,11 +8,11 @@
 }
 
 .kana-textbox-jp {
+  @include rounded();
   width: 100%;
   padding: 0.4rem;
   height: 1.5rem;
   background: color(light, dark);
-  @include rounded();
   margin: 0.5rem;
   margin-top: 0;
 }

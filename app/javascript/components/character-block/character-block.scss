@@ -2,21 +2,32 @@
 @import "app/assets/stylesheets/mixins";
 
 .character-block {
-  @include color-band-top(color(clear));
   @include rounded();
+  position: relative;
   background: color(light, bright);
   color: color(shadow);
   width: 2rem;
   margin: 0.4rem;
   padding: 8px;
-  padding-top: 3px; //5 pixels less to account for border-top
-}
 
-.locked {
-  background: color(light, dark);
+  &:not(.locked) {
+    @include lift-on-hover(color(light, dark));
+  }
 
-  h2 {
-    color: color(light);
+  &.locked {
+    background: color(light, dark);
+
+    h2 {
+      color: color(light);
+    }
+  }
+
+  &.disabled {
+    background: color(light, bright);
+
+    h2 {
+      color: color(shadow);
+    }
   }
 }
 
@@ -25,12 +36,4 @@
   font-size: 1.5rem;
   line-height: 2rem;
   margin: 0;
-}
-
-.character-block .disabled {
-  background: color(light, bright);
-
-  h2 {
-    color: color(shadow);
-  }
 }

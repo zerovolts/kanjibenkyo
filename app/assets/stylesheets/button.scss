@@ -2,7 +2,7 @@
 @import "constants";
 
 button {
-  @include elevate(color(orange, dark));
+  @include clickable(color(orange, dark));
   @include rounded($button-radius);
   font-family: $main-font, $japanese-font;
   background: color(orange);
@@ -15,14 +15,6 @@ button {
   margin: 0.5em 1em;
   text-align: center;
   cursor: pointer;
-  bottom: 4px;
-  transition: bottom 0.2s, box-shadow 0.2s;
-
-  &:active {
-    @include flatten(color(orange, dark));
-    bottom: 0px;
-    transition: bottom 0s, box-shadow 0s;
-  }
 
   &:focus {
     outline: none;
@@ -30,19 +22,11 @@ button {
 }
 
 button.green {
-  @include elevate(color(green, dark));
+  @include clickable(color(green, dark));
   background: color(green);
-
-  &:active {
-    @include flatten(color(green, dark));
-  }
 }
 
 button.yellow {
-  @include elevate(color(yellow, dark));
+  @include clickable(color(yellow, dark));
   background: color(yellow);
-
-  &:active {
-    @include flatten(color(yellow, dark));
-  }
 }

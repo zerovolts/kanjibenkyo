@@ -35,3 +35,31 @@
 @mixin color-band-top($color) {
   border-top: 5px solid $color;
 }
+
+@mixin lift-on-hover($color) {
+  transition: box-shadow 0.2s, bottom 0.2s;
+  @include flatten(color(light, dark));
+  bottom: 0px;
+
+  &:hover {
+    @include elevate(color(light, dark));
+    bottom: 4px;
+  }
+
+  &:active {
+    @include flatten(color(light, dark));
+    bottom: 0px;
+  }
+}
+
+@mixin clickable($shadow-color) {
+  @include elevate($shadow-color);
+  transition: bottom 0.2s, box-shadow 0.2s;
+  bottom: 4px;
+
+  &:active {
+    @include flatten($shadow-color);
+    transition: bottom 0s, box-shadow 0s;
+    bottom: 0px;
+  }
+}
