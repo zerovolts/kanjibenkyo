@@ -1,5 +1,7 @@
 import React from "react";
 
+import ChoiceButton from "pages/kana-quiz/quiz-choices/choice-button";
+
 const QuizChoices = ({
   question,
   choices,
@@ -7,26 +9,15 @@ const QuizChoices = ({
   answer,
   submitFunction
 }) => {
-  const choiceButtons = choices.map((choice, i) => {
-    let colorClass = "";
-    if (answer == choice) {
-      // if selected
-      colorClass =
-        correctAnswer == choice
-          ? "quiz-choice-correct"
-          : "quiz-choice-incorrect";
-    }
-
-    return (
-      <button
-        className={`quiz-choice ${colorClass}`}
-        key={choice + i}
-        onClick={() => submitFunction(choice)}
-      >
-        {choice}
-      </button>
-    );
-  });
+  const choiceButtons = choices.map((choice, i) => (
+    <ChoiceButton
+      key={choice + i}
+      answer={answer}
+      choice={choice}
+      submitFunction={submitFunction}
+      correctAnswer={correctAnswer}
+    />
+  ));
 
   return (
     <div className="quiz">
