@@ -1,0 +1,28 @@
+@import "app/assets/stylesheets/colors";
+@import "app/assets/stylesheets/mixins";
+
+.info-group {
+  width: 14rem;
+  margin: auto;
+  text-align: left;
+}
+
+.info-section-label {
+  @include rounded-top();
+  display: inline-block;
+  background: color(light, dark);
+  font-weight: bold;
+  padding: 0rem 0.4rem;
+  padding-top: 0.2rem;
+  margin-top: 0.6rem;
+}
+
+.info-section-body {
+  background: color(light, dark);
+  border-radius: 0 $radius $radius $radius;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+  min-height: 1rem;
+  padding: 0.4rem;
+}
