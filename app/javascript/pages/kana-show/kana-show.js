@@ -53,6 +53,22 @@ class KanaShow extends React.Component {
               <td>romaji</td>
               <td>{kana.romaji}</td>
             </tr>
+            {kana.current_user_kana && (
+              <React.Fragment>
+                <tr>
+                  <td>streak</td>
+                  <td>{kana.current_user_kana.streak}</td>
+                </tr>
+                <tr>
+                  <td>score</td>
+                  <td>{kana.current_user_kana.score}</td>
+                </tr>
+                <tr>
+                  <td>correct</td>
+                  <td>{kana.current_user_kana.correct}</td>
+                </tr>
+              </React.Fragment>
+            )}
           </tbody>
         </table>
       </div>
