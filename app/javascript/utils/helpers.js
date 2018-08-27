@@ -1,4 +1,4 @@
-const trueFalseNull = (condition, truePath, falsePath, nullPath) => {
+export const trueFalseNull = (condition, truePath, falsePath, nullPath) => {
   if (condition === true) {
     return truePath;
   } else if (condition === false) {
@@ -7,5 +7,3 @@ const trueFalseNull = (condition, truePath, falsePath, nullPath) => {
     return nullPath;
   }
 };
-
-export { trueFalseNull };

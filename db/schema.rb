@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180315005019) do
+ActiveRecord::Schema.define(version: 20180822070227) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,6 +62,22 @@ ActiveRecord::Schema.define(version: 20180315005019) do
     t.integer "grade"
     t.index ["character"], name: "index_kanji_on_character"
     t.index ["radical"], name: "index_kanji_on_radical"
+  end
+
+  create_table "user_kana", force: :cascade do |t|
+    t.integer "rating"
+    t.integer "correct", default: 0
+    t.integer "count", default: 0
+    t.integer "streak", default: 0
+    t.integer "highest_streak", default: 0
+    t.integer "score", default: 0
+    t.integer "total_seconds_viewed", default: 0
+    t.datetime "time_of_last_review"
+    t.datetime "time_of_next_review"
+    t.bigint "user_id"
+    t.bigint "kana_id"
+    t.index ["kana_id"], name: "index_user_kana_on_kana_id"
+    t.index ["user_id"], name: "index_user_kana_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

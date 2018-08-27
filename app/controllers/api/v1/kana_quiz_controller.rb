@@ -11,7 +11,7 @@ class Api::V1::KanaQuizController < ApplicationController
     quiz = KanaQuiz.find_by(id: params[:id], user_id: params[:user_id])
 
     if (params[:answers].length == quiz.total_questions)
-      checked = quiz.check(params[:answers])
+      checked = quiz.check(current_user, params[:answers])
       render json: checked
     else
       render json: {error: "The number of answers submitted did not match the number of quiz questions."}

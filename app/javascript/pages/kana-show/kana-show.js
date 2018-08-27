@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import ProgressBar from "components/progress-bar/progress-bar";
+import Time from "utils/time";
 
 import "./kana-show.scss";
 
@@ -26,15 +27,18 @@ class KanaShow extends React.Component {
 
   render() {
     const { kana } = this.state;
+    const { hiragana, katakana, romaji } = kana;
 
     return (
       <div className="kana-show">
-        <ProgressBar percent={kana.rating} />
+        {kana.current_user_kana && (
+          <ProgressBar percent={kana.current_user_kana.rating} />
+        )}
         <div className="kana-header">
           <Link to={`/kana/${"あ"}`}>
             <i className="fas fa-angle-left" />
           </Link>
-          <h1 className="character-header">{kana.hiragana}</h1>
+          <h1 className="character-header">{hiragana}</h1>
           <Link to={`/kana/${"あ"}`}>
             <i className="fas fa-angle-right" />
           </Link>
@@ -43,16 +47,40 @@ class KanaShow extends React.Component {
           <tbody>
             <tr>
               <td>hiragana</td>
-              <td>{kana.hiragana}</td>
+              <td>{hiragana}</td>
             </tr>
             <tr>
               <td>katakana</td>
-              <td>{kana.katakana}</td>
+              <td>{katakana}</td>
             </tr>
             <tr>
               <td>romaji</td>
-              <td>{kana.romaji}</td>
+              <td>{romaji}</td>
             </tr>
+            {kana.current_user_kana && (
+              <React.Fragment>
+                <tr>
+                  <td>streak</td>
+                  <td>{kana.current_user_kana.streak}</td>
+                </tr>
+                <tr>
+                  <td>score</td>
+                  <td>{kana.current_user_kana.score}</td>
+                </tr>
+                <tr>
+                  <td>correct</td>
+                  <td>{kana.current_user_kana.correct}</td>
+                </tr>
+                <tr>
+                  <td>next review</td>
+                  <td>
+                    {Time.largestTimeIntervalString(
+                      Date.parse(kana.current_user_kana.time_of_next_review)
+                    )}
+                  </td>
+                </tr>
+              </React.Fragment>
+            )}
           </tbody>
         </table>
       </div>
