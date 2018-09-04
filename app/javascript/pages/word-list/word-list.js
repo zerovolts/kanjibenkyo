@@ -2,7 +2,6 @@ import React from "react";
 
 import ListHeader from "components/list-header/list-header";
 import WordBlock from "components/word-block/word-block";
-import RadioButton from "components/radio-button/radio-button";
 
 import "./word-list.scss";
 
@@ -27,9 +26,12 @@ class WordList extends React.Component {
   };
 
   changeJlpt = jlpt => {
-    this.setState({
-      jlpt: jlpt
-    });
+    this.setState(
+      {
+        jlpt: jlpt
+      },
+      this.fetchWords
+    );
   };
 
   render() {
