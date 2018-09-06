@@ -1,3 +1,29 @@
+// -- KANA -- //
+export const KANA_REQUEST = "KANA_REQUEST";
+export const KANA_RECEIVE = "KANA_RECEIVE";
+
+const requestKana = () => ({
+  type: KANA_REQUEST
+});
+
+const receiveKana = kana => ({
+  type: KANA_RECEIVE,
+  kana
+});
+
+export const fetchKana = () => dispatch => {
+  dispatch(requestKana());
+  return fetch("/api/v1/kana")
+    .then(res => res.json())
+    .then(json => dispatch(receiveKana(json)));
+};
+
+export const fetchKanaIfNeeded = () => (dispatch, getState) => {
+  if (getState().kanaList.kana.length === 0) {
+    return dispatch(fetchKana());
+  }
+};
+
 // -- KANJI -- //
 export const KANJI_REQUEST = "KANJI_REQUEST";
 export const KANJI_RECEIVE = "KANJI_RECEIVE";
@@ -24,29 +50,32 @@ export const fetchKanjiIfNeeded = () => (dispatch, getState) => {
   }
 };
 
-// -- KANA -- //
-export const KANA_REQUEST = "KANA_REQUEST";
-export const KANA_RECEIVE = "KANA_RECEIVE";
+// -- WORDS -- //
+export const WORDS_REQUEST = "WORDS_REQUEST";
+export const WORDS_RECEIVE = "WORDS_RECEIVE";
 
-const requestKana = () => ({
-  type: KANA_REQUEST
+const requestWords = jlpt => ({
+  type: WORDS_REQUEST,
+  jlpt
 });
 
-const receiveKana = kana => ({
-  type: KANA_RECEIVE,
-  kana
+const receiveWords = (jlpt, words) => ({
+  type: WORDS_RECEIVE,
+  jlpt,
+  words
 });
 
-export const fetchKana = () => dispatch => {
-  dispatch(requestKana());
-  return fetch("/api/v1/kana")
+const fetchWords = jlpt => dispatch => {
+  dispatch(requestWords(jlpt));
+  return fetch(`/api/v1/words/jlpt/${jlpt}`)
     .then(res => res.json())
-    .then(json => dispatch(receiveKana(json)));
+    .then(json => dispatch(receiveWords(jlpt, json)));
 };
 
-export const fetchKanaIfNeeded = () => (dispatch, getState) => {
-  if (getState().kanaList.kana.length === 0) {
-    return dispatch(fetchKana());
+export const fetchWordsIfNeeded = jlpt => (dispatch, getState) => {
+  const words = getState().wordList.wordsByJlpt[jlpt];
+  if (words.length === 0) {
+    return dispatch(fetchWords(jlpt));
   }
 };
 
