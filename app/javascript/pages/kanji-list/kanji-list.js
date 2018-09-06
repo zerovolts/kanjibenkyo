@@ -71,48 +71,48 @@ class KanjiList extends React.Component {
     });
   };
 
+  renderKanjiGroups = (kanjiGroups, kanjiList) => {
+    if (!this.state.shouldRender || kanjiList.length === 0) {
+      return <div className="loading">Loading...</div>;
+    }
+
+    return (
+      !kanjiGroups.isEmpty() &&
+      kanjiGroups
+        .keySeq()
+        .toArray()
+        .map(name => this.renderKanjiGroup(name, kanjiGroups.get(name)))
+    );
+  };
+
+  renderKanjiGroup = (name, kanjiList) => {
+    const kanjiGroupCards = kanjiList
+      .map(kanji => kanji.character)
+      .map(this.renderKanjiBlock)
+      .toArray();
+
+    return (
+      <div key={name}>
+        <div className="group-header">
+          <hr />
+          <div>
+            {name} ({kanjiList.size})
+          </div>
+          <hr />
+        </div>
+        <div className="kanji-list">{kanjiGroupCards}</div>
+      </div>
+    );
+  };
+
+  renderKanjiBlock = kanji => (
+    <CharacterBlock key={kanji} character={kanji} url={"/kanji/" + kanji} />
+  );
+
   render() {
     const { kanjiList } = this.props;
     const kanjiGroups = sortMethodToFunction(this.state.sortMethod)(kanjiList);
     const kanjiCount = kanjiList.filter(kanji => kanji.rating != null).length;
-
-    let kanjiCards = null;
-    if (this.state.shouldRender && kanjiList.length > 0) {
-      kanjiCards = kanjiGroups.isEmpty()
-        ? null
-        : kanjiGroups
-            .keySeq()
-            .toArray()
-            .map(name => {
-              const kanjiList = kanjiGroups.get(name);
-              const kanjiGroupCards = kanjiList
-                .map(kanji => {
-                  return (
-                    <CharacterBlock
-                      key={kanji.character}
-                      character={kanji.character}
-                      url={"/kanji/" + kanji.character}
-                    />
-                  );
-                })
-                .toArray();
-
-              return (
-                <div key={name}>
-                  <div className="group-header">
-                    <hr />
-                    <div>
-                      {name} ({kanjiList.size})
-                    </div>
-                    <hr />
-                  </div>
-                  <div className="kanji-list">{kanjiGroupCards}</div>
-                </div>
-              );
-            });
-    } else {
-      kanjiCards = <div className="loading">Loading...</div>;
-    }
 
     return (
       <div>
@@ -127,7 +127,7 @@ class KanjiList extends React.Component {
           onOptionChange={this.changeSortMethod}
           optionThen={this.startRender}
         />
-        {kanjiCards}
+        {this.renderKanjiGroups(kanjiGroups, kanjiList)}
       </div>
     );
   }
