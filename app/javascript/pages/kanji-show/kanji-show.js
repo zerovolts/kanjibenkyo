@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import ProgressBar from "components/progress-bar/progress-bar";
-import InfoGroup from "pages/kanji-show/info-group/info-group";
+import InfoGroup from "components/info-group/info-group";
 import KunyomiTag from "pages/kanji-show/kunyomi-tag/kunyomi-tag";
 import OnyomiTag from "pages/kanji-show/onyomi-tag/onyomi-tag";
 
@@ -42,7 +42,7 @@ class KanjiShow extends React.Component {
         ))
       : null;
 
-    const infoGroups = {
+    const infoSections = {
       "kun'yomi": kunyomi,
       "on'yomi": onyomi,
       meaning: kanji.meaning && kanji.meaning.join(", ")
@@ -60,7 +60,7 @@ class KanjiShow extends React.Component {
             <i className="fas fa-angle-right" />
           </Link>
         </div>
-        <InfoGroup info={infoGroups} />
+        <InfoGroup info={infoSections} />
       </div>
     );
   }

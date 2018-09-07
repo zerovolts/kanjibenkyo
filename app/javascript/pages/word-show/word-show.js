@@ -1,5 +1,7 @@
 import React from "react";
 
+import InfoGroup from "components/info-group/info-group";
+
 class WordShow extends React.Component {
   state = {
     word: null
@@ -22,19 +24,17 @@ class WordShow extends React.Component {
   render() {
     const { word } = this.state;
 
+    const infoSections = {
+      furigana: word && word.furigana,
+      meanings: word && word.meaning.join(", ")
+    };
+
     return (
       <div className="word-show">
         <div className="kana-header">
           <h1 className="character-header">{word ? word.word : ""}</h1>
         </div>
-        <div className="info-section">
-          <div className="info-section-label">furigana</div>
-          <div className="info-section-body">{word ? word.furigana : null}</div>
-          <div className="info-section-label">meanings</div>
-          <div className="info-section-body">
-            {word ? word.meaning.join(", ") : null}
-          </div>
-        </div>
+        <InfoGroup info={infoSections} />
       </div>
     );
   }
