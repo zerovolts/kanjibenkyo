@@ -1,6 +1,11 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { isHiragana, isKatakana } from "katsuyo";
 
 import InfoGroup from "components/info-group/info-group";
+import CharacterBlock from "components/character-block/character-block";
+
+import "./word-show.scss";
 
 class WordShow extends React.Component {
   state = {
@@ -24,6 +29,19 @@ class WordShow extends React.Component {
   render() {
     const { word } = this.state;
 
+    const kanji = word
+      ? word.word
+          .split("")
+          .filter(character => !isHiragana(character) && !isKatakana(character))
+          .map(kanji => (
+            <CharacterBlock
+              character={kanji}
+              rating={0}
+              url={`/kanji/${kanji}`}
+            />
+          ))
+      : [];
+
     const infoSections = {
       furigana: word && word.furigana,
       meanings: word && word.meaning.join(", ")
@@ -34,6 +52,7 @@ class WordShow extends React.Component {
         <div className="kana-header">
           <h1 className="character-header">{word ? word.word : ""}</h1>
         </div>
+        <div className="kanji-blocks">{kanji}</div>
         <InfoGroup info={infoSections} />
       </div>
     );
