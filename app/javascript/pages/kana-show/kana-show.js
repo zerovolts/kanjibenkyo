@@ -1,8 +1,10 @@
 import React from "react";
+import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
 import ProgressBar from "components/progress-bar/progress-bar";
 import Time from "utils/time";
+import { fetchKanaIfNeeded } from "actions";
 
 import "./kana-show.scss";
 
@@ -13,6 +15,7 @@ class KanaShow extends React.Component {
 
   componentDidMount() {
     this.fetchKana(this.props.match.params.kana);
+    this.props.fetchKanaIfNeeded();
   }
 
   fetchKana(hiragana = "random") {
@@ -26,8 +29,17 @@ class KanaShow extends React.Component {
   }
 
   render() {
+    const { kanaList } = this.props;
     const { kana } = this.state;
     const { hiragana, katakana, romaji } = kana;
+
+    const kanaIndex = kanaList.indexOf(kana.hiragana);
+    const lastIndex = kanaList.length - 1;
+
+    const nextIndex = kanaIndex + 1;
+    const prevIndex = kanaIndex - 1;
+    const nextKana = kanaList[nextIndex < lastIndex ? nextIndex : 0];
+    const prevKana = kanaList[prevIndex > 0 ? prevIndex : lastIndex];
 
     return (
       <div className="kana-show">
@@ -35,11 +47,18 @@ class KanaShow extends React.Component {
           <ProgressBar percent={kana.current_user_kana.rating} />
         )}
         <div className="kana-header">
-          <Link to={`/kana/${"あ"}`}>
+          {/* these links shouldn't need to fetch with an onClick handler */}
+          <Link
+            to={`/kana/${prevKana}`}
+            onClick={() => this.fetchKana(prevKana)}
+          >
             <i className="fas fa-angle-left" />
           </Link>
           <h1 className="character-header">{hiragana}</h1>
-          <Link to={`/kana/${"あ"}`}>
+          <Link
+            to={`/kana/${nextKana}`}
+            onClick={() => this.fetchKana(nextKana)}
+          >
             <i className="fas fa-angle-right" />
           </Link>
         </div>
@@ -88,4 +107,15 @@ class KanaShow extends React.Component {
   }
 }
 
-export default KanaShow;
+const mapStateToProps = state => ({
+  kanaList: state.kanaList.kana.map(kana => kana.hiragana)
+});
+
+const mapDispatchToProps = dispatch => ({
+  fetchKanaIfNeeded: () => dispatch(fetchKanaIfNeeded())
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(KanaShow);
