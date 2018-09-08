@@ -4,9 +4,18 @@
 .progress-bar-background {
   @include rounded();
   display: flex;
-  margin: 2rem auto 0 auto;
+  margin: 0 auto;
   background: color(light, dark);
-  height: 0.2rem;
+  width: 100%;
+
+  &.multi {
+    height: 0.2rem;
+  }
+
+  &:not(.multi) {
+    width: 14rem;
+    height: 1rem;
+  }
 
   div {
     @include rounded();
@@ -23,6 +32,10 @@
 
     &:last-of-type {
       @include rounded-right();
+    }
+
+    &:first-of-type:last-of-type {
+      @include rounded();
     }
   }
 }
