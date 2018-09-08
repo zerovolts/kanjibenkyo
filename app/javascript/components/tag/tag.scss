@@ -1,0 +1,11 @@
+@import "app/assets/stylesheets/colors";
+@import "app/assets/stylesheets/mixins";
+
+.tag {
+  @include rounded();
+  background: color(light, dark);
+  font-size: 0.9rem;
+  line-height: 0.9rem;
+  padding: 0.3rem;
+  margin: 0.2rem;
+}

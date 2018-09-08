@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
 import ProgressBar from "components/progress-bar/progress-bar";
+import Tag from "components/tag/tag";
 import Time from "utils/time";
 import { fetchKanaIfNeeded } from "actions";
 
@@ -43,6 +44,10 @@ class KanaShow extends React.Component {
 
     return (
       <div className="kana-show">
+        <div className="tag-container">
+          <Tag>Kana</Tag>
+          {kana && kana.obsolete && <Tag>Obsolete</Tag>}
+        </div>
         {kana.current_user_kana && (
           <ProgressBar percent={kana.current_user_kana.rating} />
         )}

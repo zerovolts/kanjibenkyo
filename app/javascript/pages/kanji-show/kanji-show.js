@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import ProgressBar from "components/progress-bar/progress-bar";
+import Tag from "components/tag/tag";
 import InfoGroup from "components/info-group/info-group";
 import KunyomiTag from "pages/kanji-show/kunyomi-tag/kunyomi-tag";
 import OnyomiTag from "pages/kanji-show/onyomi-tag/onyomi-tag";
@@ -50,6 +51,11 @@ class KanjiShow extends React.Component {
 
     return (
       <div className="kana-show">
+        <div className="tag-container">
+          <Tag>Kanji</Tag>
+          {kanji && <Tag>Grade {kanji.grade}</Tag>}
+          {kanji && <Tag>{kanji.strokes} strokes</Tag>}
+        </div>
         <ProgressBar percent={kanji.rating} />
         <div className="kana-header">
           <Link to={`/kanji/見`}>

@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { isHiragana, isKatakana } from "katsuyo";
 
+import Tag from "components/tag/tag";
 import InfoGroup from "components/info-group/info-group";
 import CharacterBlock from "components/character-block/character-block";
 
@@ -49,6 +50,10 @@ class WordShow extends React.Component {
 
     return (
       <div className="word-show">
+        <div className="tag-container">
+          <Tag>Word</Tag>
+          {word && <Tag>JLPT N{word.jlpt}</Tag>}
+        </div>
         <div className="kana-header">
           <h1 className="character-header">{word ? word.word : ""}</h1>
         </div>
