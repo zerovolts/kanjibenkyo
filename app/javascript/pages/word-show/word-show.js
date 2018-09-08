@@ -58,7 +58,9 @@ class WordShow extends React.Component {
           <h1 className="character-header">{word ? word.word : ""}</h1>
         </div>
         <div className="kanji-blocks">{kanji}</div>
-        <InfoGroup info={infoSections} />
+        <div className="info-section">
+          <InfoGroup info={infoSections} />
+        </div>
       </div>
     );
   }

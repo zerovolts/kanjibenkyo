@@ -46,3 +46,36 @@
 .word-tag {
   display: block;
 }
+
+.character-header-block {
+  @include rounded();
+  width: 8rem;
+  height: 8rem;
+  background: color(light, bright);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
+}
+
+.kanji-header {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 16rem;
+  margin: 0 1rem;
+}
+
+.top-section {
+  display: flex;
+  justify-content: center;
+}
+
+.bottom-section {
+  display: flex;
+  justify-content: center;
+}
+
+.kanji-show {
+  margin: 1rem;
+}

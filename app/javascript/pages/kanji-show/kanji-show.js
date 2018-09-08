@@ -32,18 +32,36 @@ class KanjiShow extends React.Component {
       });
   }
 
+  renderWordTag = word => (
+    <Tag style={{ background: "#f0f0e8" }}>
+      <Link to={`/words/${word}`}>{word}</Link>
+    </Tag>
+  );
+
   render() {
     const { kanjiList, wordList } = this.props;
     const { kanji } = this.state;
 
-    console.log(wordList);
-    const containingWords = wordList
-      .filter(word => word.includes(kanji.character))
-      .map(word => (
-        <Tag style={{ background: "#f0f0e8" }}>
-          <Link to={`/words/${word}`}>{word}</Link>
-        </Tag>
-      ));
+    const containingWords = wordList.filter(word =>
+      word.includes(kanji.character)
+    );
+    const firstPositionWords = containingWords
+      .filter(word => word[0] === kanji.character)
+      .map(this.renderWordTag);
+    const lastPositionWords = containingWords
+      .filter(
+        word =>
+          word[word.length - 1] === kanji.character &&
+          word[0] !== word[word.length - 1]
+      )
+      .map(this.renderWordTag);
+    const middlePositionWords = containingWords
+      .filter(
+        word =>
+          word[0] !== kanji.character &&
+          word[word.length - 1] !== kanji.character
+      )
+      .map(this.renderWordTag);
 
     const kanjiIndex = kanjiList.indexOf(kanji.character);
     const lastIndex = kanjiList.length - 1;
@@ -68,34 +86,34 @@ class KanjiShow extends React.Component {
     const infoSections = {
       "kun'yomi": kunyomi,
       "on'yomi": onyomi,
-      meaning: kanji.meaning && kanji.meaning.join(", "),
-      words: containingWords
+      meaning: kanji.meaning && kanji.meaning.join(", ")
+    };
+
+    const wordSection = {
+      [`first position - ${firstPositionWords.length}`]: firstPositionWords,
+      [`middle position - ${middlePositionWords.length}`]: middlePositionWords,
+      [`last position - ${lastPositionWords.length}`]: lastPositionWords
     };
 
     return (
-      <div className="kana-show">
-        <div className="tag-container">
-          <Tag>Kanji</Tag>
-          {kanji && <Tag>Grade {kanji.grade}</Tag>}
-          {kanji && <Tag>{kanji.strokes} strokes</Tag>}
+      <div className="kanji-show">
+        <div className="top-section">
+          <div className="kanji-header">
+            <div className="character-header-block">
+              <h1 className="character-header">{kanji.character}</h1>
+            </div>
+            <ProgressBar percent={kanji.rating} />
+            <div className="tag-container">
+              <Tag>Kanji</Tag>
+              {kanji && <Tag>Grade {kanji.grade}</Tag>}
+              {kanji && <Tag>{kanji.strokes} strokes</Tag>}
+            </div>
+          </div>
+          <InfoGroup info={infoSections} style={{ width: "20rem" }} />
         </div>
-        <ProgressBar percent={kanji.rating} />
-        <div className="kana-header">
-          <Link
-            to={`/kanji/${prevKanji}`}
-            onClick={() => this.fetchKanji(prevKanji)}
-          >
-            <i className="fas fa-angle-left" />
-          </Link>
-          <h1 className="character-header">{kanji.character}</h1>
-          <Link
-            to={`/kanji/${nextKanji}`}
-            onClick={() => this.fetchKanji(nextKanji)}
-          >
-            <i className="fas fa-angle-right" />
-          </Link>
+        <div className="bottom-section">
+          <InfoGroup info={wordSection} style={{ width: "38rem" }} />
         </div>
-        <InfoGroup info={infoSections} />
       </div>
     );
   }

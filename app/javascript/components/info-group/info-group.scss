@@ -2,8 +2,8 @@
 @import "app/assets/stylesheets/mixins";
 
 .info-group {
-  width: 14rem;
-  margin: auto;
+  margin: 1rem;
+  width: 16rem;
   text-align: left;
 }
 
@@ -12,9 +12,13 @@
   display: inline-block;
   background: color(light, dark);
   font-weight: bold;
+  margin-top: 0.6rem;
   padding: 0rem 0.4rem;
   padding-top: 0.2rem;
-  margin-top: 0.6rem;
+
+  &:first-of-type {
+    margin-top: 0;
+  }
 }
 
 .info-section-body {
