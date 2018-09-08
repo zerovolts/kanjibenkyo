@@ -7,7 +7,7 @@ import Tag from "components/tag/tag";
 import InfoGroup from "components/info-group/info-group";
 import KunyomiTag from "pages/kanji-show/kunyomi-tag/kunyomi-tag";
 import OnyomiTag from "pages/kanji-show/onyomi-tag/onyomi-tag";
-import { fetchKanjiIfNeeded } from "actions";
+import { fetchKanjiIfNeeded, fetchWordsIfNeeded } from "actions";
 
 import "./kanji-show.scss";
 
@@ -19,6 +19,7 @@ class KanjiShow extends React.Component {
   componentDidMount() {
     this.fetchKanji(this.props.match.params.kanji);
     this.props.fetchKanjiIfNeeded();
+    this.props.fetchWordsIfNeeded();
   }
 
   fetchKanji(character) {
@@ -32,8 +33,17 @@ class KanjiShow extends React.Component {
   }
 
   render() {
-    const { kanjiList } = this.props;
+    const { kanjiList, wordList } = this.props;
     const { kanji } = this.state;
+
+    console.log(wordList);
+    const containingWords = wordList
+      .filter(word => word.includes(kanji.character))
+      .map(word => (
+        <Tag style={{ background: "#f0f0e8" }}>
+          <Link to={`/words/${word}`}>{word}</Link>
+        </Tag>
+      ));
 
     const kanjiIndex = kanjiList.indexOf(kanji.character);
     const lastIndex = kanjiList.length - 1;
@@ -58,7 +68,8 @@ class KanjiShow extends React.Component {
     const infoSections = {
       "kun'yomi": kunyomi,
       "on'yomi": onyomi,
-      meaning: kanji.meaning && kanji.meaning.join(", ")
+      meaning: kanji.meaning && kanji.meaning.join(", "),
+      words: containingWords
     };
 
     return (
@@ -91,11 +102,16 @@ class KanjiShow extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  kanjiList: state.kanjiList.kanji.map(kanji => kanji.character)
+  kanjiList: state.kanjiList.kanji.map(kanji => kanji.character),
+  wordList: [].concat(
+    ...[5, 4, 3, 2, 1].map(jlpt => state.wordList.wordsByJlpt[jlpt])
+  )
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchKanjiIfNeeded: () => dispatch(fetchKanjiIfNeeded())
+  fetchKanjiIfNeeded: () => dispatch(fetchKanjiIfNeeded()),
+  fetchWordsIfNeeded: () =>
+    [5, 4, 3, 2, 1].map(x => dispatch(fetchWordsIfNeeded(x)))
 });
 
 export default connect(

@@ -37,3 +37,12 @@
 .onyomi-uncommon {
   background: rgba(226, 84, 63, 0.5);
 }
+
+.arrow-navigation {
+  display: flex;
+  justify-content: space-around;
+}
+
+.word-tag {
+  display: block;
+}
