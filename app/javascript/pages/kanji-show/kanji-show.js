@@ -99,9 +99,7 @@ class KanjiShow extends React.Component {
       <div className="kanji-show">
         <div className="top-section">
           <div className="kanji-header">
-            <div className="character-header-block">
-              <h1 className="character-header">{kanji.character}</h1>
-            </div>
+            <div className="character-header-block">{kanji.character}</div>
             <ProgressBar percent={kanji.rating} />
             <div className="tag-container">
               <Tag>Kanji</Tag>

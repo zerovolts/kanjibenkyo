@@ -49,6 +49,7 @@
 
 .character-header-block {
   @include rounded();
+  font-size: 5rem;
   width: 8rem;
   height: 8rem;
   background: color(light, bright);

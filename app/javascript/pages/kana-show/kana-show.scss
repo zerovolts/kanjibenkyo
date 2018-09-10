@@ -4,18 +4,14 @@
 .kana-show {
   text-align: center;
   display: flex;
-  flex-direction: column;
   justify-content: center;
-}
-
-.character-header {
-  margin: 1rem 0;
-  font-size: 5rem;
+  margin: 1rem;
 }
 
 .kana-show-table {
-  margin: auto;
+  margin: 1rem;
   border-spacing: 0 0.4rem;
+  width: 20rem;
 
   td {
     background: color(light, bright);
@@ -39,9 +35,9 @@
 .kana-header {
   display: flex;
   align-items: center;
-  justify-content: center;
-  width: auto;
-  margin: 1rem;
+  flex-direction: column;
+  margin: 0 1rem;
+  width: 16rem;
 }
 
 .fa-angle-left,
@@ -50,4 +46,22 @@
   color: color(orange);
   font-size: 3rem;
   cursor: pointer;
+}
+
+.kana-character-block {
+  @include rounded();
+  font-size: 5rem;
+  width: 8rem;
+  height: 8rem;
+  background: color(light, bright);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
+}
+
+.character-blocks {
+  display: flex;
+  justify-content: center;
+  margin: 0.6rem;
 }
