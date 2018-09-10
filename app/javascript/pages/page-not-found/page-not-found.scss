@@ -1,0 +1,21 @@
+.not-found-page {
+  height: calc(100vh - 5rem);
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.not-found-apology {
+  font-size: 3rem;
+}
+
+.not-found-message {
+  font-size: 1.5rem;
+}
+
+.not-found-face {
+  font-size: 2rem;
+  margin: 1rem;
+}

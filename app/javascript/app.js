@@ -18,6 +18,7 @@ import VerbConjugator from "pages/verb-conjugator/verb-conjugator";
 import WordList from "pages/word-list/word-list";
 import WordShow from "pages/word-show/word-show";
 import ArticleIndex from "pages/article-index/article-index";
+import PageNotFound from "pages/page-not-found/page-not-found";
 
 class App extends React.Component {
   constructor(props) {
@@ -56,6 +57,7 @@ class App extends React.Component {
             <Route path="/words/:word" component={WordShow} />
             <Route path="/words" component={WordIndex} />
             <Route path="/articles/hello" component={ArticleIndex} />
+            <Route component={PageNotFound} />
           </Switch>
         </React.Fragment>
       </BrowserRouter>
