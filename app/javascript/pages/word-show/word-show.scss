@@ -1,6 +1,11 @@
+@import "app/assets/stylesheets/colors";
+@import "app/assets/stylesheets/mixins";
+
+.word-show {
+  margin: 1rem;
+}
+
 .kanji-blocks {
-  margin-top: -1rem;
-  margin-bottom: 0.5rem;
   display: flex;
   justify-content: center;
 }
@@ -8,4 +13,22 @@
 .info-section {
   display: flex;
   justify-content: center;
+}
+
+.word-header {
+  @include rounded();
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background: color(light, bright);
+  height: 8rem;
+  margin: 1rem;
+  padding: 0 1.5rem;
+  font-size: 5rem;
+}
+
+.top-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
