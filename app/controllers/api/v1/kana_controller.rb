@@ -1,4 +1,5 @@
 class Api::V1::KanaController < ApplicationController
+
   def index
     render json: Kana.all
   end

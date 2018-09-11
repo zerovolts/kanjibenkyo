@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root "static#index"
 
-  get "/current-user" => "sessions#user"
+  post "/authenticate" => "authentication#authenticate"
 
   namespace :api do
     namespace :v1 do
