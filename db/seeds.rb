@@ -114,13 +114,6 @@ create_word(JSON.parse(File.read("db/data/words/n2.json")), 2)
 puts "Creating N1 Words..."
 create_word(JSON.parse(File.read("db/data/words/n1.json")), 1)
 
-# Word.create({
-#   word: "見る",
-#   furigana: "みる",
-#   meaning: "to see",
-#   jlpt: 5
-# })
-
 #---------------------#
 
 User.create({
