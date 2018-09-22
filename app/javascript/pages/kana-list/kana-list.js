@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import { isNull, isUndefined } from "lodash";
 
 import { fetchKanaIfNeeded } from "actions";
 import ListHeader from "components/list-header/list-header";
@@ -33,7 +34,7 @@ class KanaList extends React.Component {
           <CharacterBlock
             key={kana.hiragana}
             character={kana[kanaType]}
-            rating={kana.rating}
+            rating={kana.stats.rating}
             url={"/kana/" + kana.hiragana}
           />
         ) : (
@@ -42,15 +43,15 @@ class KanaList extends React.Component {
     );
 
     const splits = kanaList
-      .sort((a, b) => a.rating < b.rating)
+      .sort((a, b) => a.stats.rating < b.stats.rating)
       // .map(kana => `hsl(${kana.rating}, 75%, 50%);`)
       .reduce(
-        (acc, cur) => {
-          if (cur.rating === null) {
+        (acc, { stats }) => {
+          if (isNull(stats.rating) || isUndefined(stats.rating)) {
             return acc;
-          } else if (cur.rating < 34) {
+          } else if (stats.rating < 34) {
             return { ...acc, low: acc.low + 1 };
-          } else if (cur.rating > 66) {
+          } else if (stats.rating > 66) {
             return { ...acc, high: acc.high + 1 };
           } else {
             return { ...acc, mid: acc.mid + 1 };

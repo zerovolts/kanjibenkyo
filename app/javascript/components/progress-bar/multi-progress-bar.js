@@ -9,6 +9,7 @@ const MultiProgressBar = ({ sections }) => {
     .map(section => (
       <div
         style={{ background: section.color, width: section.percent + "%" }}
+        key={section.color}
       />
     ));
 

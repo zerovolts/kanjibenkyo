@@ -1,6 +1,8 @@
 import React from "react";
+import { connect } from "react-redux";
 import { Link, withRouter } from "react-router-dom";
 
+import { logoutUser } from "actions";
 import LoginModal from "components/header/login-modal/login-modal";
 import NavButton from "components/header/nav-button/nav-button";
 import UserBlock from "components/header/user-block/user-block";
@@ -25,11 +27,15 @@ class Header extends React.Component {
   };
 
   render() {
-    const { user, location } = this.props;
+    const { location, isAuthenticated, dispatch } = this.props;
     const { modalVisible } = this.state;
 
-    const userBlock = false ? ( //user.name
-      <UserBlock user={user} />
+    const userBlock = isAuthenticated ? (
+      <div className="profile-dropdown-spacer">
+        <div className="sign-in-box" onClick={() => dispatch(logoutUser())}>
+          Sign Out
+        </div>
+      </div>
     ) : (
       <div className="profile-dropdown-spacer">
         <div className="sign-in-box" onClick={this.showModal}>
@@ -40,11 +46,15 @@ class Header extends React.Component {
 
     return (
       <div className="header">
-        <LoginModal visible={modalVisible} hideCallback={this.hideModal} />
+        <LoginModal
+          visible={modalVisible && !isAuthenticated}
+          hideCallback={this.hideModal}
+        />
         <div className="left-header">
           <Link className="logo" to="/">
             <div>
-              <span className="logo-kanji">漢字勉強</span>kanjibenkyō
+              <span className="logo-kanji">漢字勉強</span>
+              kanjibenkyō
             </div>
           </Link>
         </div>
@@ -55,8 +65,12 @@ class Header extends React.Component {
             url={location.pathname}
             dropdownLinks={[
               { name: "List", path: "/list/kana" },
-              { name: "Flashcards", path: "/study/kana" },
-              { name: "Quiz", path: "/quiz/kana" }
+              ...(isAuthenticated
+                ? [
+                    { name: "Flashcards", path: "/study/kana" },
+                    { name: "Quiz", path: "/quiz/kana" }
+                  ]
+                : [])
             ]}
           />
           <NavButton
@@ -81,4 +95,8 @@ class Header extends React.Component {
   }
 }
 
-export default withRouter(Header);
+const mapStateToProps = state => ({
+  isAuthenticated: state.auth.isAuthenticated
+});
+
+export default connect(mapStateToProps)(withRouter(Header));

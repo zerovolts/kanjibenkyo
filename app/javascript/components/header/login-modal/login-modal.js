@@ -1,7 +1,9 @@
 import React from "react";
+import { connect } from "react-redux";
 
 import Modal from "components/modal/modal";
 import FormField from "components/header/login-modal/form-field/form-field";
+import { loginUser } from "actions";
 
 import "./login-modal.scss";
 
@@ -21,7 +23,9 @@ class LoginModal extends React.Component {
   submitForm = event => {
     event.preventDefault();
     const payload = this.state;
-    //send payload to server
+    const { dispatch } = this.props;
+
+    dispatch(loginUser(payload));
     this.resetState();
   };
 
@@ -32,7 +36,7 @@ class LoginModal extends React.Component {
   };
 
   render() {
-    const { visible, hideCallback } = this.props;
+    const { visible, hideCallback, error } = this.props;
     const { username, password } = this.state;
 
     return (
@@ -40,6 +44,7 @@ class LoginModal extends React.Component {
         <div className="login-modal">
           <div className="login-modal-header">Login</div>
           <div className="login-modal-body">
+            {error && <div style={{ color: "#f44" }}>{error}</div>}
             <fieldset>
               <FormField
                 name="username"
@@ -68,9 +73,13 @@ class LoginModal extends React.Component {
   }
 }
 
-// <span className="text-input-icon">
-//   <i className="fas fa-envelope"></i>
-// </span>
-// <input type="text" placeholder="email"></input>
+const mapStateToProps = state => ({
+  isAuthenticated: state.auth.isAuthenticated,
+  error: state.auth.errorMessage
+});
 
-export default LoginModal;
+// const mapDispatchToProps = dispatch => ({
+//   loginUser: creds => dispatch(loginUser(creds))
+// });
+
+export default connect(mapStateToProps)(LoginModal);

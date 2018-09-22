@@ -8,6 +8,7 @@ import InfoGroup from "components/info-group/info-group";
 import KunyomiTag from "pages/kanji-show/kunyomi-tag/kunyomi-tag";
 import OnyomiTag from "pages/kanji-show/onyomi-tag/onyomi-tag";
 import { fetchKanjiIfNeeded, fetchWordsIfNeeded } from "actions";
+import { callApi } from "utils/request";
 
 import "./kanji-show.scss";
 
@@ -23,13 +24,11 @@ class KanjiShow extends React.Component {
   }
 
   fetchKanji(character) {
-    fetch(`/api/v1/kanji/${character}`)
-      .then(res => res.json())
-      .then(data => {
-        this.setState({
-          kanji: data
-        });
+    callApi(`/api/v1/kanji/${character}`).then(data => {
+      this.setState({
+        kanji: data
       });
+    });
   }
 
   renderWordTag = word => (

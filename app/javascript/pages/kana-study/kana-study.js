@@ -1,6 +1,7 @@
 import React from "react";
 
 import Flashcard from "pages/kana-study/flashcard/flashcard";
+import { callApi } from "utils/request";
 
 import "./kana-study.scss";
 
@@ -13,13 +14,11 @@ class KanaStudy extends React.Component {
   };
 
   componentDidMount() {
-    fetch("/api/v1/study/kana")
-      .then(res => res.json())
-      .then(data => {
-        this.setState({
-          kana: data
-        });
+    callApi("/api/v1/study/kana").then(data => {
+      this.setState({
+        kana: data
       });
+    });
   }
 
   nextCard = () => {

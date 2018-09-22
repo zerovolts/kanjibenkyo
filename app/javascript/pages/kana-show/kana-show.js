@@ -1,12 +1,14 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import { isEmpty } from "lodash";
 
 import CharacterBlock from "components/character-block/character-block";
 import ProgressBar from "components/progress-bar/progress-bar";
 import Tag from "components/tag/tag";
 import Time from "utils/time";
 import { fetchKanaIfNeeded } from "actions";
+import { callApi } from "utils/request";
 
 import "./kana-show.scss";
 
@@ -21,19 +23,17 @@ class KanaShow extends React.Component {
   }
 
   fetchKana(hiragana = "random") {
-    fetch(`/api/v1/kana/${hiragana}`)
-      .then(res => res.json())
-      .then(data => {
-        this.setState({
-          kana: data
-        });
+    callApi(`/api/v1/kana/${hiragana}`).then(data => {
+      this.setState({
+        kana: data
       });
+    });
   }
 
   render() {
     const { kanaList } = this.props;
     const { kana } = this.state;
-    const { hiragana, katakana, romaji } = kana;
+    const { hiragana, katakana, romaji, stats } = kana;
 
     const kanaIndex = kanaList.indexOf(kana.hiragana);
     const lastIndex = kanaList.length - 1;
@@ -59,9 +59,7 @@ class KanaShow extends React.Component {
           >
             <i className="fas fa-angle-right" />
           </Link> */}
-          {kana.current_user_kana && (
-            <ProgressBar percent={kana.current_user_kana.rating} />
-          )}
+          {!isEmpty(stats) && <ProgressBar percent={stats.rating} />}
           <div className="tag-container">
             <Tag>Kana</Tag>
             {kana && kana.obsolete && <Tag>Obsolete</Tag>}
@@ -71,41 +69,41 @@ class KanaShow extends React.Component {
           <div className="character-blocks">
             <CharacterBlock
               character={hiragana}
-              rating={kana.rating}
+              rating={100}
               url={`/kana/${hiragana}`}
             />
             <CharacterBlock
               character={katakana}
-              rating={kana.rating}
+              rating={100}
               url={`/kana/${hiragana}`}
             />
             <CharacterBlock
               character={romaji}
-              rating={kana.rating}
+              rating={100}
               url={`/kana/${hiragana}`}
             />
           </div>
           <table className="kana-show-table">
             <tbody>
-              {kana.current_user_kana && (
+              {!isEmpty(stats) && (
                 <React.Fragment>
                   <tr>
                     <td>streak</td>
-                    <td>{kana.current_user_kana.streak}</td>
+                    <td>{stats.streak}</td>
                   </tr>
                   <tr>
                     <td>score</td>
-                    <td>{kana.current_user_kana.score}</td>
+                    <td>{stats.score}</td>
                   </tr>
                   <tr>
                     <td>correct</td>
-                    <td>{kana.current_user_kana.correct}</td>
+                    <td>{stats.correct}</td>
                   </tr>
                   <tr>
                     <td>next review</td>
                     <td>
                       {Time.largestTimeIntervalString(
-                        Date.parse(kana.current_user_kana.time_of_next_review)
+                        Date.parse(stats.time_of_next_review)
                       )}
                     </td>
                   </tr>

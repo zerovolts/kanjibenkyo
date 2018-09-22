@@ -6,6 +6,7 @@ import ProgressBar from "components/progress-bar/progress-bar";
 import Tag from "components/tag/tag";
 import InfoGroup from "components/info-group/info-group";
 import CharacterBlock from "components/character-block/character-block";
+import { callApi } from "utils/request";
 
 import "./word-show.scss";
 
@@ -19,13 +20,11 @@ class WordShow extends React.Component {
   }
 
   fetchWord = word => {
-    fetch(`/api/v1/words/${word}`)
-      .then(res => res.json())
-      .then(data => {
-        this.setState({
-          word: data
-        });
+    callApi(`/api/v1/words/${word}`).then(data => {
+      this.setState({
+        word: data
       });
+    });
   };
 
   render() {

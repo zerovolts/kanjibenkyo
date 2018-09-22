@@ -2,19 +2,25 @@ class Api::V1::KanaQuizController < ApplicationController
   protect_from_forgery unless: -> { request.format.json? }
 
   def create
-    KanaQuiz.delete_unfinished(current_user)
-    quiz = KanaQuiz.begin(current_user)
+    KanaQuiz.delete_unfinished(@current_user)
+    quiz = KanaQuiz.begin(@current_user)
     render json: quiz
   end
 
   def check
-    quiz = KanaQuiz.find_by(id: params[:id], user_id: params[:user_id])
+    quiz = KanaQuiz.find(params[:id])
+
+    if quiz.user != @current_user
+      render json: {error: "Incorrect User"}
+    end
 
     if (params[:answers].length == quiz.total_questions)
-      checked = quiz.check(current_user, params[:answers])
+      checked = quiz.check(@current_user, params[:answers])
       render json: checked
     else
-      render json: {error: "The number of answers submitted did not match the number of quiz questions."}
+      render json: {
+        error: "The number of answers submitted did not match the number of quiz questions."
+      }
     end
   end
 

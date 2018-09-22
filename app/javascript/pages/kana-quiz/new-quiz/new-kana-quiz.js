@@ -24,6 +24,7 @@ class NewKanaQuiz extends React.Component {
   }
 
   render() {
+    const { isAuthenticated } = this.props;
     const { totalCompleted, totalAverage } = this.state;
 
     return (

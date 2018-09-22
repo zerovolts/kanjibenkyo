@@ -40,7 +40,7 @@ class VerbConjugator extends React.Component {
         desire: inflect({ ...word, inflections: [NEGATIVE, DESIRE] }).word
       };
       const conjugationBlocks = Object.keys(conjugations).map(key => (
-        <tr>
+        <tr key={key}>
           <td>{key}</td>
           <td>{conjugations[key]}</td>
           <td>{conjugationsPast[key]}</td>

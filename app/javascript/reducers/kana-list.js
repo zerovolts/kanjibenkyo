@@ -1,4 +1,4 @@
-import { KANA_REQUEST, KANA_RECEIVE } from "actions";
+import { KANA_REQUEST, KANA_SUCCESS, KANA_FAILURE } from "actions";
 
 const sortByGrid = list => {
   const kanaGrid = [
@@ -27,12 +27,17 @@ const kanaList = (state = initialState, action) => {
         ...state,
         isFetching: true
       };
-    case KANA_RECEIVE:
+    case KANA_SUCCESS:
       return {
         ...state,
         isFetching: false,
         kana: action.kana,
         kanaGrid: sortByGrid(action.kana)
+      };
+    case KANA_FAILURE:
+      return {
+        ...state,
+        isFetching: false
       };
     default:
       return state;

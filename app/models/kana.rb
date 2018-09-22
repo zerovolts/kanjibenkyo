@@ -33,26 +33,15 @@ class Kana < ApplicationRecord
   end
 
   def rating
-    # questions = KanaQuizQuestion.where(question: self)
-
-    # num_true = questions.where(is_correct: true).length
-    # num_false = questions.where(is_correct: false).length
-    # num_total = (num_true + num_false) || 1
-
-    # (num_true / num_total.to_f * 100).round(2)
     self.user_kana.first&.rating || nil
   end
 
-  def current_user_kana
-    # TODO: actually return the current user's kana
-    # self.user_kana.find_by(user: current_user)
-    self.user_kana.first
-  end
-
-  def as_json(options = {})
-    super(methods: [
-      :rating,
-      :current_user_kana
-    ])
+  def as_json(options = {user: nil})
+    super.merge(
+      stats: UserKana.find_by(
+        user: options[:user],
+        kana: self
+      ).as_json || {}
+    )
   end
 end

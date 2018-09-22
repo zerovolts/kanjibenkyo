@@ -21,26 +21,11 @@ import ArticleIndex from "pages/article-index/article-index";
 import PageNotFound from "pages/page-not-found/page-not-found";
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      user: {}
-    };
-  }
-
-  componentDidMount() {
-    request.fetchUser().then(data => {
-      this.setState({
-        user: data
-      });
-    });
-  }
-
   render() {
     return (
       <BrowserRouter>
         <React.Fragment>
-          <Header user={this.state.user} />
+          <Header />
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/kana" component={KanaIndex} />
