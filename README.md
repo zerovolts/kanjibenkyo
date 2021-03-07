@@ -1,5 +1,5 @@
 # 漢字勉強 (kanjibenkyō)
-This project (lit. "Chinese Character Study" in Japanese) is a Japanese language study application that aims to make your progress on each character or word trackable over time.
+This project is a Japanese language study application that aims to make your progress on each character or word trackable over time.
 
 ## Getting Started
 ```
